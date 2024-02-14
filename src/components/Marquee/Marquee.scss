@@ -1,0 +1,45 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+@use "@/design-system/theme/light";
+@use "@/design-system/theme/dark";
+
+
+@include utils.marquee;
+
+.ui.marquee.list {
+  .item {
+    animation: scroll 45s linear infinite;
+    margin-top: 0;
+  }
+
+  .dataItem {
+    display: flex;
+    align-items: center;
+    // padding: 12px 12px;
+    gap: 8px;
+    margin-left: 56px;
+    justify-content: center;
+
+    span {
+      color: light.$color;
+
+      @include styles.text-xl;
+      @include weights.bold;
+    }
+
+    img {
+      height: 48px;
+      width: auto;
+    }
+  }
+}
+
+.dark .ui.marquee.list {
+  .dataItem {
+    span {
+      color: dark.$color;
+    }
+  }
+}

@@ -18,6 +18,10 @@ const headerLinks: HeaderLink = {
   contact: {
     title: 'Contact Us',
     path: '/contact-us'
+  },
+  tradeNow: {
+    title: 'Trade Now',
+    path: '/trade-now'
   }
 }
 

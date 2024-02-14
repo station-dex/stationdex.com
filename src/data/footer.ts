@@ -1,23 +1,28 @@
 type Social = {
   link: string,
-  icon: string
+  icon: string,
+  iconDark: string,
 }
 
 const socials: Social[] = [
   {
     icon: 'twitter-white',
+    iconDark: 'twitter',
     link: 'https://www.twitter.com'
   },
   {
     icon: 'telegram-white',
+    iconDark: 'telegram',
     link: 'https://www.telegram.com'
   },
   {
     icon: 'github-white',
+    iconDark: 'github',
     link: 'https://www.github.com'
   },
   {
     icon: 'discord-white',
+    iconDark: 'discord',
     link: 'https://www.discord.com'
   },
 ]

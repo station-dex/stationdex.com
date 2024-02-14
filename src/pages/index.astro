@@ -2,6 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Seo from "../components/Seo.astro";
 
+import Intro from "@/modules/Home/Intro.astro";
+import Hero from "@/components/Hero/Hero.astro";
+import Brands from "@/modules/Home/Brands.astro";
+import Secure from "@/modules/Home/Secure.astro";
+import Features from "@/modules/Home/Features.astro";
+
 import styles from "./index.scss?inline";
 ---
 
@@ -16,10 +22,19 @@ import styles from "./index.scss?inline";
     }}
   />
 
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ratione
-  numquam in voluptas sequi sunt voluptatibus ad, soluta labore ipsum cum, sint
-  doloremque molestiae consequuntur maxime voluptates, totam iusto culpa odit
-  aliquam?
+  <Intro />
+
+  <Hero
+    intro="Trusted DEX for"
+    title={[{ text: "Swapping", highlight: true }, { text: " Crypto" }]}
+    description="We have an unwavering focus on security, transparent operations, and a user-centric approach."
+  />
+
+  <Brands />
+
+  <Secure />
+
+  <Features />
 
   <style slot="header" is:inline set:html={styles}></style>
 </BaseLayout>

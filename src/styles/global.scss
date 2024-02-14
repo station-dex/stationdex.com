@@ -80,9 +80,13 @@ html.dark {
   }
 }
 
-body {
-  height: max-content;
-  position: relative;
+html {
+  overflow-x: hidden;
+  
+  body {
+    height: max-content;
+    position: relative;
+  }
 }
 
 button,

@@ -6,6 +6,7 @@
 @use "@/design-system/typography/weights";
 
 header.site.header {
+  z-index: 9;
   width: 100%;
   background-color: rgba(colors.$base-white, 0.8);
   backdrop-filter: blur(4px);
@@ -30,7 +31,7 @@ header.site.header {
       border-radius: 32px;
       display: flex;
       align-items: center;
-      gap: 40px;
+      gap: 32px;
       background-color: colors.$gray-iron-100;
   
       a {

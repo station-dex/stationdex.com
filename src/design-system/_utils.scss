@@ -75,3 +75,10 @@
 
     }
 }
+
+$gradient: linear-gradient(90deg, #5524E1, #017BFF);
+@mixin clip-gradient {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
