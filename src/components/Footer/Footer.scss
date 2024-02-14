@@ -1,0 +1,150 @@
+@use "@/design-system/theme/light" as light-theme;
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+
+$newsletter-background: linear-gradient(15deg, #0778FF 50%, #7443FF 100%);
+$footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60%, #17161B 100%,);
+
+
+.footer.wrapper {
+  @include utils.full-width-container;
+
+  .newsletter.component {
+    background: $newsletter-background;
+    text-align: center;
+    padding: 96px 0;
+    border-radius: 32px;
+
+    .content {
+      max-width: 601px;
+      margin: auto;
+      color: colors.$base-white;
+
+      .heading {
+        @include styles.h2;
+      }
+
+      .subheading {
+        @include styles.text-lg;
+        @include weights.regular;
+        margin-top: 8px;
+      }
+      
+      form {
+        margin-top: 40px;
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+
+        input, button {
+          border-radius: 8px;
+        }
+
+        input {
+          padding: 10px 14px;
+          background-color: colors.$base-white;
+          @include styles.text-md;
+          @include weights.regular;
+          width: 300px;
+        }
+        
+        button {
+          padding: 10px 18px;
+          background-color: colors.$gray-iron-900;
+          @include styles.text-md;
+          @include weights.semibold;
+          color: colors.$base-white;
+        }
+      }
+    }
+
+  }
+  
+  footer {
+    margin-top: 32px;
+    background: $footer-background;
+    text-align: center;
+    padding: 40px 0;
+    border-radius: 32px 32px 0 0;
+    color: colors.$base-white;
+
+    p.heading {
+      @include styles.h2;
+    }
+
+    div.socials {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button.trade {
+      padding: 6px 10px;
+      width: 140px;
+      background-color: colors.$blue-600;
+      @include styles.text-sm;
+      @include weights.semibold;
+      color: colors.$base-white;
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+
+    div.links {
+      margin: 48px auto 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      width: max-content;
+
+      & > div {
+        width: max-content;
+
+        * {
+          @include styles.text-sm;
+          text-align: left;
+        }
+
+        p.title {
+          @include weights.medium;
+        }
+        
+        ul {
+          margin: 24px 0 0 0;
+          padding: 0;
+          list-style: none;
+          
+          a {
+            @include weights.regular;
+            color: colors.$base-white;
+          }
+          
+          li:not(:first-child) {
+            margin-top: 12px;
+          }
+        }
+      }
+
+    }
+
+    div.other {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+
+      *, a {
+        color: colors.$base-white;
+        @include styles.text-sm;
+        @include weights.regular;
+      }
+    }
+  }
+}

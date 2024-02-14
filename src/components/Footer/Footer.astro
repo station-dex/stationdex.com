@@ -1,0 +1,76 @@
+---
+import { socials, footerLinks, otherLinks } from "@/data/footer";
+import Icon from "@/elements/Icon.astro";
+
+interface Props {
+  noNewsletter?: boolean;
+}
+
+const { noNewsletter } = Astro.props;
+const logoSrc = `/assets/logo.svg`;
+---
+
+<div class="footer wrapper">
+  {
+    !noNewsletter && (
+      <div class="newsletter component">
+        <div class="content">
+          <p class="heading">Join Our Mailing List</p>
+          <p class="subheading">
+            Never miss important updates! Sign up to our Newsletter and get
+            insights directly to your inbox.
+          </p>
+
+          <form>
+            <input type="email" placeholder="Enter your email" required />
+            <button>Subscribe</button>
+          </form>
+        </div>
+      </div>
+    )
+  }
+
+  <footer>
+    <img src={logoSrc} alt="Stationdex logo" />
+
+    <p class="heading">Your Gateway to Decentralized Trading</p>
+
+    <div class="socials">
+      {
+        socials.map((social) => (
+          <a href={social.link} target="_blank" rel="noopener noreferrer">
+            <Icon variant={social.icon} size="lg" />
+          </a>
+        ))
+      }
+    </div>
+
+    <button class="trade"> Trade Now</button>
+
+    <div class="links">
+      {
+        footerLinks.map((link) => (
+          <div>
+            <p class="title">{link.title}</p>
+
+            <ul>
+              {link.sublinks.map((sublink) => (
+                <li>
+                  <a href={sublink.link}>{sublink.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="other">
+      <p class="copyright">AtlasSwap © 2023</p>
+
+      <a href={otherLinks.privacyPolicy}>Privacy policy</a>
+
+      <a href={otherLinks.termsOfUse}>Terms of use</a>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Seo from "../components/Seo.astro";
+
+import styles from "./index.scss?inline";
+---
+
+<BaseLayout>
+  <Seo
+    slot="seo"
+    title="Decentralized Insurance Protocol / Neptune Mutual"
+    description="Need Crypto Insurance? You don't need to submit loss proof to receive payouts. No need to wait after creating a claim. Get a free price quote now."
+    og={{
+      image: "/assets/images/meta/og/home.png",
+      imageAlt: "Neptune Mutual Open Graph Banner",
+    }}
+  />
+
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ratione
+  numquam in voluptas sequi sunt voluptatibus ad, soluta labore ipsum cum, sint
+  doloremque molestiae consequuntur maxime voluptates, totam iusto culpa odit
+  aliquam?
+
+  <style slot="header" is:inline set:html={styles}></style>
+</BaseLayout>
