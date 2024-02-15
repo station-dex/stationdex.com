@@ -18,6 +18,7 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
     text-align: center;
     padding: 96px 0;
     border-radius: 32px;
+    margin-bottom: 32px;
 
     .content {
       max-width: 601px;
@@ -65,7 +66,6 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
   }
   
   footer {
-    margin-top: 32px;
     background: $footer-background;
     text-align: center;
     padding: 40px 0;

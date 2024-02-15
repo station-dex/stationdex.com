@@ -129,6 +129,10 @@ const paths: Path = {
   "telegram-white": import("./variants/Socials/svg/white/Telegram.svg?raw"),
   "github-white": import("./variants/Socials/svg/white/GitHub.svg?raw"),
   "discord-white": import("./variants/Socials/svg/white/Discord.svg?raw"),
+
+  // custom
+  "snowflake-round": import("./custom/Brands/default/SvgSnowflakeRound.svg?raw"),
+  "stationdex-round": import("./custom/Brands/default/SvgStationdexRound.svg?raw"),
 };
 
 export { paths };

@@ -13,7 +13,7 @@ $background: radial-gradient(circle at top center, #193056 50%, #251452 60%, #17
   .inner {
     border-radius: 32px;
     background: $background;
-    padding-top: 70px;
+    padding: 70px 16px 0;
 
     .text.content {
       max-width: 484px;

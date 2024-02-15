@@ -1,0 +1,38 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.about.the.minds {
+  padding: 52px 0 64px;
+  @include utils.full-width-container;
+
+  .inner {
+    background-color: colors.$gray-100;
+    border-radius: 32px;
+    padding: 96px 96px 76px;
+
+    .text {
+      p.heading {
+        @include styles.h1;
+      }
+
+      p.description {
+        margin-top: 16px;
+        @include styles.text-lg;
+        @include weights.regular;
+        color: colors.$gray-iron-600;
+      }
+    }
+
+    .img {
+      margin-top: 76px;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
