@@ -16,6 +16,7 @@
       "@/data/*": ["src/data/*"],
       "@/elements/*": ["src/elements/*"],
       "@/design-system/*": ["src/design-system/*"],
+      "@/scripts/*": ["src/scripts/*"],
     }
   }
 }

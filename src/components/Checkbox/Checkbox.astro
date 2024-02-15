@@ -1,0 +1,11 @@
+---
+const { ...rest } = Astro.props;
+---
+
+<div class="custom checkbox component">
+  <label class="container">
+    <input type="checkbox" {...rest} />
+    <span class="checkmark"></span>
+    <p><slot /></p>
+  </label>
+</div>

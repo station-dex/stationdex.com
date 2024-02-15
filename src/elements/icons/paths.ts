@@ -119,7 +119,7 @@ const paths: Path = {
   "link-03": import("./variants/General/link-03.svg?raw"),
   "arrow-circle-right": import("./variants/Arrows/arrow-circle-right.svg?raw"),
   "trash-01": import("./variants/General/trash-01.svg?raw"),
-  "help-cirlce": import("./variants/General/help-circle.svg?raw"),
+  "help-circle": import("./variants/General/help-circle.svg?raw"),
   table: import("./variants/Layout/table.svg?raw"),
   "base-goerli": import("./custom/Brands/default/SvgBaseGoerli.svg?raw"),
   mumbai: import("./custom/Brands/default/SvgPolygon.svg?raw"),
