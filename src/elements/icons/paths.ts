@@ -133,6 +133,8 @@ const paths: Path = {
   // custom
   "snowflake-round": import("./custom/Brands/default/SvgSnowflakeRound.svg?raw"),
   "stationdex-round": import("./custom/Brands/default/SvgStationdexRound.svg?raw"),
+  "check-circle-filled": import("./custom/check-circle-filled.svg?raw"),
+  "stationdex-lock": import("./custom/stationdex-lock.svg?raw"),
 };
 
 export { paths };

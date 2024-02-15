@@ -1,0 +1,40 @@
+---
+import Hero from "@/components/Hero/Hero.astro";
+const imgSrc = "/assets/bounty/secure.png";
+---
+
+<div class="bug bounty secure">
+  <div class="hero wrapper">
+    <Hero
+      intro="Trusted DEX for"
+      title={[{ text: "Bug Bounty Program" }]}
+      description="Join with us in our mission to secure the Station DEX ecosystem."
+    />
+  </div>
+
+  <div class="inner">
+    <div class="img">
+      <img src={imgSrc} alt="Secure StationDEX" />
+    </div>
+
+    <div class="text">
+      <p class="heading">Secure Trading for Everyone</p>
+
+      <div class="description">
+        <p>
+          The security of the StationDEX ecosystem is the major focus of our
+          team. Despite the implementation of strong security measures in our
+          system, we want to be prepared for the unexpected.
+        </p>
+
+        <p>
+          So, besides smart contract audits and an integrated DeFi insurance
+          solution, we have also introduced a bug bounty program for users to
+          identify bugs and vulnerabilities in our website, dApp, or smart
+          contracts. Anyone who finds bugs and helps us make our protocol more
+          secure will be rewarded with generous compensation.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
