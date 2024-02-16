@@ -36,10 +36,14 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
       }
       
       form {
+        margin: 0 auto;
         margin-top: 40px;
+        max-width: max-content;
+
         display: flex;
         gap: 16px;
         justify-content: center;
+        position: relative;
 
         input, button {
           border-radius: 8px;
@@ -59,6 +63,28 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
           @include styles.text-md;
           @include weights.semibold;
           color: colors.$base-white;
+        }
+
+        p.message {
+          @include styles.text-sm;
+          max-width: 100%;
+          text-align: left;
+    
+          &[data-type="error"] {
+            color: colors.$error-300;
+          }
+    
+          &[data-type="success"] {
+            color: colors.$success-300;
+          }
+
+          position: absolute;
+          top: calc(100% + 8px);
+          left: 0;
+          
+          &:empty {
+            display: none;
+          }
         }
       }
     }

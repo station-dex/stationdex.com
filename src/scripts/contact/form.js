@@ -38,16 +38,21 @@ function getFormValues(form) {
 
 async function submitForm(payload, formElement) {
   const { message, error, success } = await post(payload);
+  let _message = message;
 
-  if (error) messageElement.dataset.type = "error";
+  if (error) {
+    messageElement.dataset.type = "error";
+    _message = message || "Sorry, unexpected error occured!";
+  }
   if (success) {
     messageElement.dataset.type = "success";
+    _message = message || "Successfully submitted form!";
 
     // empty form fields
     formElement.reset();
   }
 
-  messageElement.textContent = Array.isArray(message) ? message[0] : message;
+  messageElement.textContent = _message;
 }
 
 function addSubmitListener() {

@@ -1,4 +1,4 @@
-const post = async (payload) => {
+const post = async (payload, subscription = false) => {
   try {
     if (!window.server) {
       return { error: true, message: "Sorry, unexpected error occured!" };
@@ -6,7 +6,10 @@ const post = async (payload) => {
 
     const body = JSON.stringify(payload, null, 2);
 
-    const url = new URL("/contact", window.server);
+    const url = new URL(
+      subscription ? "/subscribe" : "/contact",
+      window.server
+    );
 
     const response = await fetch(url, {
       method: "POST",
