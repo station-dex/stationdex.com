@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { noNewsletter } = Astro.props;
-const logoSrc = `/assets/logo.svg`;
+const logoSrc = `/assets/logo-full-white.svg`;
 ---
 
 <div class="footer wrapper">
@@ -36,18 +36,6 @@ const logoSrc = `/assets/logo.svg`;
 
     <p class="heading">Your Gateway to Decentralized Trading</p>
 
-    <div class="socials">
-      {
-        socials.map((social) => (
-          <a href={social.link} target="_blank" rel="noopener noreferrer">
-            <Icon variant={social.icon} size="lg" />
-          </a>
-        ))
-      }
-    </div>
-
-    <button class="trade"> Trade Now</button>
-
     <div class="links">
       {
         footerLinks.map((link) => (
@@ -66,12 +54,37 @@ const logoSrc = `/assets/logo.svg`;
       }
     </div>
 
-    <div class="other">
-      <p class="copyright">AtlasSwap © 2023</p>
+    <div class="warning">
+      <p class="title">Risk Warning</p>
 
-      <a href={otherLinks.privacyPolicy}>Privacy policy</a>
+      <p class="description">
+        Trading crypto assets involves significant risk and can result in the
+        loss of your capital. You should not invest more than you can afford to
+        lose and you should ensure that you fully understand the risks involved.
+        Before trading, please take into consideration your level of experience,
+        investment objectives, and seek independent financial advice if
+        necessary. It is your responsibility to ascertain whether you are
+        permitted to use the services of StationDEX based on the legal
+        requirements in your country of residence.
+      </p>
 
-      <a href={otherLinks.termsOfUse}>Terms of use</a>
+      <div class="other">
+        <p class="copyright">AtlasSwap © 2023</p>
+
+        <a href={otherLinks.privacyPolicy}>Privacy policy</a>
+
+        <a href={otherLinks.termsOfUse}>Terms of use</a>
+
+        <div class="socials">
+          {
+            socials.map((social) => (
+              <a href={social.link} target="_blank" rel="noopener noreferrer">
+                <Icon variant={social.icon} size="lg" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </footer>
 </div>
