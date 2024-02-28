@@ -1,0 +1,10 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.home.brands.marquee {
+  padding: 96px 0;
+  @include utils.full-width-container;
+}

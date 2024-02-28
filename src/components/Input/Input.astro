@@ -1,0 +1,53 @@
+---
+import Icon from "@/elements/Icon.astro";
+
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+  id: string;
+  name: string;
+  label: string;
+  placeholder: string;
+  type?: astroHTML.JSX.HTMLInputTypeAttribute | null | undefined;
+  tooltip?: string;
+  textarea?: boolean;
+}
+
+const props = Astro.props;
+const { id, name, label, placeholder, type, tooltip, textarea } = props;
+---
+
+<div class="input container">
+  <label class="label" for={id}>
+    {label}
+  </label>
+
+  <div class="input wrapper">
+    {
+      !textarea ? (
+        <input
+          class="input"
+          {...props}
+          id={id}
+          name={name}
+          type={type}
+          placeholder={placeholder}
+        />
+      ) : (
+        <textarea
+          class="input"
+          {...props}
+          id={id}
+          name={name}
+          placeholder={placeholder}
+        />
+      )
+    }
+
+    {
+      tooltip && !textarea && (
+        <span data-tooltip={tooltip}>
+          <Icon variant="help-circle" size="sm" />
+        </span>
+      )
+    }
+  </div>
+</div>

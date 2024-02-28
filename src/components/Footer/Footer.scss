@@ -1,0 +1,201 @@
+@use "@/design-system/theme/light" as light-theme;
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+
+$newsletter-background: linear-gradient(15deg, #0778FF 50%, #7443FF 100%);
+$footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60%, #17161B 100%);
+
+
+.footer.wrapper {
+  @include utils.full-width-container;
+
+  .newsletter.component {
+    background: $newsletter-background;
+    text-align: center;
+    padding: 96px 0;
+    border-radius: 32px;
+    margin-bottom: 32px;
+
+    .content {
+      max-width: 601px;
+      margin: auto;
+      color: colors.$base-white;
+
+      .heading {
+        @include styles.h2;
+      }
+
+      .subheading {
+        @include styles.text-lg;
+        @include weights.regular;
+        margin-top: 8px;
+      }
+      
+      form {
+        margin: 0 auto;
+        margin-top: 40px;
+        max-width: max-content;
+
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        position: relative;
+
+        input, button {
+          border-radius: 8px;
+        }
+
+        input {
+          padding: 10px 14px;
+          background-color: colors.$base-white;
+          @include styles.text-md;
+          @include weights.regular;
+          width: 300px;
+        }
+        
+        button {
+          padding: 10px 18px;
+          background-color: colors.$gray-iron-900;
+          @include styles.text-md;
+          @include weights.semibold;
+          color: colors.$base-white;
+        }
+
+        p.message {
+          @include styles.text-sm;
+          max-width: 100%;
+          text-align: left;
+    
+          &[data-type="error"] {
+            color: colors.$error-300;
+          }
+    
+          &[data-type="success"] {
+            color: colors.$success-300;
+          }
+
+          position: absolute;
+          top: calc(100% + 8px);
+          left: 0;
+          
+          &:empty {
+            display: none;
+          }
+        }
+      }
+    }
+
+  }
+  
+  footer {
+    background: $footer-background;
+    text-align: center;
+    padding: 72px 96px 40px;
+    border-radius: 32px 32px 0 0;
+    color: colors.$base-white;
+
+    p.heading {
+      @include styles.h3;
+      margin-top: 8px;
+    }
+
+    button.trade {
+      padding: 6px 10px;
+      width: 140px;
+      background-color: colors.$blue-600;
+      @include styles.text-sm;
+      @include weights.semibold;
+      color: colors.$base-white;
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+
+    div.links {
+      margin: 32px auto 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      width: max-content;
+
+      & > div {
+        width: max-content;
+
+        * {
+          @include styles.text-sm;
+          text-align: left;
+        }
+
+        p.title {
+          @include weights.medium;
+        }
+        
+        ul {
+          margin: 24px 0 0 0;
+          padding: 0;
+          list-style: none;
+          
+          a {
+            @include weights.regular;
+            color: colors.$base-white;
+          }
+          
+          li:not(:first-child) {
+            margin-top: 12px;
+          }
+        }
+      }
+
+    }
+
+    div.warning {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid colors.$gray-iron-700;
+      text-align: left;
+
+      p.heading {
+        @include styles.text-md;
+        @include weights.semibold;
+        color: colors.$base-white;
+      }
+
+      p.description {
+        @include styles.text-sm;
+        margin-top: 8px;
+        color: colors.$gray-iron-400;
+      }
+
+      div.other {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+  
+        p, a {
+          color: colors.$gray-iron-400;
+          @include styles.text-sm;
+          @include weights.regular;
+        }
+  
+        div.socials {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          margin-left: auto;
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+
+  }
+}

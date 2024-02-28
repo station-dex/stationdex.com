@@ -1,0 +1,50 @@
+@use "@/design-system/theme/light" as light-theme;
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.input.container {
+  label {
+    @include styles.text-sm;
+    @include weights.medium;
+    color: colors.$gray-700;
+    margin-bottom: 6px;
+  }
+
+  .input.wrapper {
+    margin-top: 6px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid colors.$gray-300;
+    box-shadow: shadows.$xs;
+    padding: 8px 12px;
+
+    &:focus-within {
+      outline: none;
+      box-shadow: shadows.$xs, 0px 0px 0px 4px colors.$primary-100;
+    }
+
+    input, textarea {
+      @include styles.text-md;
+      @include weights.medium;
+      color: colors.$gray-800;
+      flex: 1;
+      outline: none;
+    }
+    
+    textarea {
+      min-height: 154px;
+      resize: vertical;
+    }
+
+    svg {
+      color: colors.$gray-400;
+    }
+  }
+}

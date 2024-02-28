@@ -1,0 +1,45 @@
+---
+interface Props {
+  intro?: string;
+  title:
+    | string
+    | {
+        text: string;
+        highlight?: boolean;
+      }[];
+  description: string;
+  image?: string;
+}
+
+const {
+  intro,
+  title,
+  description,
+  image = "/assets/home/hero.png",
+} = Astro.props;
+
+const imageAlt =
+  typeof title === "string" ? title : title.map(({ text }) => text).join(" ");
+---
+
+<div class="hero component">
+  <div class="inner">
+    <div class="text content">
+      {intro && <p class="intro">{intro}</p>}
+      <p class="title">
+        {
+          typeof title === "string"
+            ? title
+            : title.map(({ text, highlight }) =>
+                highlight ? <span class="highlight">{text}</span> : text
+              )
+        }
+      </p>
+      <p class="description">{description}</p>
+    </div>
+
+    <div class="image">
+      <img src={image} alt={imageAlt} />
+    </div>
+  </div>
+</div>

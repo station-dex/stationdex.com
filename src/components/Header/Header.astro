@@ -1,0 +1,44 @@
+---
+import { headerLinks } from "@/data/nav";
+
+const logoSrc = `/assets/logo-full.svg`;
+---
+
+<header class="site header">
+  <div class="container">
+    <a href="/" class="logo">
+      <img src={logoSrc} class="logo" />
+    </a>
+
+    <nav class="nav">
+      <ul>
+        <li>
+          <a href={headerLinks.about.path}>
+            {headerLinks.about.title}
+          </a>
+        </li>
+
+        <li>
+          <a href={headerLinks.bugBounty.path}>
+            {headerLinks.bugBounty.title}
+          </a>
+        </li>
+
+        <li>
+          <a href={headerLinks.contact.path}>
+            {headerLinks.contact.title}
+          </a>
+        </li>
+
+        <li>
+          <a href={headerLinks.tradeNow.path} data-style="button">
+            {headerLinks.tradeNow.title}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- offset equal to header height for content sections in mobile, when header is sticky -->
+<div class="content offset mobile"></div>

@@ -1,0 +1,77 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.about.hero.and.why {
+  padding: 56px 0 0;
+
+  .hero.component .inner {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    .text.content {
+      max-width: 80%;
+
+      .description {
+        max-width: 75%;
+      }
+    }
+  }
+
+  .why.we.created {
+    background-color: colors.$gray-100;
+    border-radius: 0 0 32px 32px;
+    padding: 56px 96px;
+
+    .top {
+      .icon.pairs {
+        display: flex;
+        align-items: center;
+
+        & > i:not(:first-child) {
+          margin-left: -24px;
+        }
+      }
+
+      p.heading {
+        margin-top: 24px;
+        @include styles.h2;
+      }
+
+      p.description {
+        margin-top: 16px;
+        @include styles.display-xs;
+        @include weights.medium;
+        color: colors.$gray-iron-500;
+      }
+    }
+
+    hr {
+      margin: 56px 0;
+      border-top: 1px solid colors.$gray-iron-200;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+
+      & > div {
+        padding-bottom: 32px;
+
+        p.title {
+          @include styles.h3;
+        }
+
+        p.description {
+          margin-top: 16px;
+          @include styles.text-lg;
+          @include weights.regular;
+          color: colors.$gray-iron-600;
+        }
+      }
+    }
+  }
+}

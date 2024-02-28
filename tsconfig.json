@@ -1,0 +1,22 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "strict": true,
+    "forceConsistentCasingInFileNames": false,
+    "useUnknownInCatchVariables": false,
+    "isolatedModules": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["src/components/*"],
+      "@/layouts/*": ["src/layouts/*"],
+      "@/util/*": ["util/*"],
+      "@/modules/*": ["src/modules/*"],
+      "@/data/*": ["src/data/*"],
+      "@/elements/*": ["src/elements/*"],
+      "@/design-system/*": ["src/design-system/*"],
+      "@/scripts/*": ["src/scripts/*"],
+    }
+  }
+}

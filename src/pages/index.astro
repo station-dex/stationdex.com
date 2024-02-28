@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Seo from "../components/Seo.astro";
+
+import Intro from "@/modules/Home/Intro.astro";
+import Hero from "@/components/Hero/Hero.astro";
+import Brands from "@/modules/Home/Brands.astro";
+import Secure from "@/modules/Home/Secure.astro";
+import Features from "@/modules/Home/Features.astro";
+
+import styles from "./index.scss?inline";
+---
+
+<BaseLayout>
+  <Seo
+    slot="seo"
+    title="Decentralized Insurance Protocol / Neptune Mutual"
+    description="Need Crypto Insurance? You don't need to submit loss proof to receive payouts. No need to wait after creating a claim. Get a free price quote now."
+    og={{
+      image: "/assets/images/meta/og/home.png",
+      imageAlt: "Neptune Mutual Open Graph Banner",
+    }}
+  />
+
+  <Intro />
+
+  <Hero
+    intro="Trusted DEX for"
+    title={[{ text: "Swapping", highlight: true }, { text: " Crypto" }]}
+    description="We have an unwavering focus on security, transparent operations, and a user-centric approach."
+  />
+
+  <Brands />
+
+  <Secure />
+
+  <Features />
+
+  <style slot="header" is:inline set:html={styles}></style>
+
+  <Fragment slot="footer">
+    <script src="@/scripts/newsletter/index.js"></script>
+  </Fragment>
+</BaseLayout>

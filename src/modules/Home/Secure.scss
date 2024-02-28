@@ -1,0 +1,46 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.home.secure.trading {
+  padding: 96px 0;
+  @include utils.full-width-container;
+
+  display: flex;
+  gap: 46px;
+
+  .img {    
+    img {
+      width: 100%;
+    }
+  }
+
+  .text {
+    max-width: 610px;
+
+    .heading {
+      @include styles.h1;
+      @include weights.bold;
+      color: colors.$black;
+    }
+    
+    .description {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      p {
+        @include styles.text-lg;
+        @include weights.regular;
+        color: colors.$gray-iron-600;
+  
+        span {
+          color: colors.$gray-iron-900;
+        }
+      }
+    }
+  }
+}

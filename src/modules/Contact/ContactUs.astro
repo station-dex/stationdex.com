@@ -1,0 +1,77 @@
+---
+import Hero from "@/components/Hero/Hero.astro";
+import Input from "@/components/Input/Input.astro";
+import Checkbox from "../../components/Checkbox/Checkbox.astro";
+
+import { env } from "@/util/env";
+
+const recaptchaKey = env("RECAPTCHA_SITE_KEY");
+---
+
+<div class="contact us page">
+  <Hero
+    title={[{ text: "Let's" }, { text: " Connect", highlight: true }]}
+    description="Have questions or suggestions? Feel free to reach out to us. We truly appreciate your messages."
+    image="/assets/contact/hero.png"
+  />
+
+  <div class="contact us form">
+    <div class="text">
+      <p class="heading">Contact Us</p>
+      <p class="description">
+        We're looking forward to serving you. Submit your message through the
+        form below for partnerships, business development, or just to inquire
+        about StationDEX.
+      </p>
+    </div>
+
+    <form>
+      <Input
+        id="name"
+        name="name"
+        label="Name"
+        placeholder="Enter your complete name"
+        tooltip="Please enter your full name"
+        required
+      />
+
+      <Input
+        type="email"
+        id="email"
+        name="email"
+        label="E-mail Address"
+        placeholder="Enter your e-mail address"
+        tooltip="Please enter a valid e-mail address"
+        required
+      />
+
+      <Input
+        id="message"
+        name="message"
+        label="Message"
+        placeholder="Type your message..."
+        textarea
+        required
+      />
+
+      <Checkbox id="terms" name="termsOfConditions">
+        I Accept the <a href="">Terms & Conditions</a>
+      </Checkbox>
+
+      <div class="captcha field">
+        <!-- <label for="g-recaptcha-response">Google recaptcha field</label> -->
+        <div class="g-recaptcha" data-sitekey={recaptchaKey}></div>
+      </div>
+
+      <button type="submit" class="button primary">Submit</button>
+
+      <p class="message"></p>
+    </form>
+  </div>
+</div>
+
+<script
+  src="https://www.google.com/recaptcha/api.js?trustedtypes=true"
+  async
+  defer
+  fetchpriority="low"></script>

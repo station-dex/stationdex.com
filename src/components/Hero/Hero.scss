@@ -1,0 +1,57 @@
+@use "@/design-system/theme/light" as light-theme;
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+$background: radial-gradient(circle at top center, #193056 50%, #251452 60%, #17161B 100%);
+
+.hero.component {
+  @include utils.full-width-container;
+
+  .inner {
+    border-radius: 32px;
+    background: $background;
+    padding: 70px 16px 0;
+
+    .text.content {
+      max-width: 484px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+
+      p.intro {
+        @include styles.h3;
+        color: colors.$base-white;
+      }
+
+      p.title {
+        @include styles.h1;
+        color: colors.$base-white;
+
+        span {
+          @include utils.clip-gradient;
+        }
+      }
+
+      p.description {
+        @include styles.text-lg;
+        @include weights.regular;
+        color: colors.$gray-iron-400;
+      }
+    }
+
+    div.image {
+      margin: 0 auto;
+      margin-top: 60px;
+      max-width: 840px;
+      height: 474px;
+
+      // img
+    }
+  }
+}

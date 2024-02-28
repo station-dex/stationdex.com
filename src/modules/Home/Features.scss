@@ -1,0 +1,78 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.home.features.section {
+  padding: 96px 0 42px;
+  @include utils.full-width-container;
+
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+
+  .container {
+    border-radius: 32px;
+    background-color: colors.$gray-iron-100;
+  }
+
+  .container.one {
+    grid-column: 1 / 3;
+    padding: 48px 48px 0;
+    display: flex;
+    gap: 34px;
+    align-items: flex-start;
+
+    .left {
+      p.heading {
+        @include styles.h2;
+        color: colors.$base-black;
+      }
+
+      p.description {
+        margin-top: 16px;
+        @include styles.text-lg;
+        @include weights.regular;
+        color: colors.$gray-iron-600;
+      }
+    }
+  }
+
+  .container.two,
+  .container.three {
+    min-height: 525px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    div.text {
+      padding: 56px 48px;
+      text-align: center;
+
+      p.title {
+        @include styles.h3;
+        color: colors.$base-black;
+      }
+
+      p.description {
+        margin-top: 8px;
+        @include styles.text-lg;
+        @include weights.regular;
+        color: colors.$gray-iron-600;
+      }
+
+      a {
+        margin-top: 16px;
+        @include styles.text-md;
+        @include weights.semibold;
+        color: colors.$blue-600;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

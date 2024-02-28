@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Seo from "../components/Seo.astro";
+
+import Secure from "@/modules/Bounty/Secure.astro";
+import Bounties from "@/modules/Bounty/Bounties.astro";
+
+import styles from "./bug-bounty.scss?inline";
+---
+
+<BaseLayout>
+  <Seo
+    slot="seo"
+    title="Decentralized Insurance Protocol / Neptune Mutual"
+    description="Need Crypto Insurance? You don't need to submit loss proof to receive payouts. No need to wait after creating a claim. Get a free price quote now."
+    og={{
+      image: "/assets/images/meta/og/home.png",
+      imageAlt: "Neptune Mutual Open Graph Banner",
+    }}
+  />
+
+  <Secure />
+
+  <Bounties />
+
+  <style slot="header" is:inline set:html={styles}></style>
+
+  <Fragment slot="footer">
+    <script src="@/scripts/newsletter/index.js"></script>
+  </Fragment>
+</BaseLayout>

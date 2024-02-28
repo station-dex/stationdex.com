@@ -1,0 +1,60 @@
+---
+import Icon from "@/elements/Icon.astro";
+
+const img1 = "/assets/home/feature-01.png";
+const img2 = "/assets/home/feature-02.png";
+const img3 = "/assets/home/feature-03.png";
+---
+
+<div class="home features section">
+  <div class="container one">
+    <div class="left">
+      <p class="heading">All Your Funds Covered with Embedded Insurance</p>
+      <p class="description">
+        We've gone beyond conventional security measures. Our DEX is integrated
+        with a robust parametric insurance protocol, ensuring the protection of
+        your investments.
+      </p>
+    </div>
+
+    <div class="right">
+      <img src={img1} alt="feature 1" />
+    </div>
+  </div>
+
+  <div class="container two">
+    <div class="text">
+      <p class="title">Protocol Driven by the Community</p>
+      <p class="description">
+        Our protocol is governed by the community. Engage actively in shaping
+        our protocol by voting in governance proposals and decisions.
+      </p>
+      <a>
+        Learn More
+        <Icon variant="chevron-right" />
+      </a>
+    </div>
+
+    <div class="img">
+      <img src={img2} alt="feature 2" />
+    </div>
+  </div>
+
+  <div class="container three">
+    <div class="text">
+      <p class="title">Vote on Token Emissions</p>
+      <p class="description">
+        Take matters into your own hands. You decide where you want to allocate
+        the rewards.
+      </p>
+      <a>
+        Learn More
+        <Icon variant="chevron-right" />
+      </a>
+    </div>
+
+    <div class="img">
+      <img src={img3} alt="feature 2" />
+    </div>
+  </div>
+</div>
