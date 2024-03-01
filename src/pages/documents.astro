@@ -1,13 +1,13 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import Seo from "@/components/Seo.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Seo from "../components/Seo.astro";
 
-import ContactUs from "@/modules/Contact/ContactUs.astro";
+import ComingSoon from "../components/ComingSoon/ComingSoon.astro";
 
-import styles from "./contact-us.scss?inline";
+import styles from "./index.scss?inline";
 ---
 
-<BaseLayout noFooterNewsletter noEllipse>
+<BaseLayout noEllipse noFooterNewsletter noFooter>
   <Seo
     slot="seo"
     title="Decentralized Insurance Protocol / Neptune Mutual"
@@ -18,12 +18,12 @@ import styles from "./contact-us.scss?inline";
     }}
   />
 
-  <ContactUs />
+  <ComingSoon />
 
   <style slot="header" is:inline set:html={styles}></style>
 
   <Fragment slot="footer">
-    <script src="@/scripts/contact/index.js"></script>
     <script src="@/scripts/header/nav.js"></script>
+    <script src="@/scripts/newsletter/index.js"></script>
   </Fragment>
 </BaseLayout>

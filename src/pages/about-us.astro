@@ -23,4 +23,8 @@ import TheMinds from "@/modules/About/TheMinds.astro";
   <TheMinds />
 
   <style slot="header" is:inline set:html={styles}></style>
+
+  <Fragment slot="footer">
+    <script src="@/scripts/header/nav.js"></script>
+  </Fragment>
 </BaseLayout>

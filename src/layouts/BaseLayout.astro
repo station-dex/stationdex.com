@@ -8,9 +8,11 @@ const server = import.meta.env.FORMS_API_SERVER;
 interface Props {
   noFooterNewsletter?: boolean;
   noEllipse?: boolean;
+  noHeader?: boolean;
+  noFooter?: boolean;
 }
 
-const { noFooterNewsletter, noEllipse } = Astro.props;
+const { noFooterNewsletter, noEllipse, noHeader, noFooter } = Astro.props;
 ---
 
 <!doctype html>
@@ -33,11 +35,11 @@ const { noFooterNewsletter, noEllipse } = Astro.props;
     {!noEllipse && <BgEllipse />}
 
     <main>
-      <Header />
+      {!noHeader && <Header />}
 
       <slot />
 
-      <Footer noNewsletter={noFooterNewsletter} />
+      {!noFooter && <Footer noNewsletter={noFooterNewsletter} />}
     </main>
 
     <slot name="footer" />

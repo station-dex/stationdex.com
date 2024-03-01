@@ -13,12 +13,12 @@
     background-color: colors.$violet-700;
     border-radius: 50%;
     filter: blur(50px);
-    
+
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .small {
     opacity: 0.4;
     width: 876px;
@@ -33,5 +33,9 @@
     height: 906px;
 
     top: 406px;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
   }
 }

@@ -5,10 +5,10 @@
 @use "@/design-system/typography/styles";
 @use "@/design-system/typography/weights";
 
-$container-background: radial-gradient(circle at top right, #193056 50%, #251452 60%, #17161B 100%);
+$container-background: radial-gradient(73.49% 99.07% at 61.14% -16.43%, #251452 0%, #11213C 38.02%, #17161B 100%);
 
 .coming.soon {
-  padding: 85px 0;
+  padding: 56px 0 24px;
   @include utils.full-width-container;
 
   .inner {

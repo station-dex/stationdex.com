@@ -8,7 +8,10 @@ const submitElement = formElement.querySelector('button[type="submit"]');
 const messageElement = formElement.querySelector("p.message");
 
 async function handleSubmit(payload, formElement) {
+  submitElement.disabled = true;
   const { message, error, success } = await post(payload, true);
+  submitElement.disabled = false;
+
   let _message = message;
 
   if (error) {

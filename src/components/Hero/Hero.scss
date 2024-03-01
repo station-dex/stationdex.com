@@ -5,7 +5,7 @@
 @use "@/design-system/typography/styles";
 @use "@/design-system/typography/weights";
 
-$background: radial-gradient(circle at top center, #193056 50%, #251452 60%, #17161B 100%);
+$background: radial-gradient(73.49% 99.07% at 61.14% -16.43%, #251452 0%, #11213C 38.02%, #17161B 100%);
 
 .hero.component {
   @include utils.full-width-container;
@@ -49,9 +49,39 @@ $background: radial-gradient(circle at top center, #193056 50%, #251452 60%, #17
       margin: 0 auto;
       margin-top: 60px;
       max-width: 840px;
-      height: 474px;
+      height: max-content;
 
-      // img
+      display: flex;
+      justify-content: center;
+      align-items: end;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 0;
+
+    .inner {
+      border-radius: 0;  
+      padding: 50px 16px 0;
+
+      .text.content {
+        p.intro {
+          @include styles.h3;
+        }
+
+        p.title {
+          @include styles.h2;
+        }
+
+        p.description {
+          @include styles.text-md;
+          @include weights.regular;
+        }
+      }
+
+      div.image {
+        margin-top: 32px;
+      }
     }
   }
 }

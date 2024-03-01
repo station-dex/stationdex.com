@@ -42,7 +42,7 @@
         @include styles.text-sm;
         @include weights.medium;
         color: colors.$gray-700;
-        
+
         a {
           color: colors.$gray-700;
           text-decoration: underline;
@@ -62,23 +62,49 @@
         &:hover {
           background-color: colors.$blue-700;
         }
+
+        &:disabled {
+          background-color: rgba(colors.$blue-600, 0.5);
+          cursor: not-allowed;
+        }
       }
 
       p.message {
         margin-top: 8px;
         @include styles.text-sm;
         @include weights.semibold;
-  
+
         &[data-type="error"] {
           color: colors.$error-500;
         }
-  
+
         &[data-type="success"] {
           color: colors.$success-500;
         }
-        
+
         &:empty {
           display: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 0;
+    padding-bottom: 48px;
+
+    .contact.us.form {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      .text {
+        text-align: left;
+        p.heading {
+          @include styles.h2;
+        }
+
+        p.description {
+          @include styles.text-md;
         }
       }
     }
