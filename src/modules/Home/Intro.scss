@@ -7,9 +7,16 @@
 .home.intro.component {
   padding: 96px 0;
   @include utils.full-width-container;
-
+  
   display: flex;
   gap: 40px;
+  
+  @media (max-width: 767px) {
+    padding-top: 32px;
+    padding-bottom: 64px;
+    flex-direction: column;
+    gap: 16px;
+  }
 
   div.left {
     padding-bottom: 16px;
@@ -25,8 +32,20 @@
       display: flex;
       gap: 24px;
 
-      svg {
+      i {
         color: colors.$gray-true-800;
+      }
+    }
+
+    @media (max-width: 767px) {
+      padding: 0;
+
+      p {
+        @include styles.h2;
+      }
+
+      div.socials {
+        display: none;
       }
     }
   }
@@ -48,6 +67,20 @@
       @include weights.semibold;
       color: colors.$base-white;
       border-radius: 8px;
+    }
+
+    @media (max-width: 767px) {
+      padding: 0;
+
+      p {
+        @include styles.text-lg;
+        @include weights.regular;
+      }
+
+      button {
+        margin-top: 32px;
+        width: 100%;
+      }
     }
   }
 }

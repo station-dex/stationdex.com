@@ -74,4 +74,31 @@
       }
     }
   }
+
+  @media (max-width: 767px) {
+    padding-top: 0;
+
+    .why.we.created {
+      padding: 32px 0;
+      background-color: transparent;
+
+      .top {
+        p.heading {
+          @include styles.h3;
+        }
+
+        p.description {
+          @include styles.text-lg;
+        }
+      }
+
+      hr {
+        margin: 32px 0;
+      }
+
+      .bottom {
+        flex-direction: column;
+      }
+    }
+  }
 }

@@ -1,60 +1,113 @@
 ---
 import Icon from "@/elements/Icon.astro";
 
-const img1 = "/assets/home/feature-01.png";
-const img2 = "/assets/home/feature-02.png";
-const img3 = "/assets/home/feature-03.png";
+import "swiper/css";
+import "swiper/css/pagination";
+
+const feaures = [
+  {
+    title: "All Your Funds Covered with Embedded Insurance",
+    description:
+      "We've gone beyond conventional security measures. Our DEX is integrated with a robust parametric insurance protocol, ensuring the protection of your investments.",
+    img: "/assets/home/feature-01.png",
+  },
+  {
+    title: "Protocol Driven by the Community",
+    description:
+      "Our protocol is governed by the community. Engage actively in shaping our protocol by voting in governance proposals and decisions.",
+    img: "/assets/home/feature-02.png",
+    link: "#",
+  },
+  {
+    title: "Vote on Token Emissions",
+    description:
+      "Take matters into your own hands. You decide where you want to allocate the rewards.",
+    img: "/assets/home/feature-03.png",
+    link: "#",
+  },
+];
 ---
 
 <div class="home features section">
   <div class="container one">
     <div class="left">
-      <p class="heading">All Your Funds Covered with Embedded Insurance</p>
+      <p class="heading">
+        {feaures[0].title}
+      </p>
       <p class="description">
-        We've gone beyond conventional security measures. Our DEX is integrated
-        with a robust parametric insurance protocol, ensuring the protection of
-        your investments.
+        {feaures[0].description}
       </p>
     </div>
 
     <div class="right">
-      <img src={img1} alt="feature 1" />
+      <img src={feaures[0].img} alt="feature 1" />
     </div>
   </div>
 
   <div class="container two">
     <div class="text">
-      <p class="title">Protocol Driven by the Community</p>
-      <p class="description">
-        Our protocol is governed by the community. Engage actively in shaping
-        our protocol by voting in governance proposals and decisions.
+      <p class="title">
+        {feaures[1].title}
       </p>
-      <a>
+      <p class="description">
+        {feaures[1].description}
+      </p>
+      <a href={feaures[1].link}>
         Learn More
         <Icon variant="chevron-right" />
       </a>
     </div>
 
     <div class="img">
-      <img src={img2} alt="feature 2" />
+      <img src={feaures[1].img} alt="feature 2" />
     </div>
   </div>
 
   <div class="container three">
     <div class="text">
-      <p class="title">Vote on Token Emissions</p>
-      <p class="description">
-        Take matters into your own hands. You decide where you want to allocate
-        the rewards.
+      <p class="title">
+        {feaures[2].title}
       </p>
-      <a>
+      <p class="description">
+        {feaures[2].description}
+      </p>
+      <a href={feaures[2].link}>
         Learn More
         <Icon variant="chevron-right" />
       </a>
     </div>
 
     <div class="img">
-      <img src={img3} alt="feature 2" />
+      <img src={feaures[2].img} alt="feature 2" />
     </div>
+  </div>
+
+  <div class="mobile swiper">
+    <div class="swiper-wrapper">
+      {
+        feaures.map(({ title, description, img, link }) => (
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="text">
+                <p class="title">{title}</p>
+                <p class="description">{description}</p>
+                {link && (
+                  <a href={link}>
+                    Learn More
+                    <Icon variant="chevron-right" size="xl" />
+                  </a>
+                )}
+              </div>
+
+              <div class="img">
+                <img src={img} alt="feature 2" />
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="swiper-pagination"></div>
   </div>
 </div>

@@ -3,6 +3,8 @@ import { post } from "./post";
 const formElement = document.querySelector(".contact.us.form form");
 const messageElement = formElement?.querySelector("p.message");
 
+const button = formElement?.querySelector("button[type=submit]");
+
 function getFormValues(form) {
   if (!messageElement) return;
 
@@ -37,7 +39,10 @@ function getFormValues(form) {
 }
 
 async function submitForm(payload, formElement) {
+  button.disabled = true;
   const { message, error, success } = await post(payload);
+  button.disabled = false;
+
   let _message = message;
 
   if (error) {

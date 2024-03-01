@@ -5,13 +5,23 @@
 @use "@/design-system/typography/styles";
 @use "@/design-system/typography/weights";
 
-
-$newsletter-background: linear-gradient(15deg, #0778FF 50%, #7443FF 100%);
-$footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60%, #17161B 100%);
-
+$newsletter-background: linear-gradient(
+  26.57deg,
+  #0778ff 8.33%,
+  #0778ff 8.34%,
+  #7443ff 91.67%
+);
+$footer-background: radial-gradient(
+  60.4% 80.37% at 58.43% 2.27%,
+  #193056 0%,
+  #251452 69.32%,
+  #17161b 100%
+);
 
 .footer.wrapper {
-  @include utils.full-width-container;
+  & > .wrapper {
+    @include utils.full-width-container;
+  }
 
   .newsletter.component {
     background: $newsletter-background;
@@ -34,7 +44,7 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
         @include weights.regular;
         margin-top: 8px;
       }
-      
+
       form {
         margin: 0 auto;
         margin-top: 40px;
@@ -45,7 +55,8 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
         justify-content: center;
         position: relative;
 
-        input, button {
+        input,
+        button {
           border-radius: 8px;
         }
 
@@ -56,7 +67,7 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
           @include weights.regular;
           width: 300px;
         }
-        
+
         button {
           padding: 10px 18px;
           background-color: colors.$gray-iron-900;
@@ -69,11 +80,11 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
           @include styles.text-sm;
           max-width: 100%;
           text-align: left;
-    
+
           &[data-type="error"] {
             color: colors.$error-300;
           }
-    
+
           &[data-type="success"] {
             color: colors.$success-300;
           }
@@ -81,7 +92,7 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
           position: absolute;
           top: calc(100% + 8px);
           left: 0;
-          
+
           &:empty {
             display: none;
           }
@@ -89,8 +100,32 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
       }
     }
 
+    @media (max-width: 767px) {
+      padding: 48px 16px;
+      border-radius: 16px;
+
+      .content {
+        .heading {
+          @include styles.h3;
+        }
+
+        .subheading {
+          @include styles.text-md;
+        }
+
+        form {
+          width: 100%;
+          flex-direction: column;
+
+          input,
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
-  
+
   footer {
     background: $footer-background;
     text-align: center;
@@ -101,17 +136,6 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
     p.heading {
       @include styles.h3;
       margin-top: 8px;
-    }
-
-    button.trade {
-      padding: 6px 10px;
-      width: 140px;
-      background-color: colors.$blue-600;
-      @include styles.text-sm;
-      @include weights.semibold;
-      color: colors.$base-white;
-      border-radius: 8px;
-      margin-top: 24px;
     }
 
     div.links {
@@ -133,23 +157,22 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
         p.title {
           @include weights.medium;
         }
-        
+
         ul {
           margin: 24px 0 0 0;
           padding: 0;
           list-style: none;
-          
+
           a {
             @include weights.regular;
             color: colors.$base-white;
           }
-          
+
           li:not(:first-child) {
             margin-top: 12px;
           }
         }
       }
-
     }
 
     div.warning {
@@ -175,13 +198,14 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
         display: flex;
         align-items: center;
         gap: 32px;
-  
-        p, a {
+
+        p,
+        a {
           color: colors.$gray-iron-400;
           @include styles.text-sm;
           @include weights.regular;
         }
-  
+
         div.socials {
           display: flex;
           align-items: center;
@@ -196,6 +220,65 @@ $footer-background: radial-gradient(circle at top right, #193056 50%, #251452 60
         }
       }
     }
+  }
 
+  @media (max-width: 767px) {
+    .wrapper:is(:last-child) {
+      padding: 0;
+    }
+
+    footer {
+      text-align: left;
+      padding: 48px 16px 24px;
+      border-radius: 0;
+
+      img {
+        height: 32px;
+      }
+
+      p.heading {
+        @include styles.h3;
+      }
+
+      div.links {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        align-items: flex-start;
+        margin-left: 0;
+
+        & > div {
+          * {
+            @include styles.text-md;
+          }
+
+          p.title {
+            @include weights.semibold;
+          }
+
+          ul {
+            margin-top: 16px;
+          }
+        }
+      }
+
+      div.warning {
+        div.other {
+          flex-direction: column;
+          margin-top: 16px;
+          align-items: flex-start;
+          gap: 16px;
+
+          p,
+          a {
+            text-align: center;
+          }
+
+          div.socials {
+            margin-top: 16px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
   }
 }

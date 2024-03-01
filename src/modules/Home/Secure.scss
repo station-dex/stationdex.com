@@ -43,4 +43,36 @@
       }
     }
   }
+
+  @media (max-width: 767px) {
+    padding-top: 32px;
+    padding-bottom: 0;
+
+    flex-direction: column;
+    gap: 32px;
+
+    .img {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      
+      img {
+        max-width: 230px;
+      }
+    }
+
+    .text {
+      .heading {
+        @include styles.h3;
+      }
+
+      .description {
+        gap: 16px;
+
+        p {
+          @include styles.text-md;
+        }
+      }
+    }
+  }
 }

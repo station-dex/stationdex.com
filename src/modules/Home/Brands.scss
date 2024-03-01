@@ -7,4 +7,9 @@
 .home.brands.marquee {
   padding: 96px 0;
   @include utils.full-width-container;
+
+  @media (max-width: 767px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
 }

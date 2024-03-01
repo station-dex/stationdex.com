@@ -1,0 +1,31 @@
+---
+import { headerLinks } from "@/data/nav";
+---
+
+<div class="mobile menu container" data-open="false">
+  <ul>
+    <li>
+      <a href={headerLinks.about.path}>
+        {headerLinks.about.title}
+      </a>
+    </li>
+
+    <li>
+      <a href={headerLinks.documents.path}>
+        {headerLinks.documents.title}
+      </a>
+    </li>
+
+    <li>
+      <a href={headerLinks.contact.path}>
+        {headerLinks.contact.title}
+      </a>
+    </li>
+
+    <li>
+      <a href={headerLinks.tradeNow.path} data-style="button">
+        {headerLinks.tradeNow.title}
+      </a>
+    </li>
+  </ul>
+</div>

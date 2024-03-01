@@ -44,7 +44,7 @@ const { id, name, label, placeholder, type, tooltip, textarea } = props;
 
     {
       tooltip && !textarea && (
-        <span data-tooltip={tooltip}>
+        <span data-tooltip={tooltip} data-flow="left">
           <Icon variant="help-circle" size="sm" />
         </span>
       )

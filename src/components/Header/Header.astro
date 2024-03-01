@@ -1,11 +1,13 @@
 ---
 import { headerLinks } from "@/data/nav";
+import Icon from "@/elements/Icon.astro";
+import MobileMenu from "./MobileMenu.astro";
 
 const logoSrc = `/assets/logo-full.svg`;
 ---
 
 <header class="site header">
-  <div class="container">
+  <div class="desktop container">
     <a href="/" class="logo">
       <img src={logoSrc} class="logo" />
     </a>
@@ -19,8 +21,8 @@ const logoSrc = `/assets/logo-full.svg`;
         </li>
 
         <li>
-          <a href={headerLinks.bugBounty.path}>
-            {headerLinks.bugBounty.title}
+          <a href={headerLinks.documents.path}>
+            {headerLinks.documents.title}
           </a>
         </li>
 
@@ -36,8 +38,16 @@ const logoSrc = `/assets/logo-full.svg`;
           </a>
         </li>
       </ul>
+
+      <button class=`hamburger` data-open="false">
+        <Icon variant="menu-01" size="xl" />
+
+        <Icon variant="x-close" size="xl" />
+      </button>
     </nav>
   </div>
+
+  <MobileMenu />
 </header>
 
 <!-- offset equal to header height for content sections in mobile, when header is sticky -->
