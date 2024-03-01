@@ -11,10 +11,6 @@ const headerLinks: HeaderLink = {
     title: 'About Us',
     path: '/about-us'
   },
-  bugBounty: {
-    title: 'Documents',
-    path: '/documents'
-  },
   contact: {
     title: 'Contact Us',
     path: '/contact-us'

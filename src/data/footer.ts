@@ -70,10 +70,6 @@ const footerLinks: FooterLink[] = [
     title: 'Participant',
     sublinks: [
       {
-        title: 'Bug Bounty',
-        link: '/bug-bounty'
-      },
-      {
         title: 'Testnet',
         link: '/testnet'
       },
