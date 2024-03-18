@@ -13,7 +13,7 @@ html:not(.dark) {
   text-rendering: optimizeSpeed;
 
   body {
-    background-color: light-theme.$primary-background-color;
+    background-color: colors.$gray-iron-100;
     color: light-theme.$color;
   }
 
@@ -27,7 +27,7 @@ html.dark {
   text-rendering: optimizeSpeed;
 
   body {
-    background-color: colors.$black;
+    background-color: colors.$gray-iron-100;
     color: dark-theme.$color;
   }
 
@@ -82,7 +82,7 @@ html.dark {
 
 html {
   overflow-x: hidden;
-  
+
   body {
     overflow-x: hidden;
     height: max-content;

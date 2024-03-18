@@ -50,6 +50,23 @@ const footerLinks: FooterLink[] = [
     ]
   },
   {
+    title: 'About',
+    sublinks: [
+      {
+        title: 'About Us',
+        link: '/about-us'
+      },
+      {
+        title: 'Contact',
+        link: '/contact'
+      },
+      {
+        title: 'Brand Assets',
+        link: '/brand-assets'
+      }
+    ]
+  },
+  {
     title: 'Resources',
     sublinks: [
       {
@@ -59,10 +76,6 @@ const footerLinks: FooterLink[] = [
       {
         title: 'Github',
         link: '/github'
-      },
-      {
-        title: 'Audit Report',
-        link: '/audit-report'
       },
     ]
   },
@@ -83,23 +96,6 @@ const footerLinks: FooterLink[] = [
       }
     ]
   },
-  {
-    title: 'About',
-    sublinks: [
-      {
-        title: 'About Us',
-        link: '/about-us'
-      },
-      {
-        title: 'Contact',
-        link: '/contact'
-      },
-      {
-        title: 'Brand Assets',
-        link: '/brand-assets'
-      }
-    ]
-  }
 ]
 
 const otherLinks = {

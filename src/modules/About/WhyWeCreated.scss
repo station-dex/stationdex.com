@@ -5,7 +5,7 @@
 @use "@/design-system/typography/weights";
 
 .about.hero.and.why {
-  padding: 56px 0 0;
+  padding: 56px 0 64px;
 
   .hero.component .inner {
     border-bottom-left-radius: 0;
@@ -21,9 +21,9 @@
   }
 
   .why.we.created {
-    background-color: colors.$gray-100;
+    background-color: colors.$base-white;
     border-radius: 0 0 32px 32px;
-    padding: 56px 96px;
+    padding: 56px;
 
     .top {
       .icon.pairs {
@@ -38,12 +38,13 @@
       p.heading {
         margin-top: 24px;
         @include styles.h2;
+        @include styles.font-work-sans;
       }
 
       p.description {
         margin-top: 16px;
-        @include styles.display-xs;
-        @include weights.medium;
+        @include styles.text-xl;
+        @include weights.regular;
         color: colors.$gray-iron-500;
       }
     }
@@ -58,11 +59,21 @@
       justify-content: space-between;
       gap: 32px;
 
-      & > div {
+      .item {
         padding-bottom: 32px;
+
+        display: flex;
+        gap: 40px;
+
+        span.number {
+          @include styles.text-sm;
+          @include weights.regular;
+          color: colors.$gray-iron-400;
+        }
 
         p.title {
           @include styles.h3;
+          @include styles.font-work-sans;
         }
 
         p.description {

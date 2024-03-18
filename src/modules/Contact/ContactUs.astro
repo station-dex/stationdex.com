@@ -1,5 +1,4 @@
 ---
-import Hero from "@/components/Hero/Hero.astro";
 import Input from "@/components/Input/Input.astro";
 import Checkbox from "../../components/Checkbox/Checkbox.astro";
 
@@ -9,12 +8,6 @@ const recaptchaKey = env("RECAPTCHA_SITE_KEY");
 ---
 
 <div class="contact us page">
-  <Hero
-    title={[{ text: "Let's" }, { text: " Connect", highlight: true }]}
-    description="Have questions or suggestions? Feel free to reach out to us. We truly appreciate your messages."
-    image="/assets/contact/hero.png"
-  />
-
   <div class="contact us form">
     <div class="text">
       <p class="heading">Contact Us</p>

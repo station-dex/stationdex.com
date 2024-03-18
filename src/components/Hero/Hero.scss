@@ -5,17 +5,29 @@
 @use "@/design-system/typography/styles";
 @use "@/design-system/typography/weights";
 
-$background: radial-gradient(73.49% 99.07% at 61.14% -16.43%, #251452 0%, #11213C 38.02%, #17161B 100%);
+$background: radial-gradient(
+    32.34% 28.7% at 51.07% 0%,
+    #251452 0%,
+    #11213c 38.02%,
+    #18181b 100%,
+    #18181b 100%
+  ),
+  radial-gradient(
+    111.4% 30.62% at 50.7% 0%,
+    #ffffff 0%,
+    rgba(117, 68, 255, 0) 46.5%
+  );
 
 .hero.component {
   @include utils.full-width-container;
 
   .inner {
-    border-radius: 32px;
+    border-radius: 16px;
     background: $background;
-    padding: 70px 16px 0;
+    overflow: hidden;
 
     .text.content {
+      padding: 70px 16px 0;
       max-width: 484px;
       margin: 0 auto;
       text-align: center;
@@ -26,11 +38,13 @@ $background: radial-gradient(73.49% 99.07% at 61.14% -16.43%, #251452 0%, #11213
 
       p.intro {
         @include styles.h3;
+        @include styles.font-work-sans;
         color: colors.$base-white;
       }
 
       p.title {
         @include styles.h1;
+        @include styles.font-work-sans;
         color: colors.$base-white;
 
         span {
@@ -46,14 +60,17 @@ $background: radial-gradient(73.49% 99.07% at 61.14% -16.43%, #251452 0%, #11213
     }
 
     div.image {
-      margin: 0 auto;
-      margin-top: 60px;
-      max-width: 840px;
+      margin-top: 32px;
+      max-width: 100%;
       height: max-content;
 
       display: flex;
       justify-content: center;
       align-items: end;
+
+      img {
+        object-fit: cover;
+      }
     }
   }
 
@@ -61,10 +78,11 @@ $background: radial-gradient(73.49% 99.07% at 61.14% -16.43%, #251452 0%, #11213
     padding: 0;
 
     .inner {
-      border-radius: 0;  
-      padding: 50px 16px 0;
+      border-radius: 0;
 
       .text.content {
+        padding: 50px 16px 0;
+
         p.intro {
           @include styles.h3;
         }

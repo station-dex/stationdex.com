@@ -2,9 +2,10 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Seo from "@/components/Seo.astro";
 
-import styles from "./about-us.scss?inline";
 import WhyWeCreated from "@/modules/About/WhyWeCreated.astro";
-import TheMinds from "@/modules/About/TheMinds.astro";
+
+import styles from "./about-us.scss?inline";
+import "@fontsource/work-sans";
 ---
 
 <BaseLayout noFooterNewsletter>
@@ -19,8 +20,6 @@ import TheMinds from "@/modules/About/TheMinds.astro";
   />
 
   <WhyWeCreated />
-
-  <TheMinds />
 
   <style slot="header" is:inline set:html={styles}></style>
 
