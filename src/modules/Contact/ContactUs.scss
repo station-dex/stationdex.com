@@ -5,12 +5,11 @@
 @use "@/design-system/typography/weights";
 
 .contact.us.page {
-  padding: 56px 0 64px;
+  padding: 0 0 64px;
 
   .contact.us.form {
     padding: 80px 0;
     @include utils.full-width-container;
-    margin-top: 50px;
 
     .text {
       text-align: center;
@@ -19,6 +18,7 @@
 
       p.heading {
         @include styles.h1;
+        @include styles.font-work-sans;
       }
 
       p.description {

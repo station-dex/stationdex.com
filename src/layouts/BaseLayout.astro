@@ -1,7 +1,6 @@
 ---
 import Header from "@/components/Header/Header.astro";
 import Footer from "@/components/Footer/Footer.astro";
-import BgEllipse from "@/components/BgEllipse/BgEllipse.astro";
 
 const server = import.meta.env.FORMS_API_SERVER;
 
@@ -32,8 +31,6 @@ const { noFooterNewsletter, noEllipse, noHeader, noFooter } = Astro.props;
     </script>
   </head>
   <body>
-    {!noEllipse && <BgEllipse />}
-
     <main>
       {!noHeader && <Header />}
 

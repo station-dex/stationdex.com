@@ -7,10 +7,10 @@
 .home.intro.component {
   padding: 96px 0;
   @include utils.full-width-container;
-  
+
   display: flex;
   gap: 40px;
-  
+
   @media (max-width: 767px) {
     padding-top: 32px;
     padding-bottom: 64px;
@@ -25,10 +25,14 @@
       @include styles.h1;
       @include weights.bold;
       color: colors.$base-black;
+
+      &.heading {
+        @include styles.font-work-sans;
+      }
     }
 
     div.socials {
-      margin-top: 34px;
+      margin-top: 30px;
       display: flex;
       gap: 24px;
 
@@ -59,7 +63,9 @@
       color: colors.$gray-iron-600;
     }
 
-    button {
+    a.trade.now {
+      width: max-content;
+      display: block;
       margin-top: 24px;
       padding: 12px 20px;
       background-color: colors.$blue-600;
@@ -77,7 +83,7 @@
         @include weights.regular;
       }
 
-      button {
+      a {
         margin-top: 32px;
         width: 100%;
       }

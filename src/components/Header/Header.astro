@@ -31,13 +31,11 @@ const logoSrc = `/assets/logo-full.svg`;
             {headerLinks.contact.title}
           </a>
         </li>
-
-        <li>
-          <a href={headerLinks.tradeNow.path} data-style="button">
-            {headerLinks.tradeNow.title}
-          </a>
-        </li>
       </ul>
+
+      <a href={headerLinks.tradeNow.path} data-style="button">
+        {headerLinks.tradeNow.title}
+      </a>
 
       <button class=`hamburger` data-open="false">
         <Icon variant="menu-01" size="xl" />
