@@ -159,7 +159,7 @@ $footer-background: radial-gradient(
         }
 
         p.title {
-          @include weights.medium;
+          @include weights.semibold;
         }
 
         ul {
@@ -169,7 +169,11 @@ $footer-background: radial-gradient(
 
           a {
             @include weights.regular;
-            color: colors.$base-white;
+            color: colors.$gray-iron-400;
+
+            &:hover {
+              color: colors.$base-white;
+            }
           }
 
           li:not(:first-child) {
