@@ -6,10 +6,11 @@
 @use "@/design-system/typography/weights";
 
 $container-background: radial-gradient(
-  73.49% 99.07% at 61.14% -16.43%,
-  #251452 0%,
-  #11213c 38.02%,
-  #17161b 100%
+  50% 12.51% at 50% 0%,
+  #ffffff 0%,
+  #8067c8 40%,
+  #3b396f 67.5%,
+  #18181b 100%
 );
 
 .coming.soon {
@@ -17,8 +18,10 @@ $container-background: radial-gradient(
   @include utils.full-width-container;
 
   .inner {
-    background: $container-background;
-    padding: 175px 0 250px;
+    background-image: url("/assets/coming-soon/stars.png"),
+      $container-background;
+    background-size: contain;
+    padding: 142px 0 250px;
     border-radius: 32px;
 
     .content {
@@ -31,19 +34,21 @@ $container-background: radial-gradient(
         margin: 0 auto;
       }
 
-      p.heading {
-        @include styles.display-2xl;
-        @include weights.medium;
-        color: transparent;
-        @include utils.clip-gradient;
-        letter-spacing: -0.02em;
-      }
-
       p.subheading {
         @include styles.text-xl;
         @include weights.regular;
-        color: colors.$gray-iron-400;
-        margin-top: 24px;
+        color: colors.$base-white;
+        margin-top: 16px;
+      }
+
+      p.heading {
+        @include styles.display-2xl;
+        @include styles.font-work-sans;
+        @include weights.semibold;
+        color: transparent;
+        @include utils.clip-gradient;
+        letter-spacing: -0.02em;
+        margin-top: 32px;
       }
 
       form {
