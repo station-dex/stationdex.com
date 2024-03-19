@@ -6,6 +6,7 @@
 
 .about.hero.and.why {
   padding: 56px 0 64px;
+  padding-top: 0;
 
   .hero.component .inner {
     border-bottom-left-radius: 0;
@@ -26,17 +27,7 @@
     padding: 56px;
 
     .top {
-      .icon.pairs {
-        display: flex;
-        align-items: center;
-
-        & > i:not(:first-child) {
-          margin-left: -24px;
-        }
-      }
-
       p.heading {
-        margin-top: 24px;
         @include styles.h2;
         @include styles.font-work-sans;
       }

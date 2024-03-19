@@ -37,7 +37,7 @@ type FooterLink = {
 
 const footerLinks: FooterLink[] = [
   {
-    title: 'Main',
+    title: 'Command Deck',
     sublinks: [
       {
         title: 'Trade',
@@ -50,7 +50,7 @@ const footerLinks: FooterLink[] = [
     ]
   },
   {
-    title: 'About',
+    title: 'Observation Deck',
     sublinks: [
       {
         title: 'About Us',
@@ -80,7 +80,7 @@ const footerLinks: FooterLink[] = [
     ]
   },
   {
-    title: 'Participant',
+    title: 'Community Zone',
     sublinks: [
       {
         title: 'Testnet',
