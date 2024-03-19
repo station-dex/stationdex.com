@@ -23,7 +23,6 @@
 
     p {
       @include styles.h1;
-      @include weights.bold;
       color: colors.$base-black;
 
       &.heading {

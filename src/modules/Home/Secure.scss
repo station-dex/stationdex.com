@@ -33,6 +33,7 @@
 
       .heading {
         @include styles.h2;
+        @include styles.font-work-sans;
         color: colors.$black;
       }
 
