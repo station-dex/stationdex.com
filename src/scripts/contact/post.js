@@ -30,7 +30,7 @@ const post = async (payload, subscription = false) => {
     }
   } catch (error) {}
 
-  return { error: true, message: "Unable to sumit form!" };
+  return { error: true, message: "Unable to submit form!" };
 };
 
 export { post };

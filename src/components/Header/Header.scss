@@ -9,7 +9,7 @@ header.site.header {
   z-index: 9;
   width: 100%;
   background-color: rgba(colors.$base-white, 0.8);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
 
   position: fixed;
   top: 0;

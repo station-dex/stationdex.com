@@ -13,16 +13,12 @@ $newsletter-background: linear-gradient(
 );
 
 $footer-background: radial-gradient(
-    73.49% 99.07% at 61.14% -16.43%,
-    #251452 0%,
-    #11213c 38.02%,
-    #17161b 100%
-  ),
-  radial-gradient(
-    111.4% 30.62% at 50.7% 0%,
-    #ffffff 0%,
-    rgba(117, 68, 255, 0) 46.5%
-  );
+  50% 12.51% at 50% 0%,
+  #ffffff 0%,
+  #8067c8 40%,
+  #3b396f 67.5%,
+  #18181b 100%
+);
 
 .footer.wrapper {
   & > .wrapper {
