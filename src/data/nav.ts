@@ -11,9 +11,9 @@ const headerLinks: HeaderLink = {
     title: 'About Us',
     path: '/about-us'
   },
-  documents: {
-    title: 'Documents',
-    path: '/documents'
+  documentation: {
+    title: 'Documentation',
+    path: '/documentation'
   },
   contact: {
     title: 'Contact Us',
