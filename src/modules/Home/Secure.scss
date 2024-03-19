@@ -17,9 +17,9 @@
     box-shadow: 0px 32px 64px -12px #18171c1a;
 
     .img {
-      max-width: 480px;
+      width: 480px;
       min-height: 100%;
-      min-width: 250px;
+      flex-shrink: 0;
 
       img {
         width: 100%;
@@ -30,7 +30,6 @@
 
     .text {
       padding: 56px;
-      max-width: 610px;
 
       .heading {
         @include styles.h2;
@@ -71,6 +70,14 @@
     }
   }
 
+  @media (max-width: 1023px) {
+    .inner {
+      .img {
+        width: 280px;
+      }
+    }
+  }
+
   @media (max-width: 767px) {
     padding-top: 32px;
     padding-bottom: 0;
@@ -80,6 +87,7 @@
       gap: 32px;
 
       .img {
+        width: 100%;
         max-width: 100%;
         max-height: 300px;
         display: flex;
@@ -92,7 +100,6 @@
       }
 
       .text {
-        max-width: 100%;
         padding: 56px 32px;
 
         .heading {
