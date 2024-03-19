@@ -8,23 +8,23 @@ const socials: Social[] = [
   {
     icon: 'twitter-white',
     iconDark: 'twitter',
-    link: 'https://www.twitter.com'
+    link: 'https://twitter.com/stationdex_'
   },
-  {
-    icon: 'telegram-white',
-    iconDark: 'telegram',
-    link: 'https://www.telegram.com'
-  },
-  {
-    icon: 'github-white',
-    iconDark: 'github',
-    link: 'https://www.github.com'
-  },
-  {
-    icon: 'discord-white',
-    iconDark: 'discord',
-    link: 'https://www.discord.com'
-  },
+  // {
+  //   icon: 'telegram-white',
+  //   iconDark: 'telegram',
+  //   link: 'https://www.telegram.com'
+  // },
+  // {
+  //   icon: 'github-white',
+  //   iconDark: 'github',
+  //   link: 'https://www.github.com'
+  // },
+  // {
+  //   icon: 'discord-white',
+  //   iconDark: 'discord',
+  //   link: 'https://www.discord.com'
+  // },
 ]
 
 type FooterLink = {
