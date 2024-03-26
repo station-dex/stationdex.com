@@ -62,7 +62,7 @@
       color: colors.$gray-iron-600;
     }
 
-    a.trade.now {
+    a.launch {
       width: max-content;
       display: block;
       margin-top: 24px;
@@ -72,6 +72,10 @@
       @include weights.semibold;
       color: colors.$base-white;
       border-radius: 8px;
+
+      &:hover {
+        background-color: colors.$blue-700;
+      }
     }
 
     @media (max-width: 767px) {

@@ -1,5 +1,5 @@
 @mixin display-2xl {
-  font-size: 4.5rem;
+  font-size: 4.5rem; // 72px
   line-height: 5.625rem;
   letter-spacing: -0.02em;
 }
@@ -88,6 +88,12 @@
   font-size: 30px;
   line-height: 38px;
   font-weight: 500;
+}
+
+@mixin display-3xl {
+  font-size: 96px;
+  line-height: 90px;
+  letter-spacing: -0.02em;
 }
 
 /** Fonts */

@@ -48,7 +48,13 @@ const logoSrc = `/assets/logo-full-white.svg`;
               <ul>
                 {link.sublinks.map((sublink) => (
                   <li>
-                    <a href={sublink.link}>{sublink.title}</a>
+                    <a
+                      href={sublink.link}
+                      target={sublink.external ? "_blank" : "_self"}
+                      rel={sublink.external ? "noopener noreferrer" : ""}
+                    >
+                      {sublink.title}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -74,9 +80,9 @@ const logoSrc = `/assets/logo-full-white.svg`;
         <div class="other">
           <p class="copyright">StationDEX © 2024</p>
 
-          <a href={otherLinks.privacyPolicy}>Privacy policy</a>
+          <!-- <a href={otherLinks.privacyPolicy}>Privacy policy</a>
 
-          <a href={otherLinks.termsOfUse}>Terms of use</a>
+          <a href={otherLinks.termsOfUse}>Terms of use</a> -->
 
           <div class="socials">
             {

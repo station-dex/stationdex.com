@@ -31,7 +31,8 @@ type FooterLink = {
   title: string,
   sublinks: {
     title: string,
-    link: string
+    link: string,
+    external?: boolean
   }[]
 }
 
@@ -58,12 +59,12 @@ const footerLinks: FooterLink[] = [
       },
       {
         title: 'Contact',
-        link: '/contact'
+        link: '/contact-us'
       },
-      {
-        title: 'Brand Assets',
-        link: '/brand-assets'
-      }
+      // {
+      //   title: 'Brand Assets',
+      //   link: '/brand-assets'
+      // }
     ]
   },
   {
@@ -73,10 +74,10 @@ const footerLinks: FooterLink[] = [
         title: 'Documentation',
         link: '/documentation'
       },
-      {
-        title: 'Github',
-        link: '/github'
-      },
+      // {
+      //   title: 'Github',
+      //   link: '/github'
+      // },
     ]
   },
   {
@@ -84,7 +85,8 @@ const footerLinks: FooterLink[] = [
     sublinks: [
       {
         title: 'Testnet',
-        link: '/testnet'
+        link: 'https://test.stationdex.com',
+        external: true
       },
       {
         title: 'Community',

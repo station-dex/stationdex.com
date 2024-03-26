@@ -77,6 +77,10 @@ $footer-background: radial-gradient(
           @include styles.text-md;
           @include weights.semibold;
           color: colors.$base-white;
+
+          &:hover {
+            background-color: colors.$gray-iron-800;
+          }
         }
 
         p.message {
