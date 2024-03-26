@@ -21,7 +21,7 @@ const headerLinks: HeaderLink = {
   },
   tradeNow: {
     title: 'Trade Now',
-    path: '/trade-now'
+    path: '/trade'
   }
 }
 

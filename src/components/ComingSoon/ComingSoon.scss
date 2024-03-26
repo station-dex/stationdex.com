@@ -42,7 +42,8 @@ $container-background: radial-gradient(
       }
 
       p.heading {
-        @include styles.display-2xl;
+        height: 100px;
+        @include styles.display-3xl;
         @include styles.font-work-sans;
         @include weights.semibold;
         color: transparent;
@@ -80,6 +81,10 @@ $container-background: radial-gradient(
           @include styles.text-md;
           @include weights.bold;
           color: colors.$base-white;
+
+          &:hover {
+            background-color: colors.$blue-700;
+          }
         }
 
         p.message {
@@ -103,6 +108,19 @@ $container-background: radial-gradient(
             display: none;
           }
         }
+      }
+
+      a.launch {
+        display: block;
+        margin: 0 auto;
+        margin-top: 56px;
+        width: 100%;
+        border: 1px solid colors.$blue-600;
+        max-width: 430px;
+        padding: 10px 18px;
+        border-radius: 8px;
+        color: colors.$base-white;
+        background-color: colors.$gray-true-900;
       }
     }
   }

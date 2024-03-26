@@ -49,6 +49,10 @@ header.site.header {
           color: colors.$base-white;
           border-radius: 8px;
           @include weights.semibold;
+
+          &:hover {
+            background-color: colors.$blue-700;
+          }
         }
       }
 
