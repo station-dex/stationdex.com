@@ -10,6 +10,7 @@ import Features from "@/modules/Home/Features.astro";
 
 import styles from "./index.scss?inline";
 import "@fontsource/work-sans";
+import Icon from "@/elements/Icon.astro";
 ---
 
 <BaseLayout>
@@ -23,7 +24,7 @@ import "@fontsource/work-sans";
     }}
   />
 
-  <Intro />
+  <!-- <Intro /> -->
 
   <Hero
     title={[
@@ -31,7 +32,19 @@ import "@fontsource/work-sans";
       { text: " on a Stellar Trading Experience" },
     ]}
     description="Most Trusted DEX for Swapping Crypto"
-  />
+  >
+    <div class="slot">
+      <a
+        class="launch"
+        href="https://test.stationdex.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Launch Testnet
+        <Icon variant="arrow-right" size="lg" />
+      </a>
+    </div>
+  </Hero>
 
   <Brands />
 

@@ -74,10 +74,11 @@ const footerLinks: FooterLink[] = [
         title: 'Documentation',
         link: '/documentation'
       },
-      // {
-      //   title: 'Github',
-      //   link: '/github'
-      // },
+      {
+        title: 'Github',
+        link: 'https://github.com/station-dex',
+        external: true
+      },
     ]
   },
   {

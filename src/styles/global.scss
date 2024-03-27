@@ -20,6 +20,12 @@ html:not(.dark) {
   a {
     text-decoration: none;
   }
+
+  @media (max-width: 767px) {
+    body {
+      background-color: colors.$base-white;
+    }
+  }
 }
 
 html.dark {
@@ -33,6 +39,12 @@ html.dark {
 
   a {
     text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    body {
+      background-color: colors.$base-white;
+    }
   }
 }
 

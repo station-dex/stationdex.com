@@ -9,6 +9,7 @@ interface Props {
       }[];
   description: string;
   image?: string;
+  imageMobile?: string;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   title,
   description,
   image = "/assets/home/hero.png",
+  imageMobile = "/assets/home/hero.png",
 } = Astro.props;
 
 const imageAlt =
@@ -39,7 +41,10 @@ const imageAlt =
     </div>
 
     <div class="image">
-      <img src={image} alt={imageAlt} />
+      <img src={image} alt={imageAlt} data-size="desktop" />
+      <img src={imageMobile} alt={imageAlt} data-size="mobile" />
     </div>
+
+    <slot />
   </div>
 </div>
