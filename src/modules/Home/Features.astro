@@ -5,12 +5,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const feaures = [
-  {
-    title: "Embedded DeFi Insurance",
-    description:
-      "We've gone beyond conventional security measures. Our DEX is integrated with the best robust parametric insurance protocol, ensuring the protection of your investments and safe journey.",
-    img: "/assets/home/feature-01.png",
-  },
+  // {
+  //   title: "Embedded DeFi Insurance",
+  //   description:
+  //     "We've gone beyond conventional security measures. Our DEX is integrated with the best robust parametric insurance protocol, ensuring the protection of your investments and safe journey.",
+  //   img: "/assets/home/feature-01.png",
+  // },
   {
     title: "Community Driven Protocol",
     description:
@@ -29,7 +29,7 @@ const feaures = [
 ---
 
 <div class="home features section">
-  <div class="container one">
+  <!-- <div class="container one">
     <div class="left">
       <p class="heading">
         {feaures[0].title}
@@ -45,9 +45,31 @@ const feaures = [
     <div class="right">
       <img src={feaures[0].img} alt="feature 1" />
     </div>
-  </div>
+  </div> -->
 
   <div class="container two">
+    <div class="text">
+      <p class="title">
+        {feaures[0].title}
+      </p>
+
+      <hr />
+
+      <p class="description">
+        {feaures[0].description}
+      </p>
+      <a href={feaures[0].link}>
+        Learn More
+        <Icon variant="chevron-right" />
+      </a>
+    </div>
+
+    <div class="img">
+      <img src={feaures[0].img} alt="feature 2" />
+    </div>
+  </div>
+
+  <div class="container three">
     <div class="text">
       <p class="title">
         {feaures[1].title}
@@ -66,28 +88,6 @@ const feaures = [
 
     <div class="img">
       <img src={feaures[1].img} alt="feature 2" />
-    </div>
-  </div>
-
-  <div class="container three">
-    <div class="text">
-      <p class="title">
-        {feaures[2].title}
-      </p>
-
-      <hr />
-
-      <p class="description">
-        {feaures[2].description}
-      </p>
-      <a href={feaures[2].link}>
-        Learn More
-        <Icon variant="chevron-right" />
-      </a>
-    </div>
-
-    <div class="img">
-      <img src={feaures[2].img} alt="feature 2" />
     </div>
   </div>
 

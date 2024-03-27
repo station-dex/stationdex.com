@@ -5,7 +5,7 @@
 @use "@/design-system/typography/weights";
 
 .home.features.section {
-  padding: 96px 0 16px;
+  padding: 16px 0;
   @include utils.full-width-container;
 
   display: grid;
@@ -110,7 +110,7 @@
   }
 
   @media (max-width: 768px) {
-    padding-top: 48px;
+    padding-top: 16px;
     padding-bottom: 40px;
     grid-template-columns: 1fr;
 

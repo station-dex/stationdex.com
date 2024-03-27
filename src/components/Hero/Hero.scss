@@ -20,9 +20,10 @@ $background: radial-gradient(
     border-radius: 16px;
     background: $background;
     overflow: hidden;
+    position: relative;
 
     .text.content {
-      padding: 70px 16px 0;
+      padding: 100px 16px 56px;
       max-width: 484px;
       margin: 0 auto;
       text-align: center;
@@ -55,16 +56,24 @@ $background: radial-gradient(
     }
 
     div.image {
-      margin-top: 32px;
       max-width: 100%;
       height: max-content;
 
       display: flex;
       justify-content: center;
       align-items: end;
+      overflow: hidden;
 
       img {
         object-fit: cover;
+
+        &[data-size="desktop"] {
+          display: block;
+        }
+
+        &[data-size="mobile"] {
+          display: none;
+        }
       }
     }
   }
@@ -76,7 +85,7 @@ $background: radial-gradient(
       border-radius: 0;
 
       .text.content {
-        padding: 50px 16px 0;
+        padding: 50px 16px 32px;
 
         p.intro {
           @include styles.h3;
@@ -93,7 +102,15 @@ $background: radial-gradient(
       }
 
       div.image {
-        margin-top: 32px;
+        img {
+          &[data-size="desktop"] {
+            display: none;
+          }
+
+          &[data-size="mobile"] {
+            display: block;
+          }
+        }
       }
     }
   }

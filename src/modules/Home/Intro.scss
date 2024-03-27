@@ -4,10 +4,6 @@
 @use "@/design-system/typography/styles";
 @use "@/design-system/typography/weights";
 
-.hero.component .inner .text.content {
-  max-width: 100%;
-}
-
 .home.intro.component {
   padding: 96px 0;
   @include utils.full-width-container;
@@ -94,6 +90,48 @@
         margin-top: 32px;
         width: 100%;
       }
+    }
+  }
+}
+
+.hero.component {
+  padding-top: 96px;
+
+  .inner .text.content {
+    max-width: 100%;
+  }
+
+  .slot {
+    position: absolute;
+    bottom: 88px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-wrap: nowrap;
+
+    a.launch {
+      padding: 10px 18px;
+      border-radius: 8px;
+      background-color: colors.$blue-600;
+      @include styles.text-md;
+      @include weights.semibold;
+      box-shadow: shadows.$lg;
+      color: colors.$base-white;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &:hover {
+        background-color: colors.$blue-700;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 32px;
+
+    .slot {
+      bottom: 32px;
     }
   }
 }
