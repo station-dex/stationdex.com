@@ -4,6 +4,10 @@
 @use "@/design-system/typography/styles";
 @use "@/design-system/typography/weights";
 
+.hero.component .inner .text.content {
+  max-width: 100%;
+}
+
 .home.intro.component {
   padding: 96px 0;
   @include utils.full-width-container;
