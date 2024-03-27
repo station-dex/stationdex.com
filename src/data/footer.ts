@@ -10,11 +10,11 @@ const socials: Social[] = [
     iconDark: 'twitter',
     link: 'https://twitter.com/stationdex_'
   },
-  // {
-  //   icon: 'telegram-white',
-  //   iconDark: 'telegram',
-  //   link: 'https://www.telegram.com'
-  // },
+  {
+    icon: 'telegram-white',
+    iconDark: 'telegram',
+    link: 'https://t.me/+dN2W3Uqp_jpkMmI0'
+  },
   // {
   //   icon: 'github-white',
   //   iconDark: 'github',
