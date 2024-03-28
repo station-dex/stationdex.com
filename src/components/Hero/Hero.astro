@@ -38,13 +38,13 @@ const imageAlt =
         }
       </p>
       <p class="description">{description}</p>
+
+      <slot />
     </div>
 
     <div class="image">
       <img src={image} alt={imageAlt} data-size="desktop" />
       <img src={imageMobile} alt={imageAlt} data-size="mobile" />
     </div>
-
-    <slot />
   </div>
 </div>
