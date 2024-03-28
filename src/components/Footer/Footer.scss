@@ -123,6 +123,7 @@ $footer-background: radial-gradient(
         form {
           width: 100%;
           flex-direction: column;
+          max-width: none;
 
           input,
           button {
