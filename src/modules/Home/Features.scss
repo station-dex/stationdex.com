@@ -16,6 +16,7 @@
     border-radius: 16px;
     background-color: colors.$base-white;
     overflow: hidden;
+    box-shadow: 0px 32px 64px -12px #18171c1a;
 
     hr {
       border-top: 1px solid colors.$gray-iron-200;
@@ -87,10 +88,12 @@
       }
 
       a {
+        margin: 0 auto;
         margin-top: 16px;
         @include styles.text-md;
         @include weights.semibold;
         color: colors.$blue-600;
+        width: max-content;
 
         display: flex;
         align-items: center;
