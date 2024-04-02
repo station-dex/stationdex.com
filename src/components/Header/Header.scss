@@ -13,6 +13,7 @@ header.site.header {
 
   position: fixed;
   top: 0;
+  border-bottom: 1px solid colors.$gray-iron-200;
 
   div.desktop.container {
     @include utils.full-width-container;
@@ -37,6 +38,10 @@ header.site.header {
         @include styles.text-sm;
         @include weights.regular;
         color: colors.$gray-iron-900;
+
+        &:hover:not(.active):not([data-style="button"]) {
+          color: colors.$gray-iron-600;
+        }
 
         &.active {
           @include weights.semibold;
