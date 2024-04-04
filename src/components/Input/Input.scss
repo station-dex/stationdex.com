@@ -26,18 +26,20 @@
     padding: 8px 12px;
 
     &:focus-within {
-      outline: none;
-      box-shadow: shadows.$xs, 0px 0px 0px 4px colors.$primary-100;
+      // outline: none;
+      box-shadow: var(--focus-ring-box-shadow) !important;
     }
 
-    input, textarea {
+    input,
+    textarea {
       @include styles.text-md;
       @include weights.medium;
       color: colors.$gray-800;
       flex: 1;
       outline: none;
+      box-shadow: none !important;
     }
-    
+
     textarea {
       min-height: 154px;
       resize: vertical;
