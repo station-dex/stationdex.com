@@ -9,6 +9,7 @@
   @include utils.full-width-container;
 
   @media (max-width: 767px) {
+    padding: 0;
     padding-top: 32px;
     padding-bottom: 32px;
   }

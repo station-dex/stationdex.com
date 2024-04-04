@@ -1,0 +1,43 @@
+---
+import type { Link } from "@/data/privacy-policy";
+import Icon from "@/elements/Icon.astro";
+
+interface Props {
+  links: Link[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="toc component" data-open>
+  <p class="title">Contents</p>
+
+  <hr />
+
+  <ul>
+    {
+      links.map((link) => (
+        <li>
+          <div class="row">
+            <a href={`#${link.hash}`}>{link.title}</a>
+            {link.links && (
+              <button data-open="true" data-id={link.hash}>
+                <Icon variant="chevron-down" />
+              </button>
+            )}
+          </div>
+
+          {link.links && (
+            <ul data-open="true" data-id={link.hash}>
+              {link.links.map((sublink) => (
+                <li>
+                  <a href={`#${sublink.hash}`}>{sublink.title}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</div>

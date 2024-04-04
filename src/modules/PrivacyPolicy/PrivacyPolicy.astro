@@ -1,0 +1,89 @@
+---
+import {intro, policies, tocTitles} from "@/data/privacy-policy"
+import { getHashFromTitle } from "@/util/link"
+import TableOfContents from "@/components/TableOfContents/TableOfContents.astro";
+import Icon from "@/elements/Icon.astro";
+---
+
+<div class="privacy policy page">
+  <div class="inner">
+    <h1>Privacy Policy</h1>
+
+    <div class="intro">
+      {
+        intro.map((section) => (
+          <p>{section}</p>
+        ))
+      }
+    </div>
+
+    <hr />
+
+    <button class="toc mobile" data-open>
+      Table of Contents
+      <Icon variant="chevron-right" size="lg" />
+    </button>
+
+    <div class="grid">
+      <TableOfContents links={tocTitles} />
+      
+      <div class="policies">
+        { 
+          policies.map(policy => (
+            <div class="policy">
+              <h2 id={getHashFromTitle(policy.title)}>{policy.title}</h2>
+              {
+                policy.content ? (
+                  <div class="content">
+                  {
+                    policy.content.map((content) => (
+                      Array.isArray(content) ? (
+                        <ul>
+                          {
+                            content.map((subContent) => (
+                              <li>{subContent}</li>
+                            ))
+                          }
+                        </ul>
+                      ): <p>{content}</p>
+                    ))
+                  }  
+                  </div>
+                ) : policy.sections ? (
+                  <div class="sections">
+                    {
+                      policy.sections.map((section) => (
+                        <div class="section">
+                          <h3 id={getHashFromTitle(section.title)}>{section.title}</h3>
+                          <div class="content">
+                            {
+                              section.content.map((content) => (
+                                Array.isArray(content) ? (
+                                  <ul>
+                                    {
+                                      content.map((subContent) => (
+                                      <li>{subContent}</li>
+                                    ))
+                                  }
+                                    </ul>
+                                ): <p>{content}</p>
+                              ))
+                            }
+                          </div>
+                        </div>
+                      ))
+                    }
+                  </div>
+                ) : <></>
+              }  
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <button class="scroll top" data-scroll-top>
+      <Icon variant="chevron-up" size="lg" />
+    </button>
+  </div>
+</div>
