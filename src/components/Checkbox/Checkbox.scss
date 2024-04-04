@@ -4,7 +4,6 @@
 @use "@/design-system/typography/weights";
 @use "@/design-system/shadows";
 
-
 $unchecked-background-image: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='19' height='19' rx='5.5' fill='white'/%3E%3Crect x='0.5' y='0.5' width='19' height='19' rx='5.5' stroke='%23D0D5DD'/%3E%3C/svg%3E%0A";
 
 $checked-background-image: "data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='19' height='19' rx='5.5' fill='%23EEF4FF'/%3E%3Crect x='0.5' y='0.5' width='19' height='19' rx='5.5' stroke='%23444CE7'/%3E%3Cpath d='M14.6666 6.5L8.24998 12.9167L5.33331 10' stroke='%23444CE7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A";
@@ -39,8 +38,8 @@ $checked-background-image: "data:image/svg+xml,%3Csvg width='20' height='20' vie
       width: 0;
     }
 
-    input:is(:focus-visible, :focus, :focus-within)+.checkmark {
-      box-shadow: 0px 0px 0px 4px colors.$primary-100;
+    input:is(:focus-visible, :focus, :focus-within) + .checkmark {
+      box-shadow: var(--focus-ring-box-shadow);
     }
 
     /* Create a custom checkbox */
@@ -53,7 +52,7 @@ $checked-background-image: "data:image/svg+xml,%3Csvg width='20' height='20' vie
     }
 
     /* Checkmark style when checked */
-    input:checked+.checkmark {
+    input:checked + .checkmark {
       background-image: url($checked-background-image);
     }
   }

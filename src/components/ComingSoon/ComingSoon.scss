@@ -73,6 +73,7 @@ $container-background: radial-gradient(
           @include styles.text-md;
           @include weights.regular;
           width: 300px;
+          --focus-ring-box-shadow: 0 0 0 1px #116dff, 0 0 0 3px #fff;
         }
 
         button {

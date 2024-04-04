@@ -158,6 +158,7 @@
               @include styles.text-md;
               @include weights.semibold;
               color: colors.$blue-600;
+              width: max-content;
 
               display: flex;
               align-items: center;

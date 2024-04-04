@@ -39,9 +39,8 @@
       gap: 8px;
       width: 100vw;
       margin-left: -16px;
-      margin-bottom: 16px;
 
-      position: sticky;
+      position: fixed;
 
       @include styles.text-md;
       @include weights.semibold;
@@ -208,5 +207,11 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .content.offset.mobile {
+    height: calc(72px + 44px);
   }
 }
