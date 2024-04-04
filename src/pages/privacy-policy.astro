@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Seo from "../components/Seo.astro";
+
+import styles from "./privacy-policy.scss?inline";
+import "@fontsource/work-sans";
+
+import PrivacyPolicy from "@/modules/PrivacyPolicy/PrivacyPolicy.astro";
+---
+
+<BaseLayout noFooterNewsletter>
+  <Seo
+    slot="seo"
+    title="Privacy Policy | StationDEX"
+    description="Embark on a Stellar Trading Experience"
+    og={{
+      image: "/assets/og/home.png",
+      imageAlt: "StationDEX Open Graph Banner",
+    }}
+  />
+
+  <PrivacyPolicy />
+
+  <style slot="header" is:inline set:html={styles}></style>
+
+  <Fragment slot="footer">
+    <script src="@/scripts/header/nav.js"></script>
+    <script src="@/scripts/home/slider.js"></script>
+    <script src="@/scripts/privacy-policy/toc.js"></script>
+  </Fragment>
+</BaseLayout>

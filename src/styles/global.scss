@@ -93,10 +93,9 @@ html.dark {
 }
 
 html {
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 
   body {
-    overflow-x: hidden;
     height: max-content;
     position: relative;
   }
