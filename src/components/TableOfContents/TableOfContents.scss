@@ -15,7 +15,7 @@
   .title {
     @include styles.text-lg;
     @include weights.semibold;
-    color: colors.$gray-iron-400;
+    color: colors.$gray-iron-600;
   }
 
   p,
@@ -24,7 +24,7 @@
     @include weights.semibold;
     color: colors.$gray-iron-900;
 
-    &:not(.title):hover {
+    &:not(.title):not(.active):hover {
       color: colors.$gray-iron-500;
     }
 

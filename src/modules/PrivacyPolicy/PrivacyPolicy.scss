@@ -24,6 +24,10 @@
       margin-top: 32px;
       @include styles.text-lg;
       color: colors.$gray-iron-800;
+
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     & > hr {
