@@ -64,6 +64,10 @@ $background: radial-gradient(
       align-items: end;
       overflow: hidden;
 
+      picture {
+        display: flex;
+      }
+
       img {
         object-fit: cover;
 

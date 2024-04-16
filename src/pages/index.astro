@@ -11,6 +11,7 @@ import Features from "@/modules/Home/Features.astro";
 import styles from "./index.scss?inline";
 import "@fontsource/work-sans";
 import Icon from "@/elements/Icon.astro";
+import { headerLinks } from "@/data/nav";
 ---
 
 <BaseLayout>
@@ -37,11 +38,11 @@ import Icon from "@/elements/Icon.astro";
     <div class="slot">
       <a
         class="launch"
-        href="https://test.stationdex.com"
+        href={headerLinks.launchApp.path}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Launch Testnet
+        Trade Now
         <Icon variant="arrow-right" size="lg" />
       </a>
     </div>
