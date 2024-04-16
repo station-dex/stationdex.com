@@ -42,11 +42,13 @@ const footerLinks: FooterLink[] = [
     sublinks: [
       {
         title: 'Trade',
-        link: '/trade'
+        link: 'https://app.stationdex.com/#/',
+        external: true
       },
       {
         title: 'Add Liquidity',
-        link: '/add-liquidity'
+        link: 'https://app.stationdex.com/#/pools',
+        external: true
       }
     ]
   },
@@ -84,11 +86,11 @@ const footerLinks: FooterLink[] = [
   {
     title: 'Community Zone',
     sublinks: [
-      {
-        title: 'Testnet',
-        link: 'https://test.stationdex.com',
-        external: true
-      },
+      // {
+      //   title: 'Testnet',
+      //   link: 'https://test.stationdex.com',
+      //   external: true
+      // },
       {
         title: 'Community',
         link: '/community'

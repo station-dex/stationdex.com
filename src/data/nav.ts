@@ -2,7 +2,6 @@ type HeaderLink = {
   [key: string]: {
     title: string,
     path: string
-  
   }
 }
 
@@ -19,9 +18,9 @@ const headerLinks: HeaderLink = {
     title: 'Contact Us',
     path: '/contact-us'
   },
-  tradeNow: {
-    title: 'Trade Now',
-    path: '/trade'
+  launchApp: {
+    title: 'Launch App',
+    path: 'https://app.stationdex.com/#/',
   }
 }
 
