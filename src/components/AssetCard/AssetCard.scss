@@ -1,0 +1,49 @@
+@use "@/design-system/theme/light" as light-theme;
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.asset.card.component {
+  padding: 24px;
+  background-color: colors.$gray-iron-100;
+  border-radius: 12px;
+  width: max-content;
+
+  .image {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    img,
+    embed {
+      height: 111px;
+      width: 116px;
+      object-fit: contain;
+    }
+  }
+
+  a.download {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background-color: colors.$base-white;
+    border: 1px solid colors.$gray-iron-300;
+    border-radius: 8px;
+
+    span,
+    i[data-size] {
+      color: colors.$gray-iron-700;
+      @include styles.text-xs;
+    }
+
+    &:hover {
+      background-color: colors.$gray-iron-100;
+    }
+  }
+}

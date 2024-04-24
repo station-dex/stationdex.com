@@ -135,6 +135,7 @@ const paths: Path = {
   "stationdex-round": import("./custom/Brands/default/SvgStationdexRound.svg?raw"),
   "check-circle-filled": import("./custom/check-circle-filled.svg?raw"),
   "stationdex-lock": import("./custom/stationdex-lock.svg?raw"),
+  "download-03": import("./variants/General/download-03.svg?raw"),
 };
 
 export { paths };
