@@ -62,10 +62,6 @@ const footerLinks: FooterLink[] = [
       {
         title: 'Contact',
         link: '/contact-us'
-      },
-      {
-        title: 'Brand Assets',
-        link: '/brand-assets'
       }
     ]
   },
@@ -81,6 +77,10 @@ const footerLinks: FooterLink[] = [
         link: 'https://github.com/station-dex',
         external: true
       },
+      {
+        title: 'Brand Assets',
+        link: '/brand-assets'
+      }
     ]
   },
   {
