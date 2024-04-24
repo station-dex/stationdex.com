@@ -1,15 +1,13 @@
 ---
-import { STATIC_URL_BASE } from "@/data/brand-assets";
 import Icon from "@/elements/Icon.astro";
 
 interface Props {
   label: string;
-  prefix?: string;
+  href: string;
 }
 
-const { label, prefix }: Props = Astro.props;
+const { label, href }: Props = Astro.props;
 
-const url = `${STATIC_URL_BASE}/${prefix ? prefix + "/" : ""}${label}`;
 const isPdf = label.endsWith(".pdf");
 ---
 
@@ -17,14 +15,14 @@ const isPdf = label.endsWith(".pdf");
   <div class="image">
     {
       isPdf ? (
-        <embed src={url} type="application/pdf" />
+        <embed src={href} type="application/pdf" />
       ) : (
-        <img src={url} alt={label} />
+        <img src={href} alt={label} />
       )
     }
   </div>
 
-  <a href={url} class="download" download={label} target="_blank">
+  <a href={href} class="download" download={label} target="_blank">
     <span>{label}</span>
     <Icon variant="download-03" size="lg" />
   </a>
