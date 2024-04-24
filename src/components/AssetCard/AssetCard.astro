@@ -1,0 +1,31 @@
+---
+import { STATIC_URL_BASE } from "@/data/brand-assets";
+import Icon from "@/elements/Icon.astro";
+
+interface Props {
+  label: string;
+  prefix?: string;
+}
+
+const { label, prefix }: Props = Astro.props;
+
+const url = `${STATIC_URL_BASE}/${prefix ? prefix + "/" : ""}${label}`;
+const isPdf = label.endsWith(".pdf");
+---
+
+<div class="asset card component">
+  <div class="image">
+    {
+      isPdf ? (
+        <embed src={url} type="application/pdf" />
+      ) : (
+        <img src={url} alt={label} />
+      )
+    }
+  </div>
+
+  <a href={url} class="download" download={label} target="_blank">
+    <span>{label}</span>
+    <Icon variant="download-03" size="lg" />
+  </a>
+</div>

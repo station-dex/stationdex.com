@@ -63,10 +63,10 @@ const footerLinks: FooterLink[] = [
         title: 'Contact',
         link: '/contact-us'
       },
-      // {
-      //   title: 'Brand Assets',
-      //   link: '/brand-assets'
-      // }
+      {
+        title: 'Brand Assets',
+        link: '/brand-assets'
+      }
     ]
   },
   {

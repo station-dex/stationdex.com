@@ -1,0 +1,115 @@
+---
+import AssetCard from "@/components/AssetCard/AssetCard.astro";
+import { assets } from "@/data/brand-assets";
+
+const { logo, logomark, icon, pdf } = assets;
+---
+
+<div class="brand assets page">
+  <div class="inner">
+    <h1>Brand Assets</h1>
+
+    <hr />
+
+    <div class="section">
+      <h2>Logo</h2>
+
+      <div class="row">
+        <h3>PNG</h3>
+
+        <div class="grid">
+          {
+            logo.png.map((name) => {
+              return <AssetCard label={name} prefix="logo" />;
+            })
+          }
+        </div>
+      </div>
+
+      <div class="row">
+        <h3>SVG</h3>
+
+        <div class="grid">
+          {
+            logo.svg.map((name) => {
+              return <AssetCard label={name} prefix="logo" />;
+            })
+          }
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="section">
+        <h2>Logomark</h2>
+
+        <div class="row">
+          <h3>PNG</h3>
+
+          <div class="grid">
+            {
+              logomark.png.map((name) => {
+                return <AssetCard label={name} prefix="logomark" />;
+              })
+            }
+          </div>
+        </div>
+
+        <div class="row">
+          <h3>SVG</h3>
+
+          <div class="grid">
+            {
+              logomark.svg.map((name) => {
+                return <AssetCard label={name} prefix="logomark" />;
+              })
+            }
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="section">
+        <h2>Icon Only</h2>
+
+        <div class="row">
+          <h3>PNG</h3>
+
+          <div class="grid">
+            {
+              icon.png.map((name) => {
+                return <AssetCard label={name} prefix="icon" />;
+              })
+            }
+          </div>
+        </div>
+
+        <div class="row">
+          <h3>SVG</h3>
+
+          <div class="grid">
+            {
+              icon.svg.map((name) => {
+                return <AssetCard label={name} prefix="icon" />;
+              })
+            }
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="section">
+        <h2>StationDEX Teaser</h2>
+
+        <div class="row">
+          <h3>PDF</h3>
+          <div class="grid">
+            <AssetCard label={pdf} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

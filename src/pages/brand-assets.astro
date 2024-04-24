@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Seo from "@/components/Seo.astro";
+
+import WhyWeCreated from "@/modules/BrandAssets/BrandAssets.astro";
+
+import styles from "./brand-assets.scss?inline";
+import "@fontsource/work-sans";
+---
+
+<BaseLayout noFooterNewsletter>
+  <Seo
+    slot="seo"
+    title="Brand Assets | StationDEX"
+    description="Embark on a Stellar Trading Experience"
+    og={{
+      image: "/assets/og/home.png",
+      imageAlt: "StationDEX Open Graph Banner",
+    }}
+  />
+
+  <WhyWeCreated />
+
+  <style slot="header" is:inline set:html={styles}></style>
+
+  <Fragment slot="footer">
+    <script src="@/scripts/header/nav.js"></script>
+  </Fragment>
+</BaseLayout>
