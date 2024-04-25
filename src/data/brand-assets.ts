@@ -57,6 +57,18 @@ const data = [
           {
             title: "Light-512px",
             href: "/brand-assets/logomark/SD-logomark-blackonwhite-512px.png"
+          },
+          {
+            title: "Primary-200px",
+            href: "/brand-assets/logomark/SD-logomark-primary-200px.png"
+          },
+          {
+            title: "Dark-200px",
+            href: "/brand-assets/logomark/SD-logomark-whiteonblack-200px.png"
+          },
+          {
+            title: "Light-200px",
+            href: "/brand-assets/logomark/SD-logomark-blackonwhite-200px.png"
           }
         ]
       },
@@ -74,7 +86,19 @@ const data = [
           {
             title: "Light-512px",
             href: "/brand-assets/logomark/SD-logomark-blackonwhite-512px.svg"
-          }
+          },
+          {
+            title: "Primary-200px",
+            href: "/brand-assets/logomark/SD-logomark-primary-200px.svg"
+          },
+          {
+            title: "Dark-200px",
+            href: "/brand-assets/logomark/SD-logomark-whiteonblack-200px.svg"
+          },
+          {
+            title: "Light-200px",
+            href: "/brand-assets/logomark/SD-logomark-blackonwhite-200px.svg"
+          },
         ]
       }
     ],
