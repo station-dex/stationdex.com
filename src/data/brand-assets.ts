@@ -1,5 +1,3 @@
-const STATIC_URL_BASE = "https://static.stationdex.com";
-
 const data = [
   {
     type: "section",
@@ -130,7 +128,4 @@ const data = [
   }
 ]
 
-export {
-  data,
-  STATIC_URL_BASE,
-}
+export { data }

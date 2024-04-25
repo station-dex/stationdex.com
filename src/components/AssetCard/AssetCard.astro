@@ -8,7 +8,7 @@ interface Props {
 
 const { label, href }: Props = Astro.props;
 
-const isPdf = label.endsWith(".pdf");
+const isPdf = href.endsWith(".pdf");
 ---
 
 <div class="asset card component">

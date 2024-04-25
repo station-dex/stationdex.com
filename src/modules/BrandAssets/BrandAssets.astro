@@ -1,6 +1,6 @@
 ---
 import AssetCard from "@/components/AssetCard/AssetCard.astro";
-import { STATIC_URL_BASE, data } from "@/data/brand-assets";
+import { data } from "@/data/brand-assets";
 ---
 
 <div class="brand assets page">
@@ -25,7 +25,7 @@ import { STATIC_URL_BASE, data } from "@/data/brand-assets";
                       <div class="grid">
                         {
                           subsection.items.map((item) => {
-                            return <AssetCard label={item.title} href={STATIC_URL_BASE + item.href} />;
+                            return <AssetCard label={item.title} href={item.href} />;
                           })
                         }
                       </div>
