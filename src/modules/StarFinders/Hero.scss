@@ -1,0 +1,108 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.star.finders.hero {
+  background-color: colors.$base-white;
+  padding-top: 80px;
+
+  .inner {
+    @include utils.full-width-container;
+
+    .wrapper {
+      background-image: url("/assets/star-finders/hero.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 15 / 8;
+
+      .component {
+        padding: 210px 0 152px;
+        margin: auto;
+
+        .content {
+          backdrop-filter: blur(10px);
+          padding: 78px 52px 56px;
+          width: max-content;
+          margin: auto;
+          max-width: 100%;
+
+          i.shield {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+          }
+
+          h1 {
+            @include styles.h1;
+            color: colors.$base-white;
+            margin-bottom: 24px;
+            @include styles.font-work-sans;
+            text-align: center;
+
+            span {
+              color: colors.$yellow-400;
+            }
+          }
+
+          p {
+            @include styles.display-xs;
+            @include weights.medium;
+            color: colors.$base-white;
+            text-align: center;
+          }
+
+          div.cta {
+            margin-top: 32px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+
+            button {
+              padding: 6px 10px;
+              border-radius: 8px;
+
+              @include styles.text-sm;
+              @include weights.semibold;
+              color: colors.$base-white;
+
+              &.swap {
+                background: utils.$banner-cta-gradient;
+              }
+
+              &.add {
+                border: 1px solid colors.$blue-600;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .inner {
+      .wrapper {
+        aspect-ratio: auto;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .inner {
+      .wrapper {
+        .component {
+          .content {
+            padding: 78px 24px 56px;
+          }
+        }
+      }
+    }
+  }
+}

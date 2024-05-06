@@ -1,5 +1,5 @@
 const getHashFromTitle = (title: string) => {
-  return title.toLowerCase().replace(/\s/g, '_');
+  return title.toLowerCase().replace(/[^\w]/g, '_');
 }
 
 export {

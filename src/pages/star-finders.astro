@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Seo from "../components/Seo.astro";
+
+import styles from "./star-finders.scss?inline";
+import "@fontsource/work-sans";
+
+import PrivacyPolicy from "@/modules/PrivacyPolicy/PrivacyPolicy.astro";
+import Hero from "@/modules/StarFinders/Hero.astro";
+import Content from "@/modules/StarFinders/Content.astro";
+---
+
+<BaseLayout noFooterNewsletter>
+  <Seo
+    slot="seo"
+    title="Starfinders Program | StationDEX"
+    description="Embark on a Stellar Trading Experience"
+    og={{
+      image: "/assets/og/home.png",
+      imageAlt: "StationDEX Open Graph Banner",
+    }}
+  />
+
+  <Hero />
+
+  <Content />
+
+  <style slot="header" is:inline set:html={styles}></style>
+
+  <Fragment slot="footer">
+    <script src="@/scripts/header/nav.js"></script>
+    <script src="@/scripts/home/slider.js"></script>
+    <script src="@/scripts/privacy-policy/toc.js"></script>
+  </Fragment>
+</BaseLayout>

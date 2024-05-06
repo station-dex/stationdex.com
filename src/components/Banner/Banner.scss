@@ -46,6 +46,7 @@
     justify-content: space-between;
 
     .decor {
+      flex-shrink: 0;
       display: flex;
       align-items: center;
 
@@ -113,6 +114,48 @@
             @include styles.text-sm;
             @include weights.semibold;
             color: colors.$base-white;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-bottom: 24px;
+
+    .banner.component {
+      .decor {
+        display: none;
+      }
+
+      .content {
+        flex-direction: column;
+
+        .text {
+          p.title {
+            @include styles.text-md;
+          }
+
+          p.description {
+            @include styles.text-xs;
+          }
+        }
+
+        .cta {
+          padding: 18px 16px;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 479px) {
+    .banner.component {
+      .content {
+        .cta {
+          a.read {
+            width: 100%;
+            justify-content: center;
           }
         }
       }

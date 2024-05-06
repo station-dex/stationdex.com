@@ -137,7 +137,8 @@ const paths: Path = {
   "check-circle-filled": import("./custom/check-circle-filled.svg?raw"),
   "stationdex-lock": import("./custom/stationdex-lock.svg?raw"),
   "banner-bar": import("./custom/banner-bar.svg?raw"),
-  "banner-arrows": import("./custom/banner-arrows.svg?raw")
+  "banner-arrows": import("./custom/banner-arrows.svg?raw"),
+  "title-shield": import("./custom/title-shield.svg?raw"),
 };
 
 export { paths };
