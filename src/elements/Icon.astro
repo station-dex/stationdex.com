@@ -4,9 +4,10 @@ import { paths } from "./icons/paths";
 interface Props {
   variant: string;
   size?: "2xl" | "xl" | "lg" | "md" | "sm" | "xs";
+  className?: string;
 }
 
-const { variant, size } = Astro.props;
+const { variant, size, className } = Astro.props;
 
 let innerHTML = null;
 
@@ -15,6 +16,6 @@ if (variant !== undefined && paths[variant] !== undefined) {
 }
 ---
 
-<i data-size={size}>
+<i data-size={size} class={className || ""}>
   <Fragment set:html={innerHTML || variant} />
 </i>

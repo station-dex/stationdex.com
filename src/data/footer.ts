@@ -41,13 +41,13 @@ const footerLinks: FooterLink[] = [
     title: 'Command Deck',
     sublinks: [
       {
-        title: 'Trade',
-        link: 'https://app.stationdex.com/#/',
+        title: 'Swap',
+        link: 'https://app.stationdex.com/',
         external: true
       },
       {
         title: 'Add Liquidity',
-        link: 'https://app.stationdex.com/#/pools',
+        link: 'https://app.stationdex.com/pools',
         external: true
       }
     ]
