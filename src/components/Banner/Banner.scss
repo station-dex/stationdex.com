@@ -1,0 +1,121 @@
+@use "@/design-system/theme/light" as light-theme;
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+@keyframes multiFadeInLeft {
+  0%,
+  20% {
+    opacity: 0.5;
+    transform: translateX(-7px);
+  }
+
+  80%,
+  100% {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+}
+
+@keyframes multiFadeInRight {
+  0%,
+  20% {
+    opacity: 0.5;
+    transform: scaleX(-1) translateX(-7px);
+  }
+
+  80%,
+  100% {
+    opacity: 1;
+    transform: scaleX(-1) translateX(3px);
+  }
+}
+
+.homepage.banner.wrapper {
+  @include utils.full-width-container;
+  padding-top: 56px;
+
+  .banner.component {
+    background-color: colors.$gray-iron-900;
+    padding: 12px;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+
+    .decor {
+      display: flex;
+      align-items: center;
+
+      .arrows {
+        opacity: 0;
+      }
+
+      &.left {
+        .arrows {
+          animation: multiFadeInLeft 0.75s linear 0.5s 2;
+          transform: translateX(-7px);
+        }
+      }
+
+      &.right {
+        .arrows {
+          animation: multiFadeInRight 0.75s linear 0.5s 2;
+          transform: translateX(-7px);
+        }
+      }
+    }
+
+    .content {
+      flex: 1;
+
+      display: flex;
+
+      .text {
+        padding-left: 16px;
+
+        p.title {
+          @include styles.text-lg;
+          @include weights.medium;
+          color: colors.$base-white;
+
+          span {
+            color: colors.$yellow-300;
+          }
+        }
+
+        p.description {
+          @include styles.text-sm;
+          color: colors.$gray-iron-400;
+          max-width: 800px;
+        }
+      }
+
+      .cta {
+        padding: 18px 16px 18px 32px;
+        display: flex;
+        align-items: center;
+
+        a.read {
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          gap: 8px;
+
+          padding: 6px 10px;
+          background: utils.$banner-cta-gradient;
+          border-radius: 8px;
+
+          &,
+          i {
+            @include styles.text-sm;
+            @include weights.semibold;
+            color: colors.$base-white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@ import styles from "./index.scss?inline";
 import "@fontsource/work-sans";
 import Icon from "@/elements/Icon.astro";
 import { headerLinks } from "@/data/nav";
+import Banner from "@/components/Banner/Banner.astro";
 ---
 
 <BaseLayout>
@@ -25,7 +26,7 @@ import { headerLinks } from "@/data/nav";
     }}
   />
 
-  <!-- <Intro /> -->
+  <Banner />
 
   <Hero
     title={[
@@ -42,7 +43,7 @@ import { headerLinks } from "@/data/nav";
         target="_blank"
         rel="noopener noreferrer"
       >
-        Trade Now
+        Swap Now
         <Icon variant="arrow-right" size="lg" />
       </a>
     </div>

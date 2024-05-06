@@ -77,6 +77,8 @@
 
 $gradient: linear-gradient(270deg, #007bff 12.53%, #7443ff 74.94%);
 
+$banner-cta-gradient: linear-gradient(69.89deg, #0778ff -2%, #7443ff 73.2%);
+
 @mixin clip-gradient {
   background: $gradient;
   -webkit-background-clip: text;

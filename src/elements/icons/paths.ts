@@ -129,13 +129,15 @@ const paths: Path = {
   "telegram-white": import("./variants/Socials/svg/white/Telegram.svg?raw"),
   "github-white": import("./variants/Socials/svg/white/GitHub.svg?raw"),
   "discord-white": import("./variants/Socials/svg/white/Discord.svg?raw"),
+  "download-03": import("./variants/General/download-03.svg?raw"),
 
   // custom
   "snowflake-round": import("./custom/Brands/default/SvgSnowflakeRound.svg?raw"),
   "stationdex-round": import("./custom/Brands/default/SvgStationdexRound.svg?raw"),
   "check-circle-filled": import("./custom/check-circle-filled.svg?raw"),
   "stationdex-lock": import("./custom/stationdex-lock.svg?raw"),
-  "download-03": import("./variants/General/download-03.svg?raw"),
+  "banner-bar": import("./custom/banner-bar.svg?raw"),
+  "banner-arrows": import("./custom/banner-arrows.svg?raw")
 };
 
 export { paths };
