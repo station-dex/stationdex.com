@@ -42,12 +42,12 @@ const footerLinks: FooterLink[] = [
     sublinks: [
       {
         title: 'Swap',
-        link: 'https://app.stationdex.com/#/',
+        link: 'https://app.stationdex.com/',
         external: true
       },
       {
         title: 'Add Liquidity',
-        link: 'https://app.stationdex.com/#/pools',
+        link: 'https://app.stationdex.com/pools',
         external: true
       }
     ]
