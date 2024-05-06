@@ -28,9 +28,11 @@
         .content {
           backdrop-filter: blur(10px);
           padding: 78px 52px 56px;
-          width: max-content;
+          width: calc(68% + 5px);
           margin: auto;
           max-width: 100%;
+          border: 1px solid rgba(colors.$yellow-500, 0.07);
+          border-radius: 8px;
 
           i.shield {
             position: absolute;
@@ -73,7 +75,7 @@
               color: colors.$base-white;
 
               &.swap {
-                background: utils.$banner-cta-gradient;
+                background: colors.$blue-600;
               }
 
               &.add {
@@ -90,6 +92,10 @@
     .inner {
       .wrapper {
         aspect-ratio: auto;
+
+        .content {
+          width: max-content;
+        }
       }
     }
   }

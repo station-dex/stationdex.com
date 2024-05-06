@@ -8,7 +8,7 @@
 @keyframes multiFadeInLeft {
   0%,
   20% {
-    opacity: 0.5;
+    opacity: 0;
     transform: translateX(-7px);
   }
 
@@ -22,7 +22,7 @@
 @keyframes multiFadeInRight {
   0%,
   20% {
-    opacity: 0.5;
+    opacity: 0;
     transform: scaleX(-1) translateX(-7px);
   }
 
@@ -39,8 +39,10 @@
 
   .banner.component {
     background-color: colors.$gray-iron-900;
+    position: relative;
     padding: 12px;
     border-radius: 8px;
+    z-index: 0;
 
     display: flex;
     justify-content: space-between;
@@ -56,14 +58,14 @@
 
       &.left {
         .arrows {
-          animation: multiFadeInLeft 0.75s linear 0.5s 2;
+          animation: multiFadeInLeft 0.75s linear 0.25s infinite;
           transform: translateX(-7px);
         }
       }
 
       &.right {
         .arrows {
-          animation: multiFadeInRight 0.75s linear 0.5s 2;
+          animation: multiFadeInRight 0.75s linear 0.25s infinite;
           transform: translateX(-7px);
         }
       }
@@ -95,7 +97,7 @@
       }
 
       .cta {
-        padding: 18px 16px 18px 32px;
+        padding: 8px 16px 8px 32px;
         display: flex;
         align-items: center;
 
@@ -106,8 +108,11 @@
           gap: 8px;
 
           padding: 6px 10px;
-          background: utils.$banner-cta-gradient;
+          border: 1px solid colors.$blue-600;
           border-radius: 8px;
+          background-color: colors.$gray-iron-900;
+
+          @include utils.gradient-border-highlight;
 
           &,
           i {
