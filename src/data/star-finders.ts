@@ -1,4 +1,4 @@
-import { getHashFromTitle } from "@/util/link";
+import { getHashFromTitle } from '@/util/link';
 
 interface ContentItem {
   title: string;
@@ -18,21 +18,21 @@ const contentItems: ContentItem[] = [
     ]
   },
   {
-    title: "★Stars",
+    title: "Stars",
     content: [
       "StationDEX has designed a stellar point system program to incentivize activity and reward its loyal community, the Stationers. In the StationDEX constellation, points are called Stars where: 1 star = 1 point. Stars can be fractional, meaning you can earn part of a star. Stationers, you have been called to join the mission of the Starfinders Program: Collect as many stars as you can, advance through the leaderboard, and move up in rankings to steer StationDEX and earn rewards.",
       "Stationers earn stars by one of the following means:"
     ],
     sections: [
       {
-        title: "★Swaping",
+        title: "Swaping",
         content: [
-          "Swaping a token earns a default amount of <b>15 stars per dollar swapped</b>. Additional stars may be allocated if there is a boost.  Stars are allocated only for token pairs listed in the <b>Star Allocation Table</b>.",
+          "Swaping a token earns a default amount of <b>15 stars per dollar swapped</b>. Additional stars may be allocated if there is a boost. Stars are allocated only for token pairs listed in the <b>Star Allocation Table</b>.",
           "Transactions should be made using StationDEX contracts directly."
         ]
       },
       {
-        title: "★Adding Liquidity",
+        title: "Adding Liquidity",
         content: [
           "Adding pool liquidy earns a default amount of <b>1 star per dollar per day</b>. Stars are allocated only for pools listed in the <b>Star Allocation Table</b>. Additional stars may be allocated if there is a boost.",
           "The calculation of stars in a liquidity pool does not consider changes in the market price of the token pair over time. For instance, if you invest $1000 worth of WETH and $1000 worth of USDT in a WETH/USDT pool, you will earn 2000 stars per day. Even if the price of WETH doubles, you will still earn 2000 stars per day because the price change is not factored into the star calculation.",
@@ -41,7 +41,7 @@ const contentItems: ContentItem[] = [
         ]
       },
       {
-        title: "★Star Rewards for Mission # 1",
+        title: "Star Rewards for Mission # 1",
         content: [
           [
             "20% of the token supply shall be used for rewarding users with stars.",
@@ -50,7 +50,7 @@ const contentItems: ContentItem[] = [
         ]
       },
       {
-        title: "★Stage 2: In-App Referral Bonus",
+        title: "Stage 2: In-App Referral Bonus",
         content: [
           "Referral feature will be launched soon. Additional points will be provided to the users once the referral program is announced."
         ]
@@ -87,20 +87,20 @@ const contentItems: ContentItem[] = [
         ]
       },
       {
-        title: "2. How is Boost calculated?",
+        title: "2. How is boost calculated?",
         content: [
-          "For certain pools a multiplier is used to boost your stars.  For each pool the boost is identified for the trade (swap) action, or the provide pool liquidity action.  Boosted stars apply specifically to your activity within these specific pools."
+          "For certain pools a multiplier is used to boost your stars. For each pool the boost is identified for the trade (swap) action, or the provide pool liquidity action. Boosted stars apply specifically to your activity within these specific pools."
         ]
       },
       {
-        title: "3. What can I do with my Stars?",
+        title: "3. What can I do with my stars?",
         content: [
           "Your stars will be used to move up in rankings in the Starfinders Program to determine your allocation of StationDEX tokens when they are airdropped. To see the amount of StationDEX tokens allocated for Mission #1 refer to “Star Rewards for Mission #1”.",
           "StationDEX has not yet launched its token either on a DEX or CEX and so for the time being no tokens are available to be airdropped to Stationers who have accumulated Stars. As soon as the StationDEX token is launched Stationers can expect to receive token rewards based on their holdings of Stars."
         ]
       },
       {
-        title: "4. How do I see my Stars?",
+        title: "4. How do I see my stars?",
         content: [
           "You can look at your collection of Stars in <a href='https://leaderboard.stationdex.com' target='_blank'>https://leaderboard.stationdex.com</a>. The Leader board will list the entire community of Stationers and their respective Stars."
         ]
@@ -138,7 +138,4 @@ const tocTitles: Link[] = contentItems.map(item => {
   return link;
 });
 
-export {
-  contentItems,
-  tocTitles
-}
+export { contentItems, tocTitles };
