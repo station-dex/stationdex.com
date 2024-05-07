@@ -101,14 +101,22 @@
   }
 
   @media (max-width: 767px) {
+    padding-top: 0;
+    position: relative;
+    top: -1px;
+
     .inner {
+      padding: 0;
+
       .wrapper {
+        border-radius: 0;
+
         .component {
-          padding: 250px 0 100px;
+          padding: 250px 0 130px;
 
           .content {
             padding: 78px 16px 56px;
-            width: 90%;
+            width: calc(100% - 32px);
 
             h1 {
               @include styles.h2;
