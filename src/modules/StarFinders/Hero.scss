@@ -104,8 +104,25 @@
     .inner {
       .wrapper {
         .component {
+          padding: 250px 0 100px;
+
           .content {
-            padding: 78px 24px 56px;
+            padding: 78px 16px 56px;
+            width: 90%;
+
+            h1 {
+              @include styles.h2;
+              // margin-bottom: 16px;
+            }
+
+            div.cta {
+              flex-direction: column;
+
+              a {
+                width: 100%;
+                text-align: center;
+              }
+            }
           }
         }
       }
