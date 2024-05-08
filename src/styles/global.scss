@@ -106,6 +106,10 @@ html {
 
       box-shadow: var(--focus-ring-box-shadow) !important;
     }
+
+    button:focus {
+      outline: none;
+    }
   }
 }
 

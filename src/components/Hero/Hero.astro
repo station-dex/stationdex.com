@@ -27,16 +27,16 @@ const imageAlt =
 <div class="hero component">
   <div class="inner">
     <div class="text content">
-      {intro && <p class="intro">{intro}</p>}
-      <p class="title">
+      {intro && <h3 class="intro">{intro}</h3>}
+      <h1 class="title">
         {
           typeof title === "string"
             ? title
             : title.map(({ text, highlight }) =>
-                highlight ? <span class="highlight">{text}</span> : text
+                highlight ? <span class="highlight">{text}</span> : text,
               )
         }
-      </p>
+      </h1>
       <p class="description">{description}</p>
 
       <slot />

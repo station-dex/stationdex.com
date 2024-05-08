@@ -38,7 +38,7 @@ $background: radial-gradient(
         color: colors.$base-white;
       }
 
-      p.title {
+      .title {
         @include styles.h1;
         @include styles.font-work-sans;
         color: colors.$base-white;
@@ -91,11 +91,11 @@ $background: radial-gradient(
       .text.content {
         padding: 50px 16px 32px;
 
-        p.intro {
+        .intro {
           @include styles.h3;
         }
 
-        p.title {
+        .title {
           @include styles.h2;
         }
 

@@ -21,7 +21,7 @@ $container-background: radial-gradient(
     background-image: url("/assets/coming-soon/stars.png"),
       $container-background;
     background-size: contain;
-    padding: 142px 0 250px;
+    padding: 142px 0 196px;
     border-radius: 32px;
 
     .content {
@@ -34,22 +34,21 @@ $container-background: radial-gradient(
         margin: 0 auto;
       }
 
-      p.subheading {
+      .subheading {
         @include styles.text-xl;
         @include weights.regular;
         color: colors.$base-white;
-        margin-top: 16px;
+        margin-top: 8px;
       }
 
-      p.heading {
-        height: 100px;
-        @include styles.display-3xl;
+      .heading {
+        @include styles.h1;
         @include styles.font-work-sans;
         @include weights.semibold;
         color: transparent;
         @include utils.clip-gradient;
         letter-spacing: -0.02em;
-        margin-top: 32px;
+        margin-top: 24px;
       }
 
       form {
@@ -140,17 +139,17 @@ $container-background: radial-gradient(
           max-width: 200px;
         }
 
-        p.heading {
+        .heading {
           @include styles.display-lg;
           display: inline;
         }
 
-        p.subheading {
+        .subheading {
           @include styles.text-lg;
         }
 
         form {
-          margin-top: 24px;
+          margin-top: 92px;
           display: block;
           width: 100%;
 

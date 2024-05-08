@@ -19,7 +19,9 @@ import { getHashFromTitle } from "@/util/link";
         {
           contentItems.map((item) => (
             <div class="item">
-              <h2 id={getHashFromTitle(item.title)}>{item.title}</h2>
+              <h2 class="hash link" id={getHashFromTitle(item.title)}>
+                {item.title}
+              </h2>
 
               <>
                 {item.content && (
@@ -33,7 +35,7 @@ import { getHashFromTitle } from "@/util/link";
                         </ul>
                       ) : (
                         <p set:html={content} />
-                      )
+                      ),
                     )}
                   </div>
                 )}
@@ -44,7 +46,10 @@ import { getHashFromTitle } from "@/util/link";
                   <div class="sections">
                     {item.sections.map((section) => (
                       <div class="section">
-                        <h3 id={getHashFromTitle(section.title)}>
+                        <h3
+                          class="hash link"
+                          id={getHashFromTitle(section.title)}
+                        >
                           {section.title}
                         </h3>
                         <div class="content">
@@ -62,7 +67,7 @@ import { getHashFromTitle } from "@/util/link";
                                 <p class="title">{content.title}</p>
                                 <p class="text" set:html={content.text} />
                               </div>
-                            )
+                            ),
                           )}
                         </div>
                       </div>

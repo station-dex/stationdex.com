@@ -74,7 +74,7 @@
         margin: 24px 0;
       }
 
-      p.title {
+      .title {
         @include styles.h3;
         @include styles.font-work-sans;
         color: colors.$base-black;
@@ -141,7 +141,7 @@
           overflow: hidden;
 
           .text {
-            p.title {
+            .title {
               @include styles.h3;
               color: colors.$base-black;
             }

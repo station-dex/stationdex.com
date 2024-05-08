@@ -30,9 +30,9 @@ const { links } = Astro.props;
           {link.links && (
             <ul data-open="true" data-id={link.hash}>
               {link.links.map((sublink) => (
-                <li>
-                  <a href={`#${sublink.hash}`}>{sublink.title}</a>
-                </li>
+                <a href={`#${sublink.hash}`}>
+                  <li>{sublink.title}</li>
+                </a>
               ))}
             </ul>
           )}

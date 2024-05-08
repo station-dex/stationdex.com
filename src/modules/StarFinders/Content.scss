@@ -46,7 +46,7 @@
         height: max-content;
         max-height: calc(100vh - $header-height);
 
-        & > p.title {
+        & > .title {
           color: colors.$gray-iron-400;
         }
       }

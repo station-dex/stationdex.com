@@ -26,7 +26,7 @@
     padding: 56px;
 
     .top {
-      p.heading {
+      .heading {
         @include styles.h2;
         @include styles.font-work-sans;
       }
@@ -61,7 +61,7 @@
           color: colors.$gray-iron-400;
         }
 
-        p.title {
+        .title {
           @include styles.h3;
           @include styles.font-work-sans;
         }
@@ -84,7 +84,7 @@
       background-color: transparent;
 
       .top {
-        p.heading {
+        .heading {
           @include styles.h3;
         }
 
