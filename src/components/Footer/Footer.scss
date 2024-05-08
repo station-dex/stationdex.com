@@ -146,7 +146,7 @@ $footer-background: radial-gradient(
     border-radius: 16px 16px 0 0;
     color: colors.$base-white;
 
-    p.heading {
+    .heading {
       @include styles.h3;
       @include styles.font-work-sans;
       margin-top: 8px;
@@ -168,7 +168,7 @@ $footer-background: radial-gradient(
           text-align: left;
         }
 
-        p.title {
+        .title {
           @include weights.semibold;
         }
 
@@ -199,7 +199,7 @@ $footer-background: radial-gradient(
       border-top: 1px solid colors.$gray-iron-700;
       text-align: left;
 
-      p.heading {
+      .heading {
         @include styles.text-md;
         @include weights.semibold;
         color: colors.$base-white;
@@ -254,7 +254,7 @@ $footer-background: radial-gradient(
         height: 32px;
       }
 
-      p.heading {
+      .heading {
         @include styles.h3;
       }
 
@@ -269,7 +269,7 @@ $footer-background: radial-gradient(
             @include styles.text-md;
           }
 
-          p.title {
+          .title {
             @include weights.semibold;
           }
 

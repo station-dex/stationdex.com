@@ -17,7 +17,7 @@
       max-width: 768px;
       margin: 0 auto;
 
-      p.heading {
+      .heading {
         @include styles.h1;
         @include styles.font-work-sans;
       }
@@ -100,7 +100,7 @@
 
       .text {
         text-align: left;
-        p.heading {
+        .heading {
           @include styles.h2;
         }
 

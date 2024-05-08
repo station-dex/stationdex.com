@@ -31,7 +31,7 @@ import Icon from "@/elements/Icon.astro";
         { 
           policies.map(policy => (
             <div class="policy">
-              <h2 id={getHashFromTitle(policy.title)}>{policy.title}</h2>
+              <h2 class="hash link" id={getHashFromTitle(policy.title)}>{policy.title}</h2>
               {
                 policy.content ? (
                   <div class="content">
@@ -54,7 +54,7 @@ import Icon from "@/elements/Icon.astro";
                     {
                       policy.sections.map((section) => (
                         <div class="section">
-                          <h3 id={getHashFromTitle(section.title)}>{section.title}</h3>
+                          <h3 class="hash link" id={getHashFromTitle(section.title)}>{section.title}</h3>
                           <div class="content">
                             {
                               section.content.map((content) => (

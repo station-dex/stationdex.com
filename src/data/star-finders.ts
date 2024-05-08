@@ -25,9 +25,9 @@ const contentItems: ContentItem[] = [
     ],
     sections: [
       {
-        title: "Swaping",
+        title: "Swapping",
         content: [
-          "Swaping a token earns a default amount of <b>15 stars per dollar swapped</b>. Additional stars may be allocated if there is a boost. Stars are allocated only for token pairs listed in the <b>Star Allocation Table</b>.",
+          "Swapping a token earns a default amount of <b>15 stars per dollar swapped</b>. Additional stars may be allocated if there is a boost. Stars are allocated only for token pairs listed in the <b>Star Allocation Table</b>.",
           "Transactions should be made using StationDEX contracts directly."
         ]
       },
@@ -60,7 +60,7 @@ const contentItems: ContentItem[] = [
   {
     title: "Boost",
     content: [
-      "Certain pools boost the amount of Stars Stationers receive. The amount of boost depends on the pool and on the activity of the user i.e. boost can vary depending on whether a user is swaping in a boosted pool or providing liquidity to a boosted pool. The boost multipliers are listed in the <b>Star Allocation Table</b>."
+      "Certain pools boost the amount of Stars Stationers receive. The amount of boost depends on the pool and on the activity of the user i.e. boost can vary depending on whether a user is swapping in a boosted pool or providing liquidity to a boosted pool. The boost multipliers are listed in the <b>Star Allocation Table</b>."
     ]
   },
   {
@@ -75,7 +75,7 @@ const contentItems: ContentItem[] = [
       {
         title: "1. How do I earn stars (points)?",
         content: [
-          "You can earn stars by swaping tokens or providing liquidity to pools. Stars are allocated only for token pairs listed in the Star Allocation Table.",
+          "You can earn stars by swapping tokens or providing liquidity to pools. Stars are allocated only for token pairs listed in the Star Allocation Table.",
           {
             title: "Trading",
             text: "Trading a token earns a default amount of 15 stars per dollar traded. Additional stars may be allocated if there is a boost."

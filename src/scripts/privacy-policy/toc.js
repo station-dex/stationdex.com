@@ -1,8 +1,11 @@
 const tocContainer = document.querySelector(".toc.component[data-open]");
+const toc = document.querySelector(".toc.component");
 
 const tocMobileBtn = document.querySelector("button.toc.mobile[data-open]");
 
 const scrollToTopBtn = document.querySelector("button.scroll.top");
+
+let scrolling = false;
 
 function updateActive(currentHash) {
   const tocLinks = tocContainer.querySelectorAll("a");
@@ -103,6 +106,48 @@ function scrollToTop() {
   });
 }
 
+function setupIntersectionObserver() {
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !scrolling) {
+            // Update the URL hash to the id of the currently visible element
+            history.replaceState(null, "", "#" + entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "0px 0px -100px 0px",
+        threshold: 1,
+      },
+    );
+
+    const titles = toc.querySelectorAll(`ul`);
+    const headings = toc.querySelectorAll(`ul a`);
+
+
+    const clickables = Array.from(titles).concat(Array.from(headings));
+
+    clickables.forEach(clickable => {
+      clickable.addEventListener("click", (event) => {
+        scrolling = true;
+
+        setTimeout(() => {
+          scrolling = false;
+        }, 2000)
+      })
+    })
+
+
+    // Attach observer to each element with class 'hash.link'
+    const hashLinks = document.querySelectorAll(".hash.link");
+    hashLinks.forEach((link) => {
+      observer.observe(link);
+    });
+  });
+}
+
 checkActive();
 
 toggleLinks();
@@ -110,3 +155,5 @@ toggleLinks();
 toggleTocMobileSidebar();
 
 scrollToTop();
+
+setupIntersectionObserver();
