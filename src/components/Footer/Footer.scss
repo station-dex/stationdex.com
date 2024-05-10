@@ -51,10 +51,9 @@ $footer-background: radial-gradient(
       form {
         margin: 0 auto;
         margin-top: 40px;
-        max-width: max-content;
 
         display: flex;
-        gap: 16px;
+        gap: 8px;
         justify-content: center;
         position: relative;
 
@@ -263,8 +262,10 @@ $footer-background: radial-gradient(
         gap: 24px;
         align-items: flex-start;
         margin-left: 0;
+        width: 100%;
 
         & > div {
+          width: 100%;
           * {
             @include styles.text-md;
           }

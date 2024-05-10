@@ -6,13 +6,14 @@
 
 .star.finders.hero {
   background-color: colors.$base-white;
-  padding-top: 80px;
+  padding-top: 72px;
 
   .inner {
     @include utils.full-width-container;
 
     .wrapper {
-      background-image: url("/assets/star-finders/hero.webp");
+      background-color: #1d1c37;
+      background-image: url("/assets/star-finders/hero.webp"), radial-gradient(circle at top, #a7a5af 0%, #947df0 15%,  #1d1c37 50%);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;

@@ -5,7 +5,7 @@
 @use "@/design-system/typography/weights";
 
 .home.secure.trading {
-  padding: 96px 0 0;
+  margin-top: 72px;
   @include utils.full-width-container;
 
   .inner {
@@ -80,7 +80,7 @@
   }
 
   @media (max-width: 767px) {
-    padding-top: 0px;
+    margin-top: 32px;
     padding-bottom: 0;
 
     .inner {
