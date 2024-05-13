@@ -13,89 +13,125 @@
 
     .wrapper {
       background-color: #1d1c37;
-      background-image: url("/assets/star-finders/hero.webp"), radial-gradient(circle at top, #a7a5af 0%, #947df0 15%,  #1d1c37 50%);
+      background-image: url("/assets/star-finders/hero.webp"),
+        radial-gradient(circle at top, #a7a5af 0%, #947df0 15%, #1d1c37 50%);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       border-radius: 16px;
       overflow: hidden;
       width: 100%;
-      aspect-ratio: 15 / 8;
+      // aspect-ratio: 15 / 8;
 
       .component {
-        padding: 210px 0 152px;
+        padding: 48px 32px 32px;
         margin: auto;
 
-        .content {
-          backdrop-filter: blur(10px);
-          padding: 78px 52px 56px;
-          width: calc(68% + 5px);
+        div.mission {
+          width: max-content;
           margin: auto;
+        }
+
+        .content {
+          margin: auto;
+          margin-top: 92px;
+          width: max-content;
+          position: relative;
           max-width: 100%;
-          border: 1px solid rgba(colors.$yellow-500, 0.07);
-          border-radius: 8px;
 
-          i.shield {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateY(-50%) translateX(-50%);
-          }
+          & > div {
+            backdrop-filter: blur(10px);
+            padding: 78px 52px 56px;
+            border: 1px solid rgba(colors.$yellow-500, 0.07);
+            border-radius: 8px;
+            padding: 78px 52px 56px;
+            position: relative;
+            z-index: 1;
 
-          h1 {
-            @include styles.h1;
-            color: colors.$base-white;
-            margin-bottom: 24px;
-            @include styles.font-work-sans;
-            text-align: center;
+            i.shield {
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translateY(-50%) translateX(-50%);
+            }
 
-            span {
-              color: colors.$yellow-400;
+            h1 {
+              @include styles.h1;
+              color: colors.$base-white;
+              margin-bottom: 24px;
+              @include styles.font-work-sans;
+              text-align: center;
+
+              span {
+                color: colors.$yellow-400;
+              }
+            }
+
+            p {
+              @include styles.display-xs;
+              @include weights.medium;
+              color: colors.$base-white;
+              text-align: center;
+            }
+
+            div.cta {
+              margin-top: 32px;
+              display: flex;
+              gap: 10px;
+              justify-content: center;
+
+              a {
+                padding: 6px 10px;
+                border-radius: 8px;
+
+                @include styles.text-sm;
+                @include weights.semibold;
+                color: colors.$base-white;
+
+                &.swap {
+                  background: colors.$blue-600;
+                }
+
+                &.add {
+                  border: 1px solid colors.$blue-600;
+                }
+              }
             }
           }
 
-          p {
-            @include styles.display-xs;
-            @include weights.medium;
-            color: colors.$base-white;
-            text-align: center;
-          }
+          i.star {
+            position: absolute;
+            top: 25%;
+            z-index: 0;
 
-          div.cta {
-            margin-top: 32px;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
+            &.left {
+              left: 0;
+              transform: translateX(-50%);
+            }
 
-            a {
-              padding: 6px 10px;
-              border-radius: 8px;
-
-              @include styles.text-sm;
-              @include weights.semibold;
-              color: colors.$base-white;
-
-              &.swap {
-                background: colors.$blue-600;
-              }
-
-              &.add {
-                border: 1px solid colors.$blue-600;
-              }
+            &.right {
+              right: 0;
+              transform: translateX(50%);
             }
           }
         }
-      }
-    }
-  }
 
-  @media (max-width: 1199px) {
-    .inner {
-      .wrapper {
-        aspect-ratio: auto;
+        div.bottom {
+          margin-top: 42px;
 
-        .content {
-          width: max-content;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+
+          div.info {
+            perspective-origin: 150% 150%;
+            perspective: 650px;
+
+            img {
+              transform: rotateY(345deg);
+              transform-origin: left center;
+            }
+          }
         }
       }
     }
@@ -113,23 +149,23 @@
         border-radius: 0;
 
         .component {
-          padding: 250px 0 130px;
+          padding: 48px 16px 32px;
 
           .content {
-            padding: 78px 16px 56px;
-            width: calc(100% - 32px);
+            & > div {
+              padding: 58px 16px 16px;
 
-            h1 {
-              @include styles.h2;
-              // margin-bottom: 16px;
-            }
+              h1 {
+                @include styles.h2;
+              }
 
-            div.cta {
-              flex-direction: column;
+              div.cta {
+                flex-direction: column;
 
-              a {
-                width: 100%;
-                text-align: center;
+                a {
+                  width: 100%;
+                  text-align: center;
+                }
               }
             }
           }

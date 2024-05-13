@@ -6,24 +6,43 @@ import Icon from "@/elements/Icon.astro";
   <div class="inner">
     <div class="wrapper">
       <div class="component">
+        <div class="mission">
+          <img src="/assets/star-finders/mission.svg" alt="Mission" />
+        </div>
+
         <div class="content">
-          <Icon variant="title-shield" className="shield" />
+          <div>
+            <Icon variant="title-shield" className="shield" />
 
-          <h1>
-            StationDEX <span>Starfinders Program</span>
-          </h1>
+            <h1>
+              StationDEX <span>Starfinders Program</span>
+            </h1>
 
-          <p>Mission #1</p>
+            <p>Mission #1</p>
 
-          <div class="cta">
-            <a href="https://app.stationdex.com/" target="_blank" class="swap"
-              >Swap Tokens</a
-            >
-            <a
-              href="https://app.stationdex.com/pools"
-              target="_blank"
-              class="add">Add Liquidity</a
-            >
+            <div class="cta">
+              <a href="https://app.stationdex.com/" target="_blank" class="swap"
+                >Swap Tokens</a
+              >
+              <a
+                href="https://app.stationdex.com/pools"
+                target="_blank"
+                class="add">Add Liquidity</a
+              >
+            </div>
+          </div>
+
+          <Icon variant="star" className="star left" />
+          <Icon variant="star" className="star right" />
+        </div>
+
+        <div class="bottom">
+          <div class="info">
+            <img src="/assets/star-finders/info.svg" alt="Info" />
+          </div>
+
+          <div class="target">
+            <img src="/assets/star-finders/target.svg" alt="Target" />
           </div>
         </div>
       </div>

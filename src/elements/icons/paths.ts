@@ -139,6 +139,7 @@ const paths: Path = {
   "banner-bar": import("./custom/banner-bar.svg?raw"),
   "banner-arrows": import("./custom/banner-arrows.svg?raw"),
   "title-shield": import("./custom/title-shield.svg?raw"),
+  "star": import("./custom/star.svg?raw"),
 };
 
 export { paths };
