@@ -8,14 +8,15 @@
   padding: 56px 0;
 
   .hero.component .inner {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-
     .text.content {
-      max-width: 80%;
+      padding: 100px 0 56px;
+      max-width: 605px;
+    }
 
-      .description {
-        max-width: 75%;
+    @media (max-width: 767px) {
+      .text.content {
+        padding-left: 16px;
+        padding-right: 16px;
       }
     }
   }

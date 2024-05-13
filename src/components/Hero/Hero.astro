@@ -10,15 +10,10 @@ interface Props {
   description: string;
   image?: string;
   imageMobile?: string;
+  video?: string;
 }
 
-const {
-  intro,
-  title,
-  description,
-  image = "/assets/home/hero.png",
-  imageMobile = "/assets/home/hero.png",
-} = Astro.props;
+const { intro, title, description, image, imageMobile, video } = Astro.props;
 
 const imageAlt =
   typeof title === "string" ? title : title.map(({ text }) => text).join(" ");
@@ -33,7 +28,7 @@ const imageAlt =
           typeof title === "string"
             ? title
             : title.map(({ text, highlight }) =>
-                highlight ? <span class="highlight">{text}</span> : text,
+                highlight ? <span class="highlight">{text}</span> : text
               )
         }
       </h1>
@@ -42,11 +37,23 @@ const imageAlt =
       <slot />
     </div>
 
-    <div class="image">
-      <picture>
-        <source media="(min-width: 768px)" srcset={image} />
-        <img src={imageMobile} alt={imageAlt} />
-      </picture>
+    <div class="image and video">
+      {
+        image && (
+          <picture>
+            <source media="(min-width: 768px)" srcset={image} />
+            <img src={imageMobile} alt={imageAlt} />
+          </picture>
+        )
+      }
+
+      {
+        video && (
+          <video autoplay loop muted playsinline class="video">
+            <source src={video} type="video/mp4" />
+          </video>
+        )
+      }
     </div>
   </div>
 </div>
