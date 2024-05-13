@@ -6,6 +6,7 @@ import Hero from "@/components/Hero/Hero.astro";
 // import Brands from "@/modules/Home/Brands.astro";
 import Secure from "@/modules/Home/Secure.astro";
 import Features from "@/modules/Home/Features.astro";
+import Backers from "@/modules/Home/Backers.astro";
 
 import styles from "./index.scss?inline";
 import "@fontsource/work-sans";
@@ -33,7 +34,9 @@ import Banner from "@/components/Banner/Banner.astro";
       { text: " on a Stellar Trading Experience" },
     ]}
     description="Most Trusted DEX for Swapping Crypto"
-    imageMobile="/assets/home/hero-mobile.png"
+    image="/assets/home/swap-image.png"
+    imageMobile="/assets/home/swap-image.png"
+    video="/assets/home/hero.webm"
   >
     <div class="slot">
       <a
@@ -53,6 +56,8 @@ import Banner from "@/components/Banner/Banner.astro";
   <Secure />
 
   <Features />
+
+  <Backers />
 
   <style slot="header" is:inline set:html={styles}></style>
 
