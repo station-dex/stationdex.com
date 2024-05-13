@@ -6,6 +6,7 @@ import Hero from "@/components/Hero/Hero.astro";
 // import Brands from "@/modules/Home/Brands.astro";
 import Secure from "@/modules/Home/Secure.astro";
 import Features from "@/modules/Home/Features.astro";
+import Backers from "@/modules/Home/Backers.astro";
 
 import styles from "./index.scss?inline";
 import "@fontsource/work-sans";
@@ -55,6 +56,8 @@ import Banner from "@/components/Banner/Banner.astro";
   <Secure />
 
   <Features />
+
+  <Backers />
 
   <style slot="header" is:inline set:html={styles}></style>
 

@@ -1,0 +1,44 @@
+---
+import BackersMarquee from "./BackersMarquee.astro";
+---
+
+<div class="stationdex backers section">
+  <div class="inner">
+    <div class="icon">
+      <img src="/assets/home/backers/icon.svg" alt="Heading Icon" />
+    </div>
+
+    <div class="text">
+      <h2>StationDEX Backers</h2>
+      <p>Fueling your favorite DEX's stellar journey.</p>
+    </div>
+
+    <BackersMarquee
+      data={[
+        {
+          name: "Animoca Brands",
+          src: "/assets/home/backers/animoca-brands.svg",
+        },
+        {
+          name: "Coinbase Ventures",
+          src: "/assets/home/backers/coinbase-ventures.svg",
+        },
+        {
+          name: "Fenbushi Capital",
+          src: "/assets/home/backers/fenbushi-capital.svg",
+        },
+        {
+          name: "Fundamental Labs",
+          src: "/assets/home/backers/fundamental-labs.svg",
+        },
+        { name: "GBV", src: "/assets/home/backers/gbv.svg" },
+        { name: "Hex Trust", src: "/assets/home/backers/hex-trust.svg" },
+        { name: "OKX Ventures", src: "/assets/home/backers/okx-ventures.svg" },
+        {
+          name: "Pacific Century Group",
+          src: "/assets/home/backers/pacific-century-group.svg",
+        },
+      ]}
+    />
+  </div>
+</div>
