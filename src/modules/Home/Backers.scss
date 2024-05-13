@@ -39,6 +39,7 @@ $background: radial-gradient(
       h2 {
         @include styles.h2;
         color: colors.$base-white;
+        @include styles.font-work-sans;
       }
 
       p {

@@ -149,6 +149,7 @@
       button.toc {
         display: flex;
         top: $header-height;
+        z-index: 8;
       }
 
       div.grid {
