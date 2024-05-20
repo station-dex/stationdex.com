@@ -11,9 +11,10 @@ interface Props {
   image?: string;
   imageMobile?: string;
   video?: string;
+  poster?: string;
 }
 
-const { intro, title, description, image, imageMobile, video } = Astro.props;
+const { intro, title, description, image, imageMobile, video, poster } = Astro.props;
 
 const imageAlt =
   typeof title === "string" ? title : title.map(({ text }) => text).join(" ");
@@ -39,19 +40,19 @@ const imageAlt =
 
     <div class="image and video">
       {
+        video && (
+          <video autoplay loop muted playsinline class="video" poster={poster}>
+            <source src={video} type="video/webm" />
+          </video>
+        )
+      }
+      
+      {
         image && (
           <picture>
             <source media="(min-width: 768px)" srcset={image} />
             <img src={imageMobile} alt={imageAlt} />
           </picture>
-        )
-      }
-
-      {
-        video && (
-          <video autoplay loop muted playsinline class="video">
-            <source src={video} type="video/mp4" />
-          </video>
         )
       }
     </div>
