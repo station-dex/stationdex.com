@@ -3,6 +3,7 @@ import Icon from "@/elements/Icon.astro";
 import { contentItems, tocTitles } from "@/data/star-finders";
 import TableOfContents from "@/components/TableOfContents/TableOfContents.astro";
 import { getHashFromTitle } from "@/util/link";
+import StarAllocationTable from "./StarAllocationTable.astro";
 ---
 
 <div class="star finders content">
@@ -75,6 +76,8 @@ import { getHashFromTitle } from "@/util/link";
                   </div>
                 )}
               </>
+
+              <>{item.table && <StarAllocationTable data={item.table} />}</>
             </div>
           ))
         }

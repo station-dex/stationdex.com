@@ -1,5 +1,40 @@
 import { getHashFromTitle } from '@/util/link';
 
+
+export interface StarAllocationData {
+  pool: string;
+  action: string;
+  stars: string;
+  boost: string;
+}
+
+const starAllocationTableData: StarAllocationData[] = [
+  {
+    pool: "USDT/WOKB",
+    action: "Swapping",
+    stars: "15 stars per dollar swapped",
+    boost: "x1.0"
+  },
+  {
+    pool: "USDT/WOKB",
+    action: "Adding Liquidity",
+    stars: "1 star per dollar per day",
+    boost: "x1.0"
+  },
+  {
+    pool: "WETH/USDT",
+    action: "Swapping",
+    stars: "15 stars per dollar swapped",
+    boost: "x1.0"
+  },
+  {
+    pool: "WETH/USDT",
+    action: "Adding Liquidity",
+    stars: "1 star per dollar per day",
+    boost: "x1.0"
+  },
+]
+
 interface ContentItem {
   title: string;
   content?: (string | string[])[];
@@ -7,7 +42,7 @@ interface ContentItem {
     title: string;
     content: (string | string[] | { title: string, text: string })[]
   }[]
-
+  table?: StarAllocationData[]
 }
 
 const contentItems: ContentItem[] = [
@@ -27,14 +62,14 @@ const contentItems: ContentItem[] = [
       {
         title: "Swapping",
         content: [
-          "Swapping a token earns a default amount of <b>15 stars per dollar swapped</b>. Additional stars may be allocated if there is a boost. Stars are allocated only for token pairs listed in the <b>Star Allocation Table</b>.",
+          "Swapping a token earns a default amount of <b>15 stars per dollar swapped</b>. Additional stars may be allocated if there is a boost. Stars are allocated only for token pairs listed in the <b><a href='#star_allocation_table'>Star Allocation Table</a></b>.",
           "Transactions should be made using StationDEX contracts directly."
         ]
       },
       {
         title: "Adding Liquidity",
         content: [
-          "Adding pool liquidy earns a default amount of <b>1 star per dollar per day</b>. Stars are allocated only for pools listed in the <b>Star Allocation Table</b>. Additional stars may be allocated if there is a boost.",
+          "Adding pool liquidy earns a default amount of <b>1 star per dollar per day</b>. Stars are allocated only for pools listed in the <b><a href='#star_allocation_table'>Star Allocation Table</a></b>. Additional stars may be allocated if there is a boost.",
           "The calculation of stars in a liquidity pool does not consider changes in the market price of the token pair over time. For instance, if you invest $1000 worth of WETH and $1000 worth of USDT in a WETH/USDT pool, you will earn 2000 stars per day. Even if the price of WETH doubles, you will still earn 2000 stars per day because the price change is not factored into the star calculation.",
           "However, if you remove your $2000 worth of WETH and $2000 worth of USDT from the pool and then re-add them, you will now accumulate stars at a rate of 4000 stars per day.",
           "Conversely, if the price of WETH halves, you will still earn stars based on the original price of WETH when you invested, meaning you will continue to accumulate stars at a rate of 2000 stars per day."
@@ -60,7 +95,7 @@ const contentItems: ContentItem[] = [
   {
     title: "Boost",
     content: [
-      "Certain pools boost the amount of Stars Stationers receive. The amount of boost depends on the pool and on the activity of the user i.e. boost can vary depending on whether a user is swapping in a boosted pool or providing liquidity to a boosted pool. The boost multipliers are listed in the <b>Star Allocation Table</b>."
+      "Certain pools boost the amount of Stars Stationers receive. The amount of boost depends on the pool and on the activity of the user i.e. boost can vary depending on whether a user is swapping in a boosted pool or providing liquidity to a boosted pool. The boost multipliers are listed in the <b><a href='#star_allocation_table'>Star Allocation Table</a></b>."
     ]
   },
   {
@@ -75,7 +110,7 @@ const contentItems: ContentItem[] = [
       {
         title: "1. How do I earn stars (points)?",
         content: [
-          "You can earn stars by swapping tokens or providing liquidity to pools. Stars are allocated only for token pairs listed in the Star Allocation Table.",
+          "You can earn stars by swapping tokens or providing liquidity to pools. Stars are allocated only for token pairs listed in the <a href='#star_allocation_table'>Star Allocation Table</a>.",
           {
             title: "Trading",
             text: "Trading a token earns a default amount of 15 stars per dollar traded. Additional stars may be allocated if there is a boost."
@@ -115,9 +150,7 @@ const contentItems: ContentItem[] = [
   },
   {
     title: 'Star Allocation Table',
-    content: [
-      "<img src='/assets/star-finders/star-allocation.png' alt='Star Allocation Table' />"
-    ]
+    table: starAllocationTableData
   }
 ]
 

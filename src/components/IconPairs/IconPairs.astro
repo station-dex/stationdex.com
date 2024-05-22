@@ -1,0 +1,13 @@
+---
+import Icon from "@/elements/Icon.astro";
+
+interface Props {
+  icons: string[];
+}
+
+const { icons } = Astro.props;
+---
+
+<div class="icon pairs component">
+  {icons.map((icon) => <Icon variant={icon} />)}
+</div>

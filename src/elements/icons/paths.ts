@@ -140,6 +140,9 @@ const paths: Path = {
   "banner-arrows": import("./custom/banner-arrows.svg?raw"),
   "title-shield": import("./custom/title-shield.svg?raw"),
   "star": import("./custom/star.svg?raw"),
+  "usdt-token": import("./custom/USDT.svg?raw"),
+  "okb-token": import("./custom/OKB.svg?raw"),
+  "eth-token": import("./custom/ETH.svg?raw"),
 };
 
 export { paths };

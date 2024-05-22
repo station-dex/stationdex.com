@@ -1,0 +1,15 @@
+@use "@/design-system/theme/light" as light-theme;
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/shadows";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.icon.pairs.component {
+  display: flex;
+  align-items: center;
+
+  & > i:not(:first-child) {
+    margin-left: -10px;
+  }
+}
