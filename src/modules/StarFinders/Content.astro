@@ -3,6 +3,7 @@ import Icon from "@/elements/Icon.astro";
 import { contentItems, tocTitles } from "@/data/star-finders";
 import TableOfContents from "@/components/TableOfContents/TableOfContents.astro";
 import { getHashFromTitle } from "@/util/link";
+import StarAllocationTable from "./StarAllocationTable.astro";
 ---
 
 <div class="star finders content">
@@ -34,8 +35,8 @@ import { getHashFromTitle } from "@/util/link";
                           ))}
                         </ul>
                       ) : (
-                        <p set:html={content} />
-                      ),
+                        <div set:html={content} />
+                      )
                     )}
                   </div>
                 )}
@@ -61,13 +62,13 @@ import { getHashFromTitle } from "@/util/link";
                                 ))}
                               </ul>
                             ) : typeof content === "string" ? (
-                              <p set:html={content} />
+                              <div set:html={content} />
                             ) : (
                               <div class="sub section">
                                 <p class="title">{content.title}</p>
-                                <p class="text" set:html={content.text} />
+                                <div class="text" set:html={content.text} />
                               </div>
-                            ),
+                            )
                           )}
                         </div>
                       </div>
@@ -75,6 +76,8 @@ import { getHashFromTitle } from "@/util/link";
                   </div>
                 )}
               </>
+
+              <>{item.table && <StarAllocationTable data={item.table} />}</>
             </div>
           ))
         }

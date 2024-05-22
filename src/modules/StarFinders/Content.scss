@@ -75,6 +75,7 @@
 
           div.content {
             p,
+            div,
             li {
               @include styles.text-lg;
             }
