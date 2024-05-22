@@ -112,6 +112,12 @@ const contentItems: ContentItem[] = [
         ]
       }
     ]
+  },
+  {
+    title: 'Star Allocation Table',
+    content: [
+      "<img src='/assets/star-finders/star-allocation.png' alt='Star Allocation Table' />"
+    ]
   }
 ]
 
