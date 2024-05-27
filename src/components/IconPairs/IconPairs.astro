@@ -1,8 +1,9 @@
 ---
 import Icon from "@/elements/Icon.astro";
+import type { paths } from "@/elements/icons/paths";
 
 interface Props {
-  icons: string[];
+  icons: (keyof typeof paths)[];
 }
 
 const { icons } = Astro.props;

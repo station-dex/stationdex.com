@@ -1,7 +1,9 @@
+import type { paths } from "@/elements/icons/paths"
+
 type Social = {
   link: string,
-  icon: string,
-  iconDark: string,
+  icon: keyof typeof paths,
+  iconDark: keyof typeof paths
 }
 
 const socials: Social[] = [

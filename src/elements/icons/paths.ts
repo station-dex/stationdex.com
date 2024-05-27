@@ -1,8 +1,4 @@
-type Path = {
-  [key: string]: Promise<typeof import("*?raw")>
-}
-
-const paths: Path = {
+const paths = {
   "arrow-left": import("./variants/Arrows/arrow-left.svg?raw"),
   "arrow-down": import("./variants/Arrows/arrow-down.svg?raw"),
   "arrow-right": import("./variants/Arrows/arrow-right.svg?raw"),
@@ -47,6 +43,8 @@ const paths: Path = {
   check: import("./variants/General/check.svg?raw"),
   Dot: import("./custom/dot.svg?raw"),
   "tag-03": import("./variants/FinanceAndEcommerce/tag-03.svg?raw"),
+  "coins-swap-02": import("./variants/FinanceAndEcommerce/coins-swap-02.svg?raw"),
+  "coins-hand": import("./variants/FinanceAndEcommerce/coins-hand.svg?raw"),
   "message-chat-circle": import(
     "./variants/Communication/message-chat-circle.svg?raw"
   ),
@@ -65,6 +63,9 @@ const paths: Path = {
   "send-03": import("./variants/Communication/send-03.svg?raw"),
   "alert-triangle": import(
     "./variants/AlertsAndFeedback/alert-triangle.svg?raw"
+  ),
+  "alert-square": import(
+    "./variants/AlertsAndFeedback/alert-square.svg?raw"
   ),
   ethereum: import("./custom/Brands/default/SvgEthereum.svg?raw"),
   arbitrum: import("./custom/Brands/default/SvgArbitrum.svg?raw"),

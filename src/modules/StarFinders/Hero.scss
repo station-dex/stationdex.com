@@ -24,7 +24,7 @@
       // aspect-ratio: 15 / 8;
 
       .component {
-        padding: 48px 32px 32px;
+        padding: 148px 0;
         margin: auto;
 
         div.mission {
@@ -34,7 +34,6 @@
 
         .content {
           margin: auto;
-          margin-top: 92px;
           width: max-content;
           position: relative;
           max-width: 100%;
@@ -53,12 +52,17 @@
               top: 0;
               left: 50%;
               transform: translateY(-50%) translateX(-50%);
+
+              svg {
+                height: 72px;
+                filter: drop-shadow(0px 4px 26.3px #000000);
+              }
             }
 
             h1 {
               @include styles.h1;
               color: colors.$base-white;
-              margin-bottom: 24px;
+              margin-bottom: 16px;
               @include styles.font-work-sans;
               text-align: center;
 
@@ -67,18 +71,38 @@
               }
             }
 
-            p {
-              @include styles.display-xs;
-              @include weights.medium;
-              color: colors.$base-white;
-              text-align: center;
-            }
+
 
             div.cta {
               margin-top: 32px;
+              margin-left: auto;
+              margin-right: auto;
               display: flex;
-              gap: 10px;
-              justify-content: center;
+              flex-direction: column;
+              width: max-content;
+              max-width: 100%;
+              // justify-content: center;
+
+              p.heading {
+                @include styles.text-lg;
+                @include weights.semibold;
+                color: colors.$base-white;
+                text-align: center;
+              }
+  
+              p.description {
+                @include styles.text-sm;
+                @include weights.regular;
+                color: colors.$base-white;
+                text-align: center;
+                margin-bottom: 8px;
+              }
+
+              .links {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+              }
 
               a {
                 padding: 6px 10px;
@@ -88,12 +112,32 @@
                 @include weights.semibold;
                 color: colors.$base-white;
 
-                &.swap {
+                &.view.leaderboard {
                   background: colors.$blue-600;
+                  text-align: center;
                 }
 
-                &.add {
+                &.swap, &.add {
+                  display: flex;
+                  align-items: center;
+
+                  > i:first-child {
+                    display: inline-flex;
+                    margin-right: 2px;
+                  }
+                  > i:last-child {
+                    display: inline-flex;
+                    margin-left: auto;
+                  }
+
+                  @include weights.regular;
+                  color: colors.$blue-400;
                   border: 1px solid colors.$blue-600;
+
+                  padding: 8px 12px;
+                  gap: 5px;
+                  background: colors.$gray-iron-800;
+                  border: 1px solid colors.$gray-iron-700;
                 }
               }
             }

@@ -230,9 +230,8 @@ $footer-background: radial-gradient(
           gap: 20px;
           margin-left: auto;
 
-          svg {
-            width: 20px;
-            height: 20px;
+          i {
+            color: colors.$white;
           }
         }
       }
