@@ -71,15 +71,14 @@
               }
             }
 
-
-
             div.cta {
               margin-top: 32px;
               margin-left: auto;
               margin-right: auto;
               display: flex;
               flex-direction: column;
-              width: max-content;
+
+              width: 386px;
               max-width: 100%;
               // justify-content: center;
 
@@ -89,7 +88,7 @@
                 color: colors.$base-white;
                 text-align: center;
               }
-  
+
               p.description {
                 @include styles.text-sm;
                 @include weights.regular;
@@ -115,9 +114,14 @@
                 &.view.leaderboard {
                   background: colors.$blue-600;
                   text-align: center;
+
+                  &:hover {
+                    background-color: colors.$blue-700;
+                  }
                 }
 
-                &.swap, &.add {
+                &.swap,
+                &.add {
                   display: flex;
                   align-items: center;
 
@@ -145,7 +149,7 @@
 
           i.star {
             position: absolute;
-            top: 25%;
+            top: calc(50% - 44px);
             z-index: 0;
 
             &.left {

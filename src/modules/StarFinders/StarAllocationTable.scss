@@ -9,11 +9,11 @@
   border-radius: 8px;
   box-shadow: shadows.$lg;
   overflow-x: auto;
-  max-width: 100%;
+  max-width: calc(100vw - 408px);
 
   table {
     width: 100%;
-    min-width: 400px;
+    min-width: 640px;
     border-collapse: collapse;
 
     th,
@@ -54,5 +54,9 @@
         }
       }
     }
+  }
+
+  @media (max-width: 767px) {
+    max-width: calc(100vw - 32px);
   }
 }
