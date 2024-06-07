@@ -4,6 +4,7 @@ import { setStatsLoading, removeStatsLoading, renderStatsValue } from "./stats";
 import { buildTableBody, removeTableLoading, setTableLoading } from "./table";
 
 const base_url = import.meta.env.PUBLIC_API_BASE_URL;
+const chain_id = import.meta.env.PUBLIC_CHAIN_ID;
 
 const getRequestBody = () => {
   const { page, sortBy, sortDirection, eventSearch, contractSearch, fromSearch, networkSearch, fromDate, toDate, transactionHash, blockNumber } = getExplorerData();
@@ -32,7 +33,7 @@ const fetchDataAndRenderTable = async () => {
     // set loading
     setTableLoading();
 
-    const _data = await fetch(`${base_url}/explorer/home`, {
+    const _data = await fetch(`${base_url}/explorer/${chain_id}/home`, {
       method: "POST",
       headers: {
         accept: "application/json",
@@ -61,7 +62,7 @@ const fetchStatsAndRender = async () => {
 
 	setStatsLoading();
   
-	  const _data = await fetch(`${base_url}/explorer/home/stats`, {
+	  const _data = await fetch(`${base_url}/explorer/${chain_id}/home/stats`, {
 		method: "GET",
 		headers: {
 		  accept: "application/json",
