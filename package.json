@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint .",
+    "fix": "eslint --fix ."
   },
   "dependencies": {
     "@fontsource/work-sans": "^5.0.17",
@@ -24,7 +26,9 @@
     "eslint-plugin-promise": "^6.0.0",
     "sass": "^1.70.0",
     "swiper": "11.0.5",
-    "typescript": "^4.9.5"
+    "typescript": "^5.3.3",
+    "eslint-config-neptune-core": "^1.0.0",
+    "eslint-config-neptune-typescript": "^1.0.0"
   },
   "volta": {
     "node": "20.11.1",

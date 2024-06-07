@@ -1,38 +1,41 @@
-let explorer_data = {
+let _explorerData = {
   page: 1,
   totalPage: 0,
-  sortBy: "",
-  sortDirection: "",
-  eventSearch: "",
-  contractSearch: "",
-  fromSearch: "",
-  networkSearch: "",
-  fromDate: "",
-  toDate: "",
-  transactionHash: "",
-  blockNumber: "",
-};
+  sortBy: '',
+  sortDirection: '',
+  eventSearch: '',
+  contractSearch: '',
+  fromSearch: '',
+  networkSearch: '',
+  fromDate: '',
+  toDate: '',
+  transactionHash: '',
+  blockNumber: ''
+}
 
 const setExplorerData = (
-  key: keyof typeof explorer_data,
+  key: keyof typeof _explorerData,
   val: number | string
 ) => {
-  if (!Object.keys(explorer_data).includes(key)) return;
-  explorer_data = { ...explorer_data, [key]: val };
-};
+  if (!Object.keys(_explorerData).includes(key)) {
+    return
+  }
+
+  _explorerData = { ..._explorerData, [key]: val }
+}
 
 const explorerData = {
   get: () => {
-    return explorer_data;
+    return _explorerData
   },
-  set: (key: keyof typeof explorer_data, val: number | string) => {
-    setExplorerData(key, val);
-	return explorerData;
-  },
-};
+  set: (key: keyof typeof _explorerData, val: number | string) => {
+    setExplorerData(key, val)
+    return explorerData
+  }
+}
 
 const getExplorerData = () => {
-  return explorer_data;
-};
+  return _explorerData
+}
 
-export { setExplorerData, getExplorerData, explorerData };
+export { setExplorerData, getExplorerData, explorerData }

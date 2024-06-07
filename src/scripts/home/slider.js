@@ -1,11 +1,11 @@
-import Swiper from "swiper";
-import { Pagination } from "swiper/modules";
+import Swiper from 'swiper'
+import { Pagination } from 'swiper/modules'
 
-document.addEventListener("DOMContentLoaded", () => {
-  Swiper.use([Pagination]);
+document.addEventListener('DOMContentLoaded', () => {
+  Swiper.use([Pagination])
 
-  const swiper = new Swiper(".swiper", {
-    direction: "horizontal",
+  const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
     loop: false,
 
     slidesPerView: 1,
@@ -15,14 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allowTouchMove: true,
 
-    //gap of 32px
+    // gap of 32px
     spaceBetween: 16,
 
     pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  })
 
-  swiper.init();
-});
+  swiper.init()
+})

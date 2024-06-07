@@ -20,7 +20,7 @@ const headerLinks: HeaderLink = {
   },
   launchApp: {
     title: 'Launch App',
-    path: 'https://app.stationdex.com/',
+    path: 'https://app.stationdex.com/'
   }
 }
 

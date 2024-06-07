@@ -1,4 +1,4 @@
-import type { paths } from "@/elements/icons/paths"
+import type { paths } from '@/elements/icons/paths'
 
 type Social = {
   link: string,
@@ -16,7 +16,7 @@ const socials: Social[] = [
     icon: 'telegram-white',
     iconDark: 'telegram',
     link: 'https://t.me/+dN2W3Uqp_jpkMmI0'
-  },
+  }
   // {
   //   icon: 'github-white',
   //   iconDark: 'github',
@@ -106,7 +106,7 @@ const footerLinks: FooterLink[] = [
         link: '/star-finders'
       }
     ]
-  },
+  }
 ]
 
 const otherLinks = {
