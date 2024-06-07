@@ -1,0 +1,72 @@
+@use "@/design-system/colors";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.explorer.banner.wrapper {
+  .banner.component {
+    background-color: colors.$gray-iron-900;
+    padding: 12px;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .decor {
+      display: flex;
+      align-items: center;
+      svg{
+        width: 27px;
+        height: 48px;
+      }
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+
+      .text {
+        padding-left: 16px;
+
+        .title {
+          @include styles.text-lg;
+          @include weights.medium;
+          color: colors.$base-white;
+        }
+
+        p.description {
+          @include styles.text-sm;
+          color: colors.$gray-iron-400;
+          max-width: 800px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .banner.component {
+      padding: 24px 16px;
+
+      .decor {
+        display: none;
+      }
+
+      .content {
+        flex-direction: column;
+        gap: 16px;
+
+        .text {
+          padding: 0;
+          
+          .title {
+            @include styles.text-md;
+          }
+
+          p.description {
+            @include styles.text-xs;
+          }
+        }
+      }
+    }
+  }
+}

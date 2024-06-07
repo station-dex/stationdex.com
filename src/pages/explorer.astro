@@ -1,33 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Seo from "../components/Seo.astro";
-
-import ComingSoon from "../components/ComingSoon/ComingSoon.astro";
-
-import styles from "./404.scss?inline";
-import "@fontsource/work-sans";
-import PageNotFound from "@/components/PageNotFound/PageNotFound.astro";
+import styles from "./explorer.scss?inline";
+import Content from "@/modules/Explorer/Content.astro";
 ---
 
 <BaseLayout noFooterNewsletter>
   <Seo
     slot="seo"
-    title="404 Space Frontier | StationDEX"
+    title="Transaction Explorer | StationDEX"
     description="Embark on a Stellar Trading Experience"
     og={{
-      image: "/assets/images/meta/og/home.png",
+      image: "/assets/og/explorer.png",
       imageAlt: "StationDEX Open Graph Banner",
     }}
   />
 
-  <div class="full width container">
-    <PageNotFound />
-  </div>
+  <Content />
 
   <style slot="header" is:inline set:html={styles}></style>
 
   <Fragment slot="footer">
     <script src="@/scripts/header/nav.js"></script>
-    <script src="@/scripts/newsletter/index.js"></script>
+    <script src="@/scripts/explorer/index.js"></script>
   </Fragment>
 </BaseLayout>

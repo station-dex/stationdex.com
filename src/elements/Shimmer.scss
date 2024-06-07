@@ -1,0 +1,42 @@
+@use "@/design-system/colors";
+
+.shimmer {
+  position: relative;
+
+  &::after {
+    background: colors.$gray-iron-100;
+    background-image: linear-gradient(
+      to right,
+      colors.$gray-iron-100 0%,
+      colors.$gray-iron-25 20%,
+      colors.$gray-iron-100 40%,
+      colors.$gray-iron-100 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 800px;
+    animation-duration: var(--shimmerAnimationDuration, 1s);
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+
+    content: "";
+    position: absolute;
+    top: var(--shimmerTop, 0);
+    left: var(--shimmerLeft, 0);
+    right: var(--shimmerRight, 0);
+    bottom: var(--shimmerBottom, 0);
+    z-index: var(--shimmerZIndex, 10);
+    border-radius: var(--shimmerRadius, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: var(--shimmerSizeNegative, -468px) 0;
+  }
+
+  100% {
+    background-position: var(--shimmerSize, 468px) 0;
+  }
+}

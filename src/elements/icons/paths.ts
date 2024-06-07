@@ -1,8 +1,10 @@
 const paths = {
   "arrow-left": import("./variants/Arrows/arrow-left.svg?raw"),
+  "calendar": import("./variants/Time/calendar.svg?raw"),
   "arrow-down": import("./variants/Arrows/arrow-down.svg?raw"),
   "arrow-right": import("./variants/Arrows/arrow-right.svg?raw"),
   "arrow-narrow-left": import("./variants/Arrows/arrow-narrow-left.svg?raw"),
+  "arrow-narrow-down": import("./variants/Arrows/arrow-narrow-down.svg?raw"),
   "arrow-narrow-right": import("./variants/Arrows/arrow-narrow-right.svg?raw"),
   "arrow-square-up-right": import(
     "./variants/Arrows/arrow-square-up-right.svg?raw"
