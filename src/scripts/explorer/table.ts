@@ -1,5 +1,5 @@
 import { DateLib } from '@/util/date.js'
-import { formatAddress } from './utils'
+import { abbreviateAddress, getChainDetails } from './utils'
 const _tableBody = document.querySelector('#explorer-table-body')
 
 const buildTableBody = (data: any[]) => {
@@ -14,13 +14,13 @@ const buildTableBody = (data: any[]) => {
     const unix = DateLib.toUnix(new Date(el.date))
     _tableBody.innerHTML += `
     <tr>
-      <td class='transactionHash link'>
+      <td class='transaction hash link'>
         ${el.transactionHash.substring(0, 26) + '...'}
       </td>
   
-      <td class='chainId'>
+      <td class='chain id'>
         <div class='box'>
-          <i data-tooltip='X Layer Mainnet' data-type='196'></i>
+          <i data-tooltip='${getChainDetails(parseInt(el.chainId)).name}' data-type='${el.chainId}'></i>
         </div>
       </td>
   
@@ -30,13 +30,13 @@ const buildTableBody = (data: any[]) => {
         </span>
       </td>
   
-      <td class='eventName'>
+      <td class='event name'>
         <div class='badge gray'>${el.eventName}</div>  
       </td>
   
-      <td class='transactionSender link'>
+      <td class='transaction sender link'>
         <div class='box'>
-          <span data-tooltip='${el.transactionSender}'>${formatAddress(el.transactionSender)}</span>
+          <span data-tooltip='${el.transactionSender}'>${abbreviateAddress(el.transactionSender)}</span>
           <button data-text='${el.transactionSender}' data-state='idle' data-type='copy'>
             <i></i>
           </button>
@@ -45,14 +45,14 @@ const buildTableBody = (data: any[]) => {
   
       <td  class='contract link'>
         <div class='box'>
-          <span data-flow='left' data-tooltip='${el.contract}'>${formatAddress(el.contract)}</span>
+          <span data-flow='left' data-tooltip='${el.contract}'>${abbreviateAddress(el.contract)}</span>
           <button data-text='${el.contract}' data-state='idle' data-type='copy'>
             <i></i>
           </button>
         </div>
       </td>
   
-      <td class='blockNumber link'>
+      <td class='block number link'>
         ${el.blockNumber}
       </td>
       </tr>

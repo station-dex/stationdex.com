@@ -17,33 +17,33 @@ const { id, name, label, placeholder, icon, date, noLabel } = props;
 ---
 
 <div class="input icon container">
-  <label class={`label ${noLabel ? 'sr-only' : ''}`} for={id}>
+  <label class={`label ${noLabel ? "sr-only" : ""}`} for={id}>
     {label}
   </label>
   <div class="input wrapper">
-	{
-		date ? (
-		  <input
-			  class="input"
-			{...props}
-			id={id}
-			name={name}
-			placeholder={placeholder}
-			onfocus="(this.type='date', this.showPicker())"
-			onblur="(!this.value ? this.type='text' : console.log(''))"
-		  />
-		) : (
-		  <input
-			class="input"
-			{...props}
-			id={id}
-			name={name}
-			placeholder={placeholder}
-		  />
-		)
-	  }
-	  <div class="icon">
-		{!!icon && <Icon variant={icon} />}
-	  </div>
+    {
+      date ? (
+        <input
+          class="input"
+          {...props}
+          id={id}
+          name={name}
+          placeholder={placeholder}
+          onfocus="(this.type='date', this.showPicker())"
+          onblur="(!this.value ? this.type='text' : console.log(''))"
+        />
+      ) : (
+        <input
+          class="input"
+          {...props}
+          id={id}
+          name={name}
+          placeholder={placeholder}
+        />
+      )
+    }
+    <div class="icon">
+      {!!icon && <Icon variant={icon} />}
+    </div>
   </div>
 </div>

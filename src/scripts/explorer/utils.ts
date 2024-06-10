@@ -1,5 +1,18 @@
-const formatAddress = (str: string) => {
+const abbreviateAddress = (str: string) => {
   return str.substring(0, 6) + '...' + str.substring(str.length - 6)
+}
+
+const getChainDetails = (chainId: number) => {
+  const chains = [{
+    id: 195,
+    name: 'X Layer Testnet'
+  },
+  {
+    id: 196,
+    name: 'X Layer Mainnet'
+  }]
+  const defaultValue = { id: chainId, name: '' }
+  return chains.find(el => el.id === chainId) || defaultValue
 }
 
 const formatNumber = (val: string | number) => {
@@ -37,19 +50,22 @@ const handleCopyText = (targetButton: HTMLButtonElement) => {
     return
   }
 
-  if ('clipboard' in navigator) {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        targetButton.dataset.state = 'copied'
-        setTimeout(() => {
-          targetButton.dataset.state = 'idle'
-        }, 1500)
-      })
-      .catch(err => console.error('Error copying text', err))
-  } else {
+  const supportsClipboard = 'clipboard' in navigator
+
+  if (!supportsClipboard) {
     console.error('Copy text is not supported in this browser')
+    return
   }
+
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      targetButton.dataset.state = 'copied'
+      setTimeout(() => {
+        targetButton.dataset.state = 'idle'
+      }, 1500)
+    })
+    .catch(err => console.error('Error copying text', err))
 }
 
-export { formatAddress, handleCopyText, etherAddressBasicValidate, formatNumber }
+export { abbreviateAddress, handleCopyText, etherAddressBasicValidate, formatNumber, getChainDetails }

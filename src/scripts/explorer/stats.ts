@@ -49,26 +49,26 @@ const renderStatsValue = (payload: any) => {
   const changeDiv = allStatsList[4].querySelector('div.changes')
   const changeValue = allStatsList[4].querySelector('p.value.change')
 
-  const gasPriceChange = calculateGasPriceChange(payload.average_gas_price, payload.average_gas_price_today)
+  const gasPriceChange = calculateGasPriceChange(payload.averageGasPrice, payload.averageGasPriceToday)
 
   if (transaction) {
-    transaction.innerHTML = formatNumber(payload.transaction_count)
+    transaction.innerHTML = formatNumber(payload.transactionCount)
   }
 
   if (swaps) {
-    swaps.innerHTML = formatNumber(payload.total_swaps)
+    swaps.innerHTML = formatNumber(payload.totalSwaps)
   }
 
   if (liquidityAdded) {
-    liquidityAdded.innerHTML = formatNumber(payload.liquidity_added)
+    liquidityAdded.innerHTML = formatNumber(payload.liquidityAdded)
   }
 
   if (liquidityRemoved) {
-    liquidityRemoved.innerHTML = formatNumber(payload.liquidity_removed)
+    liquidityRemoved.innerHTML = formatNumber(payload.liquidityRemoved)
   }
 
   if (averageGas) {
-    averageGas.innerHTML = `${convertToGwei(payload.average_gas_price)} Gwei`
+    averageGas.innerHTML = `${convertToGwei(payload.averageGasPrice)} Gwei`
   }
 
   if (changeValue) {

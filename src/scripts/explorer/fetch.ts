@@ -3,8 +3,8 @@ import { resetPagination } from './pagination'
 import { setStatsLoading, removeStatsLoading, renderStatsValue } from './stats'
 import { buildTableBody, removeTableLoading, setTableLoading } from './table'
 
-const baseUrl = import.meta.env.PUBLIC_API_BASE_URL
-const chainId = import.meta.env.PUBLIC_CHAIN_ID
+const baseUrl = 'server' in window ? window.server : ''
+const chainId = 'chainId' in window ? window.chainId : ''
 
 const getRequestBody = () => {
   const { page, sortBy, sortDirection, eventSearch, contractSearch, fromSearch, networkSearch, fromDate, toDate, transactionHash, blockNumber } = getExplorerData()
@@ -103,8 +103,6 @@ const fetchStatsAndRender = async () => {
     renderStatsValue(_json.data)
     //
     removeStatsLoading()
-
-    console.log(_json)
   } catch (e) {
     console.error('Error fetching explorer home response', e)
   }

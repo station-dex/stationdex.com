@@ -33,8 +33,6 @@ if (formElement) {
   formElement.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    console.log({ emailElement, submitElement, messageElement })
-
     if (!emailElement || !submitElement || !messageElement) {
       return
     }
