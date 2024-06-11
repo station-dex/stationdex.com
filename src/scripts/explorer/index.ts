@@ -1,10 +1,10 @@
+import { handleCopyText } from '../utils/copy'
 import { explorerData } from './data'
 import { fetchDataAndRenderTable, fetchStatsAndRender } from './fetch'
 import { getDataFromUrl, navigateSilently } from './history'
 import { handlePageChange } from './pagination'
 import { resetSearchInputs, setupSearch } from './search'
 import { handleSortClicked, resetSorting } from './sorting'
-import { handleCopyText } from './utils'
 
 const explorer = document.querySelector('#explorerMain') as HTMLDivElement
 

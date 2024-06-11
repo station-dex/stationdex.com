@@ -1,5 +1,6 @@
 import { DateLib } from '@/util/date.js'
-import { abbreviateAddress, getChainDetails } from './utils'
+import { abbreviateAddress } from './utils'
+import { getChainDetails } from '../utils/chain'
 const _tableBody = document.querySelector('#explorer-table-body')
 
 const buildTableBody = (data: any[]) => {

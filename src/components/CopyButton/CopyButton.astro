@@ -1,0 +1,9 @@
+---
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+---
+<button data-text={text} data-state="idle" data-type="copy">
+  <i></i>
+</button>
