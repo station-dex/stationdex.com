@@ -1,0 +1,37 @@
+/*
+  Pragma: no-cache
+  Access-Control-Allow-Origin: *
+  X-DNS-Prefetch-Control: on
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin
+  X-Content-Type-Options: nosniff
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Expect-CT: enforce, max-age=31536000
+  Feature-Policy: microphone 'none'; camera 'none'; fullscreen 'none'; geolocation 'none'
+  Permissions-Policy: fullscreen=(), geolocation=()
+  X-Permitted-Cross-Domain-Policies: none
+  Access-Control-Allow-Credentials: false
+  Access-Control-Allow-Headers: *
+  Access-Control-Allow-Methods: GET
+  Access-Control-Max-Age: 600
+
+/assets/*
+  Cache-Control: s-maxage=86400
+/brand-assets/*
+  Cache-Control: s-maxage=86400
+/*.json
+  Cache-Control: s-maxage=86400
+/*.xml
+  Cache-Control: s-maxage=86400
+/*.js
+  Cache-Control: s-maxage=21600
+/*.css
+  Cache-Control: s-maxage=21600
+/*.html
+  Cache-Control: s-maxage=3600
+
+/manifest.json
+  # Override Access-Control-Allow-Origin
+  ! Access-Control-Allow-Origin
+  Access-Control-Allow-Origin: *
