@@ -153,6 +153,10 @@
 
             &.link {
               color: colors.$blue-700;
+
+              a{
+                color: colors.$blue-700;
+              }
             }
 
             &.chain.id {

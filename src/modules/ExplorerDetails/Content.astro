@@ -1,9 +1,5 @@
 ---
-import CopyButton from "@/components/CopyButton/CopyButton.astro";
-import LinkButton from "@/components/LinkButton/LinkButton.astro";
 import Icon from "@/elements/Icon.astro";
-
-
 ---
 <div id="explorerDetail" class="explorer detail">
   <!-- Breadcrumbs -->
@@ -22,24 +18,13 @@ import Icon from "@/elements/Icon.astro";
     <p>Success</p>
   </div>
 
-  <!-- Contents -->
+  <!-- Contents, for now use id -->
   <div class="content" data-item="event-detail">
-    <h1 class="title">Swap USDT for WETH</h1>
-    <p class="detail">0xd8a9ba5444db547c6758a18ae24245d7901156fc19d4a14ba6fb6c41b350ca67</p>
-    <a class="goto" href="/">
-    View on Etherscan
-    <Icon variant="arrow-right" />
-    </a>
   </div>
 
   <div class="content condensed" >
     <h1 class="title">Block</h1>
     <p class="detail" data-item="block-number">-</p>
-  </div>
-
-  <div class="content condensed" >
-    <h1 class="title">Transaction Action</h1>
-    <p class="detail" data-item="transaction-action">Swap 96.869439 USDT for 0.02553788682732604 WETH</p>
   </div>
 
   <div class="content condensed" >
@@ -54,12 +39,10 @@ import Icon from "@/elements/Icon.astro";
     </div>
   </div>
 
-  <div class="content condensed" data-item="to">
+  <div class="content condensed">
     <h1 class="title">To</h1>
-    <div class="with actions">
-      <p class="detail">Protocol (0xB452AC021a1151AAF342c1B75aA914E03e6503b5)</p>
-      <CopyButton text="abcd" />
-      <LinkButton to="/google.com" />
+    <div class="with actions" data-item="to">
+      <p class="detail">-</p>
     </div>
   </div>
 
@@ -130,15 +113,6 @@ import Icon from "@/elements/Icon.astro";
 
       <div class="item">
         <aside class="left">
-          <p>Block Hash</p>
-        </aside>
-        <aside class="right" data-item="block-hash">
-          <p>0xdafea492d9c6733ae3d56b7ed1adb60692c98bc5</p>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
           <p>Network</p>
         </aside>
         <aside class="right" >
@@ -159,28 +133,19 @@ import Icon from "@/elements/Icon.astro";
 
       <div class="item">
         <aside class="left">
-          <p>USDT Amount</p>
+          <p>Amount 0</p>
         </aside>
-        <aside class="right" data-item="usdt-amount">
-          <p>96.54567 USDT</p>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>WETH Amount</p>
-        </aside>
-        <aside class="right" data-item="weth-amount">
-          <p>0.0255436456535 WETH</p>
+        <aside class="right" data-item="amount0">
+          <p>-</p>
         </aside>
       </div>
 
       <div class="item">
         <aside class="left">
-          <p>Transaction Fee</p>
+          <p>Amount 1</p>
         </aside>
-        <aside class="right" data-item="transaction-fee">
-          <p>0.00024345345646 OKB</p>
+        <aside class="right" data-item="amount1">
+          <p>-</p>
         </aside>
       </div>
 
@@ -189,19 +154,9 @@ import Icon from "@/elements/Icon.astro";
           <p>Gas Price</p>
         </aside>
         <aside class="right" data-item="gas-price">
-          <p>0.00000000096301 (9.6301 Gwei)</p>
+          <p>-</p>
         </aside>
       </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>Total Value</p>
-        </aside>
-        <aside class="right" data-item="total-value">
-          <p>$96.69</p>
-        </aside>
-      </div>
-
     </div>
   </div>
 </div>

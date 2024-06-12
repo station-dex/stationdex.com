@@ -16,7 +16,9 @@ const buildTableBody = (data: any[]) => {
     _tableBody.innerHTML += `
     <tr>
       <td class='transaction hash link'>
-        ${el.transactionHash.substring(0, 26) + '...'}
+        <a target="_blank" rel="noopener noreferrer" href="/explorer-details?id=${el.id}">
+          ${el.transactionHash.substring(0, 26) + '...'}
+        </a>
       </td>
   
       <td class='chain id'>

@@ -35,15 +35,32 @@ const getDataFromUrl = () => {
 }
 
 const renderButtons = (copyText: string, gotoLink: string) => {
-  return `
-  <button data-text="${copyText}" data-state="idle" data-type="copy">
-    <i></i>
-  </button>
-  <a href="${gotoLink}" target="_blank" rel="noopener noreferrer" >
-    <button data-type="link">
+  let _buttons = `
+    <button data-text="${copyText}" data-state="idle" data-type="copy">
       <i></i>
     </button>
-  </a>
+  `
+
+  if (gotoLink.length) {
+    _buttons += `
+      <a href="${gotoLink}" target="_blank" rel="noopener noreferrer" >
+        <button data-type="link">
+          <i></i>
+        </button>
+      </a>
+    `
+  }
+
+  return _buttons
+}
+
+const renderArrowIcon = () => {
+  return `
+  <i> 
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </i>
   `
 }
 
@@ -54,6 +71,7 @@ const renderData = (data: any) => {
     const elem = allItems[i]
 
     const itemName = elem.dataset.item
+    const chainDetails = getChainDetails(parseInt(data.chainId))
 
     switch (itemName) {
       case 'block-number':
@@ -65,12 +83,24 @@ const renderData = (data: any) => {
         break
 
       case 'network':
-        elem.innerHTML = getChainDetails(parseInt(data.chainId)).name
+        elem.innerHTML = chainDetails.name
         break
 
       case 'block-timestamp':{
         const unix = new Date(data.blockTimestamp)
         elem.innerHTML = `${DateLib.relativeTime(unix)} (${DateLib.fromUnix(unix).toString()})`
+        break
+      }
+
+      case 'event-detail':{
+        elem.innerHTML = `
+        <h1 class="title">${data.eventName}</h1>
+        <p class="detail">${data.transactionHash}</p>
+        <a rel="noopener noreferrer" target="_blank" class="goto" href="${chainDetails.explorer}/tx/${data.transactionHash}">
+          View on ${chainDetails.explorerName}
+          ${renderArrowIcon()}
+        </a>
+        `
         break
       }
 
@@ -83,7 +113,15 @@ const renderData = (data: any) => {
       case 'from':{
         elem.innerHTML = `
         <p class="detail">${data?.transactionSender}</p>
-        ${renderButtons(data?.id, '/')}
+        ${renderButtons(data?.id, `${chainDetails.explorer}/address/${data?.transactionSender}`)}
+        `
+        break
+      }
+
+      case 'to':{
+        elem.innerHTML = `
+        <p class="detail">Protocol (${data?.address})</p>
+        ${renderButtons(data?.address, `${chainDetails.explorer}/address/${data?.address}`)}
         `
         break
       }
@@ -91,7 +129,7 @@ const renderData = (data: any) => {
       case 'transaction-sender':{
         elem.innerHTML = `
         <p class="detail">${data?.transactionSender}</p>
-        ${renderButtons(data?.id, '/')}
+        ${renderButtons(data?.id, `${chainDetails.explorer}/address/${data?.transactionSender}`)}
         `
         break
       }
@@ -99,7 +137,7 @@ const renderData = (data: any) => {
       case 'id':{
         elem.innerHTML = `
         <p class="detail">${data?.id}</p>
-        ${renderButtons(data?.id, '/')}
+        ${renderButtons(data?.id, '')}
         `
         break
       }
@@ -107,7 +145,7 @@ const renderData = (data: any) => {
       case 'transaction-hash':{
         elem.innerHTML = `
         <p class="detail">${data?.transactionHash}</p>
-        ${renderButtons(data?.transactionHash, '/')}
+        ${renderButtons(data?.transactionHash, `${chainDetails.explorer}/tx/${data?.transactionHash}`)}
         `
         break
       }
@@ -115,7 +153,28 @@ const renderData = (data: any) => {
       case 'address':{
         elem.innerHTML = `
         <p class="detail">${data?.address}</p>
-        ${renderButtons(data?.address, '/')}
+        ${renderButtons(data?.address, `${chainDetails.explorer}/address/${data?.address}`)}
+        `
+        break
+      }
+
+      case 'amount0':{
+        elem.innerHTML = `
+        <p>${data?.amount0}</p>
+        `
+        break
+      }
+
+      case 'amount1':{
+        elem.innerHTML = `
+        <p>${data?.amount1}</p>
+        `
+        break
+      }
+
+      case 'gas-price':{
+        elem.innerHTML = `
+        <p>${data?.gasPrice}</p>
         `
         break
       }
