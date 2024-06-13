@@ -9,7 +9,7 @@
 	margin-bottom: 32px;
 
 	background-color: colors.$gray-iron-900;
-	height: 425px;
+	// height: 425px;
 	border-radius: 16px;
 
 	display: grid;
@@ -24,7 +24,11 @@
 		display: flex;
 		justify-content: flex-end;
 		@media (max-width: 767px){
-			display: none;
+			order: 2;
+			justify-content: center;
+			img{
+				max-width: 300px;
+			}
 		}
 	}
 
