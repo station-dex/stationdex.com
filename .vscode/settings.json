@@ -11,5 +11,10 @@
   },
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.detectIndentation": true
+  "editor.detectIndentation": true,
+  
+  "[scss]":{
+    "editor.formatOnSave": true,
+    "prettier.enable": true,
+  }
 }

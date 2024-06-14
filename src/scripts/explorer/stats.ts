@@ -33,6 +33,10 @@ const calculateGasPriceChange = (totalAvg: number, todayAverage: number) => {
     percent = ((totalAvg - todayAverage) / totalAvg) * 100
   }
 
+  if (isNaN(percent)) {
+    percent = 0
+  }
+
   return {
     percent: percent.toFixed(2),
     isPositive
