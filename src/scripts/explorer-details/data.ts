@@ -185,4 +185,34 @@ const renderData = (data: any) => {
   }
 }
 
-export { explorerDetailData, renderData, getDataFromUrl }
+const setExplorerLoading = (
+  enable: boolean
+) => {
+  const allItems = document.querySelectorAll('[data-loading]')
+
+  if (!allItems.length) {
+    return
+  }
+
+  allItems.forEach((element) => {
+    if (enable) {
+      element.classList.add('shimmer')
+    } else {
+      element.classList.remove('shimmer')
+    }
+  })
+}
+
+const handleFetchError = () => {
+  const errorContainer = document.querySelector('#explorerError')
+  const successContainer = document.querySelector('#explorerLoaded')
+  const errorHash = document.querySelector('#errorTransactionHash')
+
+  if (errorContainer && successContainer && errorHash) {
+    errorContainer.classList.remove('hidden')
+    successContainer.classList.add('hidden')
+    errorHash.innerHTML = _explorerDetailsData.id
+  }
+}
+
+export { explorerDetailData, renderData, getDataFromUrl, setExplorerLoading, handleFetchError }

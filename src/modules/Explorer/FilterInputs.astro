@@ -1,4 +1,7 @@
 ---
+import Checkbox from "@/components/Checkbox/Checkbox.astro";
+import DropDown from "@/components/DropDown/DropDown.astro";
+import DropDownTrigger from "@/components/DropDown/DropDownTrigger.astro";
 import InputWithIcon from "@/components/InputWithIcon/InputWithIcon.astro";
 ---
 
@@ -39,6 +42,31 @@ import InputWithIcon from "@/components/InputWithIcon/InputWithIcon.astro";
     noLabel
   />
 
+  <DropDownTrigger name="date">
+    <InputWithIcon
+      id="filterDatePlaceholder"
+      name="networkSearch"
+      label="Filter Date"
+      placeholder="Filter Date"
+      icon="search-lg"
+      icon="calendar"
+      readonly
+      noLabel
+    />
+  </DropDownTrigger>
+
+  <DropDownTrigger name="network">
+    <InputWithIcon
+      id="networkSearch"
+      name="networkSearch"
+      label="Filter Network"
+      placeholder="Filter Network"
+      icon="cube-02"
+      noLabel
+      readonly
+    />
+  </DropDownTrigger>
+
   <InputWithIcon
     id="contractSearch"
     name="contractSearch"
@@ -47,33 +75,39 @@ import InputWithIcon from "@/components/InputWithIcon/InputWithIcon.astro";
     icon="search-lg"
     noLabel
   />
-
-  <InputWithIcon
-    id="networkSearch"
-    name="networkSearch"
-    label="Filter Network"
-    placeholder="Filter Network"
-    icon="search-lg"
-    noLabel
-  />
-
-  <InputWithIcon
-    id="fromDateSearch"
-    name="fromDateSearch"
-    label="From Date"
-    placeholder="From Date"
-    date
-    icon="calendar"
-    noLabel
-  />
-
-  <InputWithIcon
-    id="toDateSearch"
-    name="toDateSearch"
-    label="To Date"
-    placeholder="To Date"
-    date
-    icon="calendar"
-    noLabel
-  />
 </div>
+
+<!-- dropdowns -->
+<DropDown name="date" title="Filter Date">
+  <div class="dropdown pickers">
+    <InputWithIcon
+      id="fromDateSearch"
+      name="fromDateSearch"
+      label="From Date"
+      placeholder="From Date"
+      date
+    />
+
+    <InputWithIcon
+      id="toDateSearch"
+      name="toDateSearch"
+      label="To Date"
+      placeholder="To Date"
+      date
+    />
+
+    <button class="apply date filter" data-type="date-apply">
+      Apply
+    </button>
+
+    <button class="clear date filter hidden" data-type="date-clear">
+      Clear All
+    </button>
+  </div>
+</DropDown>
+
+<DropDown name="network" title="Filter Network">
+  <Checkbox checked readonly id="network" name="network">
+    <span class="dropdown label">X Layer Mainnet</span>
+  </Checkbox>
+</DropDown>

@@ -62,7 +62,7 @@ const fetchDataAndRenderTable = async () => {
     // set loading
     setTableLoading()
 
-    const _data = await fetch(`${baseUrl}/explorer/${chainId}/home`, {
+    const _data = await fetch(`${baseUrl}explorer/${chainId}/home`, {
       method: 'POST',
       headers: {
         accept: 'application/json',
@@ -91,7 +91,7 @@ const fetchStatsAndRender = async () => {
 
     setStatsLoading()
 
-    const _data = await fetch(`${baseUrl}/explorer/${chainId}/home/stats`, {
+    const _data = await fetch(`${baseUrl}explorer/${chainId}/home/stats`, {
       method: 'GET',
       headers: {
         accept: 'application/json',

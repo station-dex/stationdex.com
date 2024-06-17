@@ -1,161 +1,175 @@
 ---
 import Icon from "@/elements/Icon.astro";
 ---
+
 <div id="explorerDetail" class="explorer detail">
   <!-- Breadcrumbs -->
 
   <div class="explorer breadcrumbs">
     <a class="item" href="/explorer">Explorer</a>
     <Icon variant="chevron-right" />
-    <div class="last item">
-      Explorer Details
+    <div class="last item">Explorer Details</div>
+  </div>
+
+  <div id="explorerError" class="hidden">
+    <h1>No transaction found</h1>
+    <p>
+      Unable to find transaction with id <span id="errorTransactionHash">-</span>
+    </p>
+    <a href="/explorer">
+      <button>
+        <span>Take me to homepage</span>
+        <Icon variant="arrow-right" />
+      </button>
+    </a>
+  </div>
+
+  <div id="explorerLoaded">
+    <!-- Success badge -->
+    <div data-loading>
+      <div class="badge success">
+        <Icon variant="check-circle" />
+        <p>Success</p>
+      </div>
     </div>
-  </div>
 
-  <!-- Success badge -->
-  <div class="badge success">
-    <Icon variant="check-circle" />
-    <p>Success</p>
-  </div>
+    <!-- Contents, for now use id -->
+    <div class="content" data-loading data-item="event-detail"></div>
 
-  <!-- Contents, for now use id -->
-  <div class="content" data-item="event-detail">
-  </div>
-
-  <div class="content condensed" >
-    <h1 class="title">Block</h1>
-    <p class="detail" data-item="block-number">-</p>
-  </div>
-
-  <div class="content condensed" >
-    <h1 class="title">Age</h1>
-    <p class="detail" data-item="age">-</p>
-  </div>
-
-  <div class="content condensed" >
-    <h1 class="title">From</h1>
-    <div class="with actions" data-item="from">
-      <p class="detail">-</p>
+    <div class="content condensed" data-loading>
+      <h1 class="title">Block</h1>
+      <p class="detail" data-item="block-number">-</p>
     </div>
-  </div>
 
-  <div class="content condensed">
-    <h1 class="title">To</h1>
-    <div class="with actions" data-item="to">
-      <p class="detail">-</p>
+    <div class="content condensed" data-loading>
+      <h1 class="title">Age</h1>
+      <p class="detail" data-item="age">-</p>
     </div>
-  </div>
 
-  <!-- Details & Table -->
-  <div class="details">
-    <h1>Details</h1>
-    <div class="table">
-
-      <div class="item">
-        <aside class="left">
-          <p>Event Name</p>
-        </aside>
-        <aside class="right">
-          <div class="badge gray" data-item="event-name">-</div>
-        </aside>
+    <div class="content condensed" data-loading>
+      <h1 class="title">From</h1>
+      <div class="with actions" data-item="from">
+        <p class="detail">-</p>
       </div>
+    </div>
 
-      <div class="item">
-        <aside class="left">
-          <p>Id</p>
-        </aside>
-        <aside class="right">
-          <div class="with actions" data-item="id">
+    <div class="content condensed" data-loading>
+      <h1 class="title">To</h1>
+      <div class="with actions" data-item="to">
+        <p class="detail">-</p>
+      </div>
+    </div>
+
+    <!-- Details & Table -->
+    <div class="details" data-loading>
+      <h1>Details</h1>
+      <div class="table">
+        <div class="item">
+          <aside class="left">
+            <p>Event Name</p>
+          </aside>
+          <aside class="right">
+            <div class="badge gray" data-item="event-name">-</div>
+          </aside>
+        </div>
+
+        <div class="item">
+          <aside class="left">
+            <p>Id</p>
+          </aside>
+          <aside class="right">
+            <div class="with actions" data-item="id">
+              <p>-</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="item">
+          <aside class="left">
+            <p>Transaction Hash</p>
+          </aside>
+          <aside class="right">
+            <div class="with actions" data-item="transaction-hash">
+              <p>-</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="item">
+          <aside class="left">
+            <p>Address</p>
+          </aside>
+          <aside class="right">
+            <div class="with actions" data-item="address">
+              <p>-</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="item">
+          <aside class="left">
+            <p>Block Number</p>
+          </aside>
+          <aside class="right">
+            <p data-item="block-number">-</p>
+          </aside>
+        </div>
+
+        <div class="item">
+          <aside class="left">
+            <p>Block Timestamp</p>
+          </aside>
+          <aside class="right">
+            <p data-item="block-timestamp">-</p>
+          </aside>
+        </div>
+
+        <div class="item">
+          <aside class="left">
+            <p>Network</p>
+          </aside>
+          <aside class="right">
+            <p data-item="network">-</p>
+          </aside>
+        </div>
+
+        <div class="item">
+          <aside class="left">
+            <p>Transaction Sender</p>
+          </aside>
+          <aside class="right">
+            <div class="with actions" data-item="transaction-sender">
+              <p>-</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="item">
+          <aside class="left">
+            <p>Amount 0</p>
+          </aside>
+          <aside class="right" data-item="amount0">
             <p>-</p>
-          </div>
-        </aside>
-      </div>
+          </aside>
+        </div>
 
-      <div class="item">
-        <aside class="left">
-          <p>Transaction Hash</p>
-        </aside>
-        <aside class="right">
-          <div class="with actions" data-item="transaction-hash">
+        <div class="item">
+          <aside class="left">
+            <p>Amount 1</p>
+          </aside>
+          <aside class="right" data-item="amount1">
             <p>-</p>
-          </div>
-        </aside>
-      </div>
+          </aside>
+        </div>
 
-      <div class="item">
-        <aside class="left">
-          <p>Address</p>
-        </aside>
-        <aside class="right">
-          <div class="with actions" data-item="address">
+        <div class="item">
+          <aside class="left">
+            <p>Gas Price</p>
+          </aside>
+          <aside class="right" data-item="gas-price">
             <p>-</p>
-          </div>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>Block Number</p>
-        </aside>
-        <aside class="right">
-          <p data-item="block-number">-</p>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>Block Timestamp</p>
-        </aside>
-        <aside class="right">
-          <p data-item="block-timestamp">-</p>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>Network</p>
-        </aside>
-        <aside class="right" >
-          <p data-item="network">-</p>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>Transaction Sender</p>
-        </aside>
-        <aside class="right" >
-          <div class="with actions" data-item="transaction-sender">
-            <p>-</p>
-          </div>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>Amount 0</p>
-        </aside>
-        <aside class="right" data-item="amount0">
-          <p>-</p>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>Amount 1</p>
-        </aside>
-        <aside class="right" data-item="amount1">
-          <p>-</p>
-        </aside>
-      </div>
-
-      <div class="item">
-        <aside class="left">
-          <p>Gas Price</p>
-        </aside>
-        <aside class="right" data-item="gas-price">
-          <p>-</p>
-        </aside>
+          </aside>
+        </div>
       </div>
     </div>
   </div>
