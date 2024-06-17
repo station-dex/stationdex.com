@@ -3,7 +3,7 @@ import Header from "@/components/Header/Header.astro";
 import Footer from "@/components/Footer/Footer.astro";
 
 const server = import.meta.env.FORMS_API_SERVER;
-const chainId = import.meta.env.CHAIN_ID;
+const chainId = import.meta.env.CHAIN_ID || "196";
 
 interface Props {
   noFooterNewsletter?: boolean;
