@@ -1,0 +1,49 @@
+---
+import Icon from "@/elements/Icon.astro";
+import { paths } from "@/elements/icons/paths";
+
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+  id: string;
+  name: string;
+  label: string;
+  placeholder: string;
+  date?: boolean;
+  noLabel?: boolean;
+  icon?: keyof typeof paths;
+}
+
+const props = Astro.props;
+const { id, name, label, placeholder, icon, date, noLabel } = props;
+---
+
+<div class="input icon container">
+  <label class={`label ${noLabel ? "sr-only" : ""}`} for={id}>
+    {label}
+  </label>
+  <div class="input wrapper">
+    {
+      date ? (
+        <input
+          class="input"
+          {...props}
+          id={id}
+          name={name}
+          placeholder={placeholder}
+          onfocus="(this.type='date', this.showPicker())"
+          onblur="(!this.value ? this.type='text' : console.log(''))"
+        />
+      ) : (
+        <input
+          class="input"
+          {...props}
+          id={id}
+          name={name}
+          placeholder={placeholder}
+        />
+      )
+    }
+    <div class="icon">
+      {!!icon && <Icon variant={icon} />}
+    </div>
+  </div>
+</div>

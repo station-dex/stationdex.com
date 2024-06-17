@@ -1,35 +1,35 @@
-const navButton = document.querySelector("header button.hamburger[data-open]");
-const mobileMenu = document.querySelector("header div.mobile.menu[data-open]");
+const navButton = document.querySelector('header button.hamburger[data-open]')
+const mobileMenu = document.querySelector('header div.mobile.menu[data-open]')
 
-function updateNavLinkActiveState() {
+const updateNavLinkActiveState = () => {
   // trim off leading and trailing slashes
-  const sanitizePath = (path) => path.replace(/^\/*|\/*$/g, "");
+  const sanitizePath = path => path.replace(/^\/*|\/*$/g, '')
 
-  const path = sanitizePath(window.location.pathname);
-  const anchorItems = document.querySelectorAll("header a");
+  const path = sanitizePath(window.location.pathname)
+  const anchorItems = document.querySelectorAll('header a')
 
   anchorItems.forEach((link) => {
-    const href = sanitizePath(link.getAttribute("href"));
+    const href = sanitizePath(link.getAttribute('href'))
 
-    if (path === href || (path.startsWith(href) && href !== "")) {
-      link.classList.add("active");
+    if (path === href || (path.startsWith(href) && href !== '')) {
+      link.classList.add('active')
     } else {
-      link.classList.remove("active");
+      link.classList.remove('active')
     }
-  });
+  })
 }
 
-function registerMobileMenuToggle() {
-  navButton.addEventListener("click", () => {
+const registerMobileMenuToggle = () => {
+  navButton.addEventListener('click', () => {
     navButton.dataset.open =
-      navButton.dataset.open === "true" ? "false" : "true";
+      navButton.dataset.open === 'true' ? 'false' : 'true'
     mobileMenu.dataset.open =
-      mobileMenu.dataset.open === "true" ? "false" : "true";
+      mobileMenu.dataset.open === 'true' ? 'false' : 'true'
 
     document.documentElement.style.overflow =
-      mobileMenu.dataset.open === "true" ? "hidden" : "auto";
-  });
+      mobileMenu.dataset.open === 'true' ? 'hidden' : 'auto'
+  })
 }
 
-registerMobileMenuToggle();
-updateNavLinkActiveState();
+registerMobileMenuToggle()
+updateNavLinkActiveState()

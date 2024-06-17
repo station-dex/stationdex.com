@@ -1,0 +1,81 @@
+@use "@/design-system/colors";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+.stats {
+  margin-top: 32px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(5, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .item {
+    @media (max-width: 767px) {
+      &:last-of-type {
+        grid-column: 1 / span 2;
+      }
+    }
+
+    padding: 16px;
+    border-radius: 8px;
+    background-color: colors.$gray-iron-50;
+    border: 1px solid colors.$gray-iron-200;
+
+    // this one is for shimmer
+    --shimmerRadius: 8px;
+    --shimmerZIndex: 2;
+
+    p.title {
+      @include styles.text-sm;
+      @include weights.regular;
+      color: colors.$gray-iron-500;
+    }
+
+    p.value {
+      @include styles.text-lg;
+      @include weights.medium;
+      color: colors.$gray-iron-900;
+    }
+
+    .multi.value {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      .changes {
+        display: flex;
+        align-items: center;
+
+        p.value {
+          @include styles.text-sm;
+          color: colors.$success-600;
+        }
+
+        i {
+          background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="M12 20V4M12 4L6 10M12 4L18 10" stroke="%23039855" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          background-size: cover;
+          width: 16px;
+          height: 16px;
+          display: block;
+          content: "";
+        }
+
+        &.negative {
+          p.value {
+            color: colors.$rose-600;
+          }
+          i {
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="M12 4V20M12 20L18 14M12 20L6 14" stroke="%23e31b54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          }
+        }
+      }
+    }
+  }
+}

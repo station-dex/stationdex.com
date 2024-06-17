@@ -1,0 +1,66 @@
+---
+import Icon from "@/elements/Icon.astro";
+
+const columns = [
+  { key: "transactionHash", label: "Transaction Hash" },
+  { key: "chainId", label: "Network" },
+  { key: "date", label: "Age" },
+  { key: "eventName", label: "Event" },
+  { key: "transactionSender", label: "From" },
+  { key: "contract", label: "Contract" },
+  { key: "blockNumber", label: "Block" },
+];
+---
+
+<div class="table wrapper">
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          {
+            columns.map((el) => (
+              <th class={el.key}>
+                <button
+                  data-table-column={el.key}
+                  data-type="sortable"
+                  data-sort="neutral"
+                  class="table-head"
+                >
+                  {el.label}
+                  <i class="sort-icon" />
+                </button>
+              </th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody class="shimmer" id="explorer-table-body"> </tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <aside class="left">
+      <button
+        class="pagination-action"
+        id="pagination-prev"
+        data-type="prev-page"
+      >
+        <Icon variant="arrow-left" />
+        <p>Previous</p>
+      </button>
+    </aside>
+
+    <aside id="pagination-mid-container" class="mid"></aside>
+
+    <aside class="right">
+      <button
+        class="pagination-action"
+        id="pagination-next"
+        data-type="next-page"
+      >
+        <p>Next</p>
+        <Icon variant="arrow-right" />
+      </button>
+    </aside>
+  </div>
+</div>

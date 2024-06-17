@@ -1,0 +1,15 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+
+body {
+  background-color: colors.$base-white !important;
+}
+
+.explorer.main {
+  @include utils.full-width-container;
+  padding-top: 32px;
+  padding-bottom: 72px;
+  background-color: colors.$base-white;
+}
+
+

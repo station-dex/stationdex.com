@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header.astro";
 import Footer from "@/components/Footer/Footer.astro";
 
 const server = import.meta.env.FORMS_API_SERVER;
+const chainId = import.meta.env.CHAIN_ID || "196";
 
 interface Props {
   noFooterNewsletter?: boolean;
@@ -25,9 +26,10 @@ const { noFooterNewsletter, noEllipse, noHeader, noFooter } = Astro.props;
     <script
       type="text/javascript"
       nonce="j+h4QPo2G1leKJxLFUVrGw=="
-      define:vars={{ server }}
+      define:vars={{ server, chainId }}
     >
       window.server = server;
+      window.chainId = chainId;
     </script>
   </head>
   <body>

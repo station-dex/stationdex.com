@@ -1,0 +1,182 @@
+@use "@/design-system/utils";
+@use "@/design-system/colors";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
+body {
+  background-color: colors.$base-white !important;
+}
+
+.explorer.detail{
+  @include utils.full-width-container;
+  padding-top: 32px;
+  padding-bottom: 72px;
+  background-color: colors.$base-white;
+
+  .content{
+    margin-top: 8px;
+  
+    h1.title {
+      @include styles.text-lg;
+      @include weights.medium;
+    }
+  
+    .with.actions{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+  
+    p.detail {
+      margin-top: 8px;
+      @include styles.text-md;
+      @include weights.regular;
+      word-break: break-all;
+    }
+  
+    a.goto{
+      margin-top: 16px;
+      color: colors.$blue-700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      @include styles.text-md;
+      @include weights.semibold;
+      svg{
+        width: 20px;
+        height: 20px;
+      }
+    }
+  
+    &.condensed{
+      margin-top: 16px;
+      p.detail{
+        margin-top: 0;
+      }
+    }
+  }
+
+  .details{
+    margin-top: 24px;
+    &>h1{
+      color: colors.$gray-iron-900;
+      @include styles.text-lg;
+      @include weights.medium;
+      margin-bottom: 8px;
+    }
+
+    .table{
+      border: 1px solid colors.$gray-iron-300;
+      border-radius: 12px;
+      max-width: calc(100vw - 32px);
+      overflow: hidden;
+
+      .item{
+        display: flex;
+        border-bottom: 1px solid colors.$gray-iron-100;
+
+        aside{
+          padding: 12px 16px;
+        }
+        aside.left{
+          background: colors.$gray-iron-50;
+          min-width: 163px;
+          p{
+            @include styles.text-sm;
+            @include weights.medium;
+            color: colors.$gray-iron-600;
+          }
+        }
+        aside.right{
+          p{
+            @include styles.text-sm;
+            @include weights.regular;
+            color: colors.$gray-iron-600;
+            word-break: break-all;
+          }
+          .with.actions{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+          }
+        }
+
+        @media (max-width: 767px){
+          flex-direction: column;
+          padding: 12px 16px;
+
+          aside{
+            padding: 0;
+          }
+          aside.left{
+            background: none;
+            min-width: unset;
+            margin-bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.explorer.breadcrumbs{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .item{
+    color: colors.$gray-iron-600;
+    @include styles.text-sm;
+    @include weights.medium;
+    
+    &.last{
+      padding: 4px 8px;
+      background-color: colors.$blue-50;
+      border-radius: 6px;
+      color: colors.$blue-700;
+    }
+  }
+
+  i{
+    color: colors.$gray-iron-300;
+    svg{
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.badge.success{
+  margin-top: 32px;
+
+  border: 1.5px solid colors.$success-600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 50px;
+
+  i{
+    color: colors.$success-600;
+    svg{
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  p{
+    color: colors.$success-700;
+    @include styles.text-xs;
+    @include weights.medium;
+  }
+}
+
+.badge.gray{
+  display: inline-flex;
+  background-color: colors.$gray-iron-100;
+  padding: 2px 8px;
+  border-radius: 50px;
+  color: colors.$gray-iron-700;
+  @include styles.text-xs;
+  @include weights.medium;
+}

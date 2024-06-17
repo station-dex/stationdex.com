@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Seo from "../components/Seo.astro";
+import styles from "./explorer.scss?inline";
+import Content from "@/modules/Explorer/Content.astro";
+---
+
+<BaseLayout noFooterNewsletter>
+  <Seo
+    slot="seo"
+    title="Transaction Explorer | StationDEX"
+    description="Embark on a Stellar Trading Experience"
+    og={{
+      image: "/assets/og/explorer.png",
+      imageAlt: "StationDEX Open Graph Banner",
+    }}
+  />
+
+  <Content />
+
+  <style slot="header" is:inline set:html={styles}></style>
+
+  <Fragment slot="footer">
+    <script src="@/scripts/header/nav.js"></script>
+    <script src="@/scripts/explorer/index.ts"></script>
+  </Fragment>
+</BaseLayout>
