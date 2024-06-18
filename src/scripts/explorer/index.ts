@@ -1,9 +1,10 @@
+import { initDropdown } from '@/components/DropDown/DropDown'
 import { handleCopyText } from '../utils/copy'
 import { explorerData } from './data'
 import { fetchDataAndRenderTable, fetchStatsAndRender } from './fetch'
 import { getDataFromUrl, navigateSilently } from './history'
 import { handlePageChange } from './pagination'
-import { resetSearchInputs, setupSearch } from './search'
+import { clearDateFilter, handleDateFilter, resetSearchInputs, setupSearch } from './search'
 import { handleSortClicked, resetSorting } from './sorting'
 
 const explorer = document.querySelector('#explorerMain') as HTMLDivElement
@@ -55,8 +56,14 @@ explorer.addEventListener('click', async (event) => {
     case 'copy':
       handleCopyText(nearestButton)
       break
+    case 'date-apply':
+      handleDateFilter()
+      break
+    case 'date-clear':
+      clearDateFilter()
+      break
     default:
-      console.log('no action to perform', nearestButton)
+      break
   }
 })
 
@@ -88,6 +95,9 @@ window.onpopstate = async (e) => {
 
   //
   setupSearch()
+
+  // initialize click listener on trigger
+  initDropdown()
 
   // fetch table
   await fetchDataAndRenderTable()

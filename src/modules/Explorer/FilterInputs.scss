@@ -1,3 +1,7 @@
+@use "@/design-system/colors";
+@use "@/design-system/typography/styles";
+@use "@/design-system/typography/weights";
+
 .filter.controls {
   margin-top: 32px;
   display: grid;
@@ -10,5 +14,45 @@
 
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
+  }
+}
+
+.dropdown.pickers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdown.label {
+  @include styles.text-sm;
+  @include weights.medium;
+  color: colors.$gray-iron-700;
+}
+
+button.date.filter{
+  margin: 8px 0;
+  padding: 8px 12px;
+  background-color: colors.$blue-600;
+  color: colors.$base-white;
+  @include styles.text-sm;
+  @include weights.semibold;
+  border-radius: 8px;
+
+  &.hidden{
+    display: none;
+  }
+
+  &.clear{
+    border: 1px solid colors.$gray-iron-300;
+    background-color: colors.$base-white;
+    color: colors.$base-black;
+  }
+
+  &:hover{
+    background-color: colors.$blue-700;
+
+    &.clear{
+      background-color: colors.$base-white;
+    }
   }
 }

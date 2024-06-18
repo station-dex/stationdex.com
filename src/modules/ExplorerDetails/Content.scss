@@ -13,6 +13,55 @@ body {
   padding-bottom: 72px;
   background-color: colors.$base-white;
 
+  #explorerLoaded{
+    margin-top: 32px;
+    --shimmerRadius: 8px;
+    --shimmerSize: 1100px;
+
+    &.hidden{
+      display: none;
+    }
+  }
+
+  #explorerError{
+    margin-top: 32px;
+
+    &.hidden{
+      display: none;
+    }
+
+    h1{
+      @include styles.h2;
+      @include weights.semibold;
+      color: colors.$base-black;
+    }
+
+    p{
+      margin-top: 16px;
+      @include styles.text-md;
+      @include weights.regular;
+      color: colors.$gray-iron-500;
+      span{
+        @include weights.semibold;
+        color: colors.$base-black;
+      }
+    }
+
+    button{
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: colors.$blue-600;
+      padding: 12px 16px;
+      border-radius: 8px;
+      color: colors.$base-white;
+      @include styles.text-md;
+      @include weights.semibold;
+    }
+  }
+
   .content{
     margin-top: 8px;
   
@@ -147,8 +196,6 @@ body {
 }
 
 .badge.success{
-  margin-top: 32px;
-
   border: 1.5px solid colors.$success-600;
   display: inline-flex;
   align-items: center;

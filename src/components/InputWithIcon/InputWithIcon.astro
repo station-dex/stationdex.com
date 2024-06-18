@@ -9,14 +9,16 @@ interface Props extends astroHTML.JSX.InputHTMLAttributes {
   placeholder: string;
   date?: boolean;
   noLabel?: boolean;
+  readonly?: boolean;
   icon?: keyof typeof paths;
+  [rest: string]: any;
 }
 
 const props = Astro.props;
-const { id, name, label, placeholder, icon, date, noLabel } = props;
+const { id, name, label, placeholder, icon, date, noLabel, readonly, ...rest } = props;
 ---
 
-<div class="input icon container">
+<div class="input icon container" {...rest}>
   <label class={`label ${noLabel ? "sr-only" : ""}`} for={id}>
     {label}
   </label>
@@ -25,25 +27,21 @@ const { id, name, label, placeholder, icon, date, noLabel } = props;
       date ? (
         <input
           class="input"
-          {...props}
           id={id}
           name={name}
+          readonly={readonly}
           placeholder={placeholder}
+          type='date'
           onfocus="(this.type='date', this.showPicker())"
-          onblur="(!this.value ? this.type='text' : console.log(''))"
         />
       ) : (
-        <input
-          class="input"
-          {...props}
-          id={id}
-          name={name}
-          placeholder={placeholder}
-        />
+        <input class="input" readonly={readonly} id={id} name={name} placeholder={placeholder} />
       )
     }
-    <div class="icon">
-      {!!icon && <Icon variant={icon} />}
-    </div>
+    {!!icon && (
+        <div class="icon">
+          <Icon variant={icon} />
+        </div>
+    )}
   </div>
 </div>

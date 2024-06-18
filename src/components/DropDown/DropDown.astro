@@ -1,0 +1,19 @@
+---
+interface Props {
+  name: string;
+  title?: string;
+  zIndex?: number;
+}
+const { name, title, zIndex = 5 } = Astro.props;
+---
+
+<div style=`--zIndex: ${zIndex}`  data-dropdown-content={name} data-dropdown-state="idle">
+  {title && (
+      <div class="title">
+        <h1>{title}</h1>
+      </div>
+    )}
+  <div class="contents">
+    <slot />
+  </div>
+</div>

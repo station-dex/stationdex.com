@@ -19,7 +19,7 @@ explorerDetails.addEventListener('click', async (event) => {
       handleCopyText(nearestButton)
       break
     default:
-      console.log('no action to perform', nearestButton)
+      break
   }
 });
 

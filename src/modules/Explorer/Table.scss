@@ -203,6 +203,7 @@
         transition: 0.2s ease-in-out;
         border-radius: 4px;
         cursor: pointer;
+        --focus-ring-box-shadow: none;
 
         svg {
           width: 20px;

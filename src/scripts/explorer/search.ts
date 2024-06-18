@@ -7,9 +7,6 @@ import { navigateSilently } from './history'
 let eventSearchQuery = ''
 let contractSearchQuery = ''
 let fromSearchQuery = ''
-let networkSearchQuery = ''
-let fromDateSearchQuery = ''
-let toDateSearchQuery = ''
 let txnHashSearchQuery = ''
 let blockNumberSearchQuery = ''
 
@@ -17,12 +14,17 @@ const eventSearchInput = document.querySelector('#eventSearch') as HTMLInputElem
 const contractSearchInput = document.querySelector('#contractSearch') as HTMLInputElement
 const fromAddressSearchInput = document.querySelector('#transactionSenderSearch') as HTMLInputElement
 const networkSearchInput = document.querySelector('#networkSearch') as HTMLInputElement
-const fromDateInput = document.querySelector('#fromDateSearch') as HTMLInputElement
-const toDateInput = document.querySelector('#toDateSearch') as HTMLInputElement
 const txnHashSearchInput = document.querySelector('#transactionHashSearch') as HTMLInputElement
 const blockNumberSearchInput = document.querySelector('#blockSearch') as HTMLInputElement
 
+const fromDateInput = document.querySelector('#fromDateSearch') as HTMLInputElement
+const toDateInput = document.querySelector('#toDateSearch') as HTMLInputElement
+const filterDatePlaceholder = document.querySelector('#filterDatePlaceholder') as HTMLInputElement
+
 const handleSearch = () => {
+  // reset page 1 on each search
+  setExplorerData('page', 1)
+  //
   fetchDataAndRenderTable()
   navigateSilently()
 }
@@ -96,70 +98,22 @@ const setupFromSearch = (): void => {
   )
 }
 
-const setupNetworkSearch = (): void => {
-  const searchDebounce = debounce((searchQuery: string) => {
-    if (networkSearchQuery !== searchQuery) {
-      networkSearchQuery = searchQuery
+const initiateDateFilter = () => {
+  const { fromDate, toDate } = getExplorerData()
+  fromDateInput.value = fromDate
+  toDateInput.value = toDate
 
-      if (['195', '196', ''].includes(searchQuery)) {
-        setExplorerData('networkSearch', searchQuery)
-        handleSearch()
-      }
-    }
-  }, 500)
-
-  const onKeyup = (e: Event) => {
-    const inputValue = (e.target as HTMLInputElement).value
-    searchDebounce(inputValue ?? '')
+  if (filterDatePlaceholder) {
+    filterDatePlaceholder.value = `${fromDateInput.value} - ${toDateInput.value}`
   }
 
-  networkSearchInput?.addEventListener(
-    'keyup',
-    onKeyup,
-    { passive: true }
-  )
-}
+  const btnClear = document.querySelector("button[data-type='date-clear']")
+  const btnApply = document.querySelector("button[data-type='date-apply']")
 
-const setupFromDateSearch = (): void => {
-  const searchDebounce = debounce((searchQuery: string) => {
-    if (fromDateSearchQuery !== searchQuery) {
-      fromDateSearchQuery = searchQuery
-      setExplorerData('fromDate', searchQuery)
-      handleSearch()
-    }
-  }, 500)
-
-  const onKeyup = (e: Event) => {
-    const inputValue = (e.target as HTMLInputElement).value
-    searchDebounce(inputValue ?? '')
+  if (btnClear && btnApply) {
+    btnClear.classList.remove('hidden')
+    btnApply.classList.add('hidden')
   }
-
-  fromDateInput?.addEventListener(
-    'change',
-    onKeyup,
-    { passive: true }
-  )
-}
-
-const setupToDateSearch = (): void => {
-  const searchDebounce = debounce((searchQuery: string) => {
-    if (toDateSearchQuery !== searchQuery) {
-      toDateSearchQuery = searchQuery
-      setExplorerData('toDate', searchQuery)
-      handleSearch()
-    }
-  }, 500)
-
-  const onKeyup = (e: Event) => {
-    const inputValue = (e.target as HTMLInputElement).value
-    searchDebounce(inputValue ?? '')
-  }
-
-  toDateInput?.addEventListener(
-    'change',
-    onKeyup,
-    { passive: true }
-  )
 }
 
 const resetSearchInputs = () => {
@@ -182,7 +136,6 @@ const resetSearchInputs = () => {
 
   if (networkSearchInput) {
     networkSearchInput.value = networkSearch
-    networkSearchQuery = networkSearch
   }
 
   if (txnHashSearchInput) {
@@ -195,22 +148,8 @@ const resetSearchInputs = () => {
     blockNumberSearchQuery = blockNumber
   }
 
-  if (fromDateInput) {
-    fromDateInput.value = fromDate
-    fromDateSearchQuery = fromDate
-
-    if (fromDate) {
-      fromDateInput.type = 'date'
-    }
-  }
-
-  if (toDateInput) {
-    toDateInput.value = toDate
-    toDateSearchQuery = toDate
-
-    if (toDate) {
-      toDateInput.type = 'date'
-    }
+  if (fromDate && toDate) {
+    initiateDateFilter()
   }
 }
 
@@ -262,16 +201,64 @@ const setupTxnHashSearch = (): void => {
   )
 }
 
+const handleDateFilter = () => {
+  if (!fromDateInput.value || !toDateInput.value) {
+    return
+  }
+
+  setExplorerData('toDate', toDateInput.value)
+  setExplorerData('fromDate', fromDateInput.value)
+
+  if (filterDatePlaceholder) {
+    filterDatePlaceholder.value = `${fromDateInput.value} - ${toDateInput.value}`
+  }
+
+  handleSearch()
+
+  const btnClear = document.querySelector("button[data-type='date-clear']")
+  const btnApply = document.querySelector("button[data-type='date-apply']")
+
+  if (btnClear && btnApply) {
+    console.log(btnApply, btnClear)
+    btnClear.classList.remove('hidden')
+    btnApply.classList.add('hidden')
+  }
+}
+
+const clearDateFilter = () => {
+  setExplorerData('toDate', '')
+  setExplorerData('fromDate', '')
+
+  if (filterDatePlaceholder) {
+    filterDatePlaceholder.value = ''
+  }
+
+  if (fromDateInput) {
+    fromDateInput.value = ''
+  }
+
+  if (toDateInput) {
+    toDateInput.value = ''
+  }
+
+  handleSearch()
+
+  const btnClear = document.querySelector("button[data-type='date-clear']")
+  const btnApply = document.querySelector("button[data-type='date-apply']")
+
+  if (btnClear && btnApply) {
+    btnClear.classList.add('hidden')
+    btnApply.classList.remove('hidden')
+  }
+}
+
 const setupSearch = (): void => {
   resetSearchInputs()
   setupEventSearch()
   setupContractSearch()
   setupFromSearch()
-  setupNetworkSearch()
-  setupFromDateSearch()
-  setupToDateSearch()
   setupBlockSearch()
   setupTxnHashSearch()
 }
 
-export { setupSearch, resetSearchInputs }
+export { setupSearch, resetSearchInputs, handleDateFilter, clearDateFilter }
