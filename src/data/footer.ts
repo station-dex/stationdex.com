@@ -82,6 +82,10 @@ const footerLinks: FooterLink[] = [
       {
         title: 'Brand Assets',
         link: '/brand-assets'
+      },
+      {
+        title: 'Explorer',
+        link: '/explorer'
       }
     ]
   },
