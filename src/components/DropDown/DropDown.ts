@@ -99,7 +99,18 @@ const handleViewportChange = () => {
   })
 }
 
-export const initDropdown = () => {
+const closeDropdown = (targetName: string) => {
+  const dropDownContent = document.querySelector(`[data-dropdown-content='${targetName}'][data-dropdown-state='open']`) as HTMLDivElement
+
+  if (!dropDownContent) {
+    return false
+  }
+
+  dropDownContent.setAttribute('data-dropdown-state', 'idle')
+  return true
+}
+
+const initDropdown = () => {
   const allTriggers = document.querySelectorAll('[data-dropdown-trigger]')
 
   if (!allTriggers.length) {
@@ -120,6 +131,16 @@ export const initDropdown = () => {
       triggers.push(exactElement)
 
       handleTriggerClick(exactElement)
+    })
+
+    elem.addEventListener('keydown', (e) => {
+      const _target = e?.target as HTMLElement
+      const _event = e as KeyboardEvent
+
+      if (_event?.key === 'Enter') {
+        _target?.click()
+        e.stopPropagation()
+      }
     })
   });
 
@@ -144,3 +165,5 @@ export const initDropdown = () => {
     }
   })
 }
+
+export { initDropdown, closeDropdown }

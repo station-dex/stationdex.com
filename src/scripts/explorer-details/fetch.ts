@@ -26,7 +26,6 @@ const fetchTransactionDetails = async () => {
       renderData(_json.data)
     }
 
-    console.log(_json)
     setExplorerLoading(false)
   } catch (e) {
     handleFetchError()

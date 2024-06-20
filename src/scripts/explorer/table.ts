@@ -3,6 +3,20 @@ import { abbreviateAddress, getTableBodyWhileLoading } from './utils'
 import { getAddressLink, getBlockNumberLink, getChainDetails } from '../utils/chain'
 const _tableBody = document.querySelector('#explorer-table-body')
 
+const buildTableBodyForError = (errorMessage: string) => {
+  if (!_tableBody) {
+    return
+  }
+
+  _tableBody.innerHTML = `
+  <tr>
+      <td class='error message' colspan='7'>
+        <span>${errorMessage}</span>
+      </td>
+  </tr>
+  `
+}
+
 const buildTableBody = (data: any[]) => {
   if (!_tableBody) {
     return
@@ -13,6 +27,7 @@ const buildTableBody = (data: any[]) => {
   for (let i = 0; i < data.length; i++) {
     const el = data[i]
     const unix = DateLib.toUnix(new Date(el.date))
+
     _tableBody.innerHTML += `
     <tr>
       <td class='transaction hash link'>
@@ -71,4 +86,4 @@ const setTableLoading = () => {
   _tableBody.innerHTML = getTableBodyWhileLoading()
 }
 
-export { buildTableBody, setTableLoading }
+export { buildTableBody, setTableLoading, buildTableBodyForError }

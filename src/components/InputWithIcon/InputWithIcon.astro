@@ -10,12 +10,24 @@ interface Props extends astroHTML.JSX.InputHTMLAttributes {
   date?: boolean;
   noLabel?: boolean;
   readonly?: boolean;
+  disabled?: boolean;
   icon?: keyof typeof paths;
   [rest: string]: any;
 }
 
 const props = Astro.props;
-const { id, name, label, placeholder, icon, date, noLabel, readonly, ...rest } = props;
+const {
+  id,
+  name,
+  label,
+  placeholder,
+  icon,
+  date,
+  noLabel,
+  readonly,
+  disabled,
+  ...rest
+} = props;
 ---
 
 <div class="input icon container" {...rest}>
@@ -30,18 +42,28 @@ const { id, name, label, placeholder, icon, date, noLabel, readonly, ...rest } =
           id={id}
           name={name}
           readonly={readonly}
+          disabled={disabled}
           placeholder={placeholder}
-          type='date'
+          type="date"
           onfocus="(this.type='date', this.showPicker())"
         />
       ) : (
-        <input class="input" readonly={readonly} id={id} name={name} placeholder={placeholder} />
+        <input
+          class="input"
+          readonly={readonly}
+          disabled={disabled}
+          id={id}
+          name={name}
+          placeholder={placeholder}
+        />
       )
     }
-    {!!icon && (
+    {
+      !!icon && (
         <div class="icon">
           <Icon variant={icon} />
         </div>
-    )}
+      )
+    }
   </div>
 </div>

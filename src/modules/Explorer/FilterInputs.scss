@@ -56,3 +56,75 @@ button.date.filter{
     }
   }
 }
+
+div.checkbox.option[role='button']{
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  margin: 4px;
+  position: relative;
+  gap: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover{
+    background: colors.$gray-50;
+  }
+
+  &.active{
+    background: colors.$blue-25;
+
+    &:hover{
+      background: colors.$blue-50;
+    }
+  }
+  
+  input{
+    appearance: none;
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+    font: inherit;
+    color: currentcolor;
+    width: 16px;
+    height: 16px;
+    border: 0.15em solid colors.$blue-600;
+    border-radius: 4px;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+
+    &::before{
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      transform: scale(0);
+      transition: transform 120ms ease-in-out 0s;
+      background: var(--nm-color-base-white);
+    }
+
+    &:checked::before {
+      transform: scale(1);
+      background-image: url('data:image/svg+xml,<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="%23444CE7" stroke-width="1.6666" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+      background-position: -1px -1px;
+    }
+  }
+
+  span{
+    padding-bottom: 1px;
+    @include styles.text-sm;
+    @include weights.medium;
+    color: colors.$gray-iron-700;
+  }
+}
+
+[data-dropdown-content='contracts'],
+[data-dropdown-content='events'],
+[data-dropdown-content='network']{
+  .contents{
+    padding: 0;
+  }
+}
+.available.list{
+  max-height: 240px;
+  overflow-y: auto;
+}

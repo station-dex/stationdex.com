@@ -10,6 +10,10 @@ const formatNumber = (val: string | number) => {
   return val.toLocaleString('en-US', { maximumFractionDigits: 2 })
 }
 
+const convertToGwei = (num: number) => {
+  return formatNumber(num / Math.pow(10, 9))
+}
+
 const etherAddressBasicValidate = (value: string) => {
   if (typeof value !== 'string') {
     return false
@@ -70,4 +74,4 @@ const getTableBodyWhileLoading = () => {
 `).join(' ')
 }
 
-export { abbreviateAddress, etherAddressBasicValidate, formatNumber, getTableBodyWhileLoading }
+export { abbreviateAddress, etherAddressBasicValidate, formatNumber, getTableBodyWhileLoading, convertToGwei }

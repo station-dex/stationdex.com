@@ -1,4 +1,4 @@
-import { formatNumber } from './utils'
+import { convertToGwei, formatNumber } from './utils'
 
 const allStatsList = document.querySelectorAll('#explorerMain .stats .item')
 
@@ -12,10 +12,6 @@ const removeStatsLoading = () => {
   for (let i = 0; i < allStatsList.length; i++) {
     allStatsList[i].classList.remove('shimmer')
   }
-}
-
-const convertToGwei = (num: number) => {
-  return formatNumber(num / Math.pow(10, 9))
 }
 
 const calculateGasPriceChange = (totalAvg: number, todayAverage: number) => {

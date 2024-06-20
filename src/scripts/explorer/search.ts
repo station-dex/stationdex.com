@@ -1,11 +1,9 @@
 import { debounce } from '@/util/debounce'
-import { getExplorerData, setExplorerData } from './data'
+import { contractData, getExplorerData, setExplorerData } from './data'
 import { fetchDataAndRenderTable } from './fetch'
 import { etherAddressBasicValidate } from './utils'
 import { navigateSilently } from './history'
 
-let eventSearchQuery = ''
-let contractSearchQuery = ''
 let fromSearchQuery = ''
 let txnHashSearchQuery = ''
 let blockNumberSearchQuery = ''
@@ -27,51 +25,6 @@ const handleSearch = () => {
   //
   fetchDataAndRenderTable()
   navigateSilently()
-}
-
-const setupEventSearch = (): void => {
-  const searchDebounce = debounce((searchQuery: string) => {
-    if (eventSearchQuery !== searchQuery) {
-      eventSearchQuery = searchQuery
-      setExplorerData('eventSearch', searchQuery)
-      handleSearch()
-    }
-  }, 500)
-
-  const onKeyup = (e: Event) => {
-    const inputValue = (e.target as HTMLInputElement).value
-    searchDebounce(inputValue)
-  }
-
-  eventSearchInput?.addEventListener(
-    'keyup',
-    onKeyup,
-    { passive: true }
-  )
-}
-
-const setupContractSearch = (): void => {
-  const searchDebounce = debounce((searchQuery: string) => {
-    if (contractSearchQuery !== searchQuery) {
-      contractSearchQuery = searchQuery
-
-      if (etherAddressBasicValidate(searchQuery)) {
-        setExplorerData('contractSearch', searchQuery)
-        handleSearch()
-      }
-    }
-  }, 500)
-
-  const onKeyup = (e: Event) => {
-    const inputValue = (e.target as HTMLInputElement).value
-    searchDebounce(inputValue)
-  }
-
-  contractSearchInput?.addEventListener(
-    'keyup',
-    onKeyup,
-    { passive: true }
-  )
 }
 
 const setupFromSearch = (): void => {
@@ -117,16 +70,21 @@ const initiateDateFilter = () => {
 }
 
 const resetSearchInputs = () => {
-  const { eventSearch, contractSearch, fromSearch, networkSearch, fromDate, toDate, transactionHash, blockNumber } = getExplorerData()
+  const { eventSearch, fromSearch, networkSearch, fromDate, toDate, transactionHash, blockNumber } = getExplorerData()
 
   if (eventSearchInput) {
-    eventSearchInput.value = eventSearch
-    eventSearchQuery = eventSearch
+    const allEvents = contractData.getAllEventNames()
+
+    if (allEvents.includes(eventSearch)) {
+      eventSearchInput.value = eventSearch
+    } else {
+      setExplorerData('eventSearch', '')
+    }
   }
 
   if (contractSearchInput) {
-    contractSearchInput.value = contractSearch
-    contractSearchQuery = contractSearch
+    const totalSelectedContracts = contractData.getSelectedInterfaces().length
+    contractSearchInput.value = totalSelectedContracts ? `${totalSelectedContracts} contracts selected` : ''
   }
 
   if (fromAddressSearchInput) {
@@ -219,7 +177,6 @@ const handleDateFilter = () => {
   const btnApply = document.querySelector("button[data-type='date-apply']")
 
   if (btnClear && btnApply) {
-    console.log(btnApply, btnClear)
     btnClear.classList.remove('hidden')
     btnApply.classList.add('hidden')
   }
@@ -254,8 +211,6 @@ const clearDateFilter = () => {
 
 const setupSearch = (): void => {
   resetSearchInputs()
-  setupEventSearch()
-  setupContractSearch()
   setupFromSearch()
   setupBlockSearch()
   setupTxnHashSearch()

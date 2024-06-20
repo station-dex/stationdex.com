@@ -38,11 +38,11 @@ const resetPagination = () => {
     _paginationNext.disabled = false
   }
 
+  _paginationLinks.innerHTML = ''
+
   if (totalPage === 1) {
     return
   }
-
-  _paginationLinks.innerHTML = ''
 
   if (totalPage < 7) {
     renderPaginationNumbers(1, totalPage)

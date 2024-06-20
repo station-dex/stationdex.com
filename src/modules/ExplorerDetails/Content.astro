@@ -26,7 +26,7 @@ import Icon from "@/elements/Icon.astro";
 
   <div id="explorerLoaded">
     <!-- Success badge -->
-    <div data-loading>
+    <div class="shimmer" data-loading>
       <div class="badge success">
         <Icon variant="check-circle" />
         <p>Success</p>
@@ -34,26 +34,26 @@ import Icon from "@/elements/Icon.astro";
     </div>
 
     <!-- Contents, for now use id -->
-    <div class="content" data-loading data-item="event-detail"></div>
+    <div class="content shimmer" data-loading data-item="event-detail"></div>
 
-    <div class="content condensed" data-loading>
+    <div class="content condensed shimmer" data-loading>
       <h1 class="title">Block</h1>
       <p class="detail" data-item="block-number">-</p>
     </div>
 
-    <div class="content condensed" data-loading>
+    <div class="content condensed shimmer" data-loading>
       <h1 class="title">Age</h1>
       <p class="detail" data-item="age">-</p>
     </div>
 
-    <div class="content condensed" data-loading>
+    <div class="content condensed shimmer" data-loading>
       <h1 class="title">From</h1>
       <div class="with actions" data-item="from">
         <p class="detail">-</p>
       </div>
     </div>
 
-    <div class="content condensed" data-loading>
+    <div class="content condensed shimmer" data-loading>
       <h1 class="title">To</h1>
       <div class="with actions" data-item="to">
         <p class="detail">-</p>
@@ -61,7 +61,7 @@ import Icon from "@/elements/Icon.astro";
     </div>
 
     <!-- Details & Table -->
-    <div class="details" data-loading>
+    <div class="details shimmer" data-loading>
       <h1>Details</h1>
       <div class="table">
         <div class="item">
@@ -146,29 +146,14 @@ import Icon from "@/elements/Icon.astro";
 
         <div class="item">
           <aside class="left">
-            <p>Amount 0</p>
-          </aside>
-          <aside class="right" data-item="amount0">
-            <p>-</p>
-          </aside>
-        </div>
-
-        <div class="item">
-          <aside class="left">
-            <p>Amount 1</p>
-          </aside>
-          <aside class="right" data-item="amount1">
-            <p>-</p>
-          </aside>
-        </div>
-
-        <div class="item">
-          <aside class="left">
             <p>Gas Price</p>
           </aside>
           <aside class="right" data-item="gas-price">
             <p>-</p>
           </aside>
+        </div>
+
+        <div id="extraDataFields">
         </div>
       </div>
     </div>
