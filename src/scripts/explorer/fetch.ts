@@ -60,7 +60,7 @@ const getRequestBody = () => {
 
 const fetchContacts = async () => {
   try {
-    const _data = await fetch(`${baseUrl}explorer/${chainId}/contracts`, {
+    const _data = await fetch(`${baseUrl}explorer/contracts/${chainId}`, {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -82,7 +82,7 @@ const fetchDataAndRenderTable = async () => {
   try {
     setTableLoading()
 
-    const _data = await fetch(`${baseUrl}explorer/${chainId}/home`, {
+    const _data = await fetch(`${baseUrl}explorer/home/${chainId}`, {
       method: 'POST',
       headers: {
         accept: 'application/json',
@@ -113,7 +113,7 @@ const fetchStatsAndRender = async () => {
     // set loading
     setStatsLoading()
 
-    const _data = await fetch(`${baseUrl}explorer/${chainId}/home/stats`, {
+    const _data = await fetch(`${baseUrl}explorer/home/stats/${chainId}`, {
       method: 'GET',
       headers: {
         accept: 'application/json',
