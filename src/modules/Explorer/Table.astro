@@ -2,7 +2,7 @@
 import Icon from "@/elements/Icon.astro";
 
 const columns = [
-  { key: "transactionHash", label: "Transaction Hash" },
+  { key: "transactionHash", label: "Transaction Hash", className: 'transaction hash' },
   { key: "chainId", label: "Network" },
   { key: "date", label: "Age" },
   { key: "eventName", label: "Event" },
@@ -19,7 +19,7 @@ const columns = [
         <tr>
           {
             columns.map((el) => (
-              <th class={el.key}>
+              <th class={el.className || el.key}>
                 <button
                   data-table-column={el.key}
                   data-type="sortable"

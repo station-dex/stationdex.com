@@ -1,5 +1,5 @@
 import { DateLib } from '@/util/date'
-import { getChainDetails } from '../utils/chain'
+import { getAddressLink, getChainDetails, getTxHashLink } from '../utils/chain'
 
 let _explorerDetailsData = {
   id: ''
@@ -96,7 +96,7 @@ const renderData = (data: any) => {
         elem.innerHTML = `
         <h1 class="title">${data.eventName}</h1>
         <p class="detail">${data.transactionHash}</p>
-        <a rel="noopener noreferrer" target="_blank" class="goto" href="${chainDetails.explorer}/tx/${data.transactionHash}">
+        <a rel="noopener noreferrer" target="_blank" class="goto" href="${getTxHashLink(parseInt(data.chainId), data.transactionHash)}">
           View on ${chainDetails.explorerName}
           ${renderArrowIcon()}
         </a>
@@ -113,15 +113,15 @@ const renderData = (data: any) => {
       case 'from':{
         elem.innerHTML = `
         <p class="detail">${data?.transactionSender}</p>
-        ${renderButtons(data?.id, `${chainDetails.explorer}/address/${data?.transactionSender}`)}
+        ${renderButtons(data?.id, getAddressLink(parseInt(data.chainId), data?.transactionSender))}
         `
         break
       }
 
       case 'to':{
         elem.innerHTML = `
-        <p class="detail">Protocol (${data?.address})</p>
-        ${renderButtons(data?.address, `${chainDetails.explorer}/address/${data?.address}`)}
+        <p class="detail">${data?.contract}</p>
+        ${renderButtons(data?.contract, getAddressLink(parseInt(data.chainId), data?.contract))}
         `
         break
       }
@@ -129,7 +129,7 @@ const renderData = (data: any) => {
       case 'transaction-sender':{
         elem.innerHTML = `
         <p class="detail">${data?.transactionSender}</p>
-        ${renderButtons(data?.id, `${chainDetails.explorer}/address/${data?.transactionSender}`)}
+        ${renderButtons(data?.id, getAddressLink(parseInt(data.chainId), data?.transactionSender))}
         `
         break
       }
@@ -145,15 +145,15 @@ const renderData = (data: any) => {
       case 'transaction-hash':{
         elem.innerHTML = `
         <p class="detail">${data?.transactionHash}</p>
-        ${renderButtons(data?.transactionHash, `${chainDetails.explorer}/tx/${data?.transactionHash}`)}
+        ${renderButtons(data?.transactionHash, getTxHashLink(parseInt(data.chainId), data?.transactionHash))}
         `
         break
       }
 
       case 'address':{
         elem.innerHTML = `
-        <p class="detail">${data?.address}</p>
-        ${renderButtons(data?.address, `${chainDetails.explorer}/address/${data?.address}`)}
+        <p class="detail">${data?.interfaceName} (${data?.address})</p>
+        ${renderButtons(data?.address, getAddressLink(parseInt(data.chainId), data?.address))}
         `
         break
       }

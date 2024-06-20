@@ -12,7 +12,22 @@ const getChainDetails = (chainId: number) => {
     explorerName: 'OkLink'
   }]
   const defaultValue = { id: chainId, name: '', explorer: '', explorerName: '' }
-  return chains.find(el => el.id === chainId) || defaultValue
+  return chains.find(el => el.id.toString() === chainId.toString()) || defaultValue
 }
 
-export { getChainDetails }
+const getAddressLink = (chainId: number, address: string) => {
+  const chainDetails = getChainDetails(chainId)
+  return `${chainDetails.explorer}/address/${address}`
+}
+
+const getBlockNumberLink = (chainId: number, blockNumber: number) => {
+  const chainDetails = getChainDetails(chainId)
+  return `${chainDetails.explorer}/block/${blockNumber}`
+}
+
+const getTxHashLink = (chainId: number, txHash: string) => {
+  const chainDetails = getChainDetails(chainId)
+  return `${chainDetails.explorer}/tx/${txHash}`
+}
+
+export { getChainDetails, getAddressLink, getBlockNumberLink, getTxHashLink }
