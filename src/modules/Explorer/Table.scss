@@ -48,9 +48,6 @@
       width: 100%;
       min-width: 640px;
       border-collapse: collapse;
-      --shimmerSizeNegative: -1024px;
-      --shimmerSize: 1024px;
-      --shimmerAnimationDuration: 1.5s;
       --shimmerZIndex: 2;
 
       th,
@@ -128,6 +125,10 @@
               display: flex;
               align-items: center;
               gap: 4px;
+              background-color: colors.$gray-iron-50;
+              @include styles.text-xs;
+              @include weights.medium;
+              color: colors.$gray-iron-600;
             }
 
             svg {

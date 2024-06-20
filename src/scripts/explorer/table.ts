@@ -1,5 +1,5 @@
 import { DateLib } from '@/util/date.js'
-import { abbreviateAddress } from './utils'
+import { abbreviateAddress, getTableBodyWhileLoading } from './utils'
 import { getAddressLink, getBlockNumberLink, getChainDetails } from '../utils/chain'
 const _tableBody = document.querySelector('#explorer-table-body')
 
@@ -68,15 +68,7 @@ const setTableLoading = () => {
     return
   }
 
-  _tableBody.classList.add('shimmer')
+  _tableBody.innerHTML = getTableBodyWhileLoading()
 }
 
-const removeTableLoading = () => {
-  if (!_tableBody) {
-    return
-  }
-
-  _tableBody.classList.remove('shimmer')
-}
-
-export { buildTableBody, setTableLoading, removeTableLoading }
+export { buildTableBody, setTableLoading }

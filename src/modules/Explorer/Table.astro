@@ -1,5 +1,6 @@
 ---
 import Icon from "@/elements/Icon.astro";
+import { getTableBodyWhileLoading } from '@/scripts/explorer/utils'
 
 const columns = [
   { key: "transactionHash", label: "Transaction Hash", className: 'transaction hash' },
@@ -34,7 +35,8 @@ const columns = [
           }
         </tr>
       </thead>
-      <tbody class="shimmer" id="explorer-table-body"> </tbody>
+      <tbody id="explorer-table-body" set:html={getTableBodyWhileLoading()}>
+      </tbody>
     </table>
   </div>
 

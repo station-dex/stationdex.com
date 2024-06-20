@@ -1,7 +1,7 @@
 import { getExplorerData, setExplorerData } from './data'
 import { resetPagination } from './pagination'
 import { setStatsLoading, removeStatsLoading, renderStatsValue } from './stats'
-import { buildTableBody, removeTableLoading, setTableLoading } from './table'
+import { buildTableBody, setTableLoading } from './table'
 
 const baseUrl = 'server' in window ? window.server : ''
 const chainId = 'chainId' in window ? window.chainId : ''
@@ -71,8 +71,6 @@ const fetchDataAndRenderTable = async () => {
       body: JSON.stringify(getRequestBody())
     })
     const _json = await _data.json()
-    //   reset loading
-    removeTableLoading()
 
     const _totalPage = _json?.data?.totalPages ?? 0
 
