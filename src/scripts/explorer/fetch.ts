@@ -113,7 +113,7 @@ const fetchStatsAndRender = async () => {
     // set loading
     setStatsLoading()
 
-    const _data = await fetch(`${baseUrl}explorer/home/stats/${chainId}`, {
+    const _data = await fetch(`${baseUrl}explorer/stats/${chainId}`, {
       method: 'GET',
       headers: {
         accept: 'application/json',
