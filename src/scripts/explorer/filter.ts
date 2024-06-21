@@ -49,7 +49,13 @@ const renderEventList = () => {
   const selectedContracts = contractData.getSelectedInterfaces()
 
   if (selectedContracts.length) {
+    const { eventSearch } = getExplorerData()
     _events = contractData.getEventNamesFromInterfaces(selectedContracts)
+
+    if (!_events.includes(eventSearch)) {
+      setExplorerData('eventSearch', '')
+      eventSearchInput.value = ''
+    }
   } else {
     _events = contractData.getAllEventNames()
   }
