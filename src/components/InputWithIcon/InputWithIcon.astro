@@ -12,7 +12,7 @@ interface Props extends astroHTML.JSX.InputHTMLAttributes {
   readonly?: boolean;
   disabled?: boolean;
   icon?: keyof typeof paths;
-  [rest: string]: any;
+  [rest: string]: Anything;
 }
 
 const props = Astro.props;

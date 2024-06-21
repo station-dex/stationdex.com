@@ -10,7 +10,7 @@ const chainId = 'chainId' in window ? window.chainId : ''
 const getRequestBody = () => {
   const { page, sortBy, sortDirection, eventSearch, contractSearch, fromSearch, networkSearch, fromDate, toDate, transactionHash, blockNumber } = getExplorerData()
 
-  const _body: any = {
+  const _body: Anything = {
     pageNumber: page,
     pageSize: 25
   }

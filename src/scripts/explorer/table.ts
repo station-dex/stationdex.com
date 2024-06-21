@@ -17,7 +17,7 @@ const buildTableBodyForError = (errorMessage: string) => {
   `
 }
 
-const buildTableBody = (data: any[]) => {
+const buildTableBody = (data: Anything[]) => {
   if (!_tableBody) {
     return
   }

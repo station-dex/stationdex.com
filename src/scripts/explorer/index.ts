@@ -89,7 +89,7 @@ explorer.addEventListener('keyup', async (event) => {
 })
 
 window.onpopstate = async (e) => {
-  Object.keys(e.state).forEach((el: any) => {
+  Object.keys(e.state).forEach((el: Anything) => {
     explorerData.set(el, e.state[el])
   })
   resetSearchInputs()

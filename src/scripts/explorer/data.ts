@@ -14,7 +14,7 @@ let _explorerData = {
 }
 
 let _contractData = {
-  contracts: [] as any[]
+  contracts: [] as Anything[]
 }
 
 const setExplorerData = (
@@ -105,7 +105,7 @@ const contractData = {
 
     return [...new Set(allEvents)]
   },
-  set: (key: keyof typeof _contractData, val: any) => {
+  set: (key: keyof typeof _contractData, val: Anything) => {
     if (!Object.keys(_contractData).includes(key)) {
       return
     }

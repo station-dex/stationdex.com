@@ -39,7 +39,7 @@ const calculateGasPriceChange = (totalAvg: number, todayAverage: number) => {
   }
 }
 
-const renderStatsValue = (payload: any) => {
+const renderStatsValue = (payload: Anything) => {
   const transaction = allStatsList[0].querySelector('.value')
   const swaps = allStatsList[1].querySelector('.value')
   const liquidityAdded = allStatsList[2].querySelector('.value')

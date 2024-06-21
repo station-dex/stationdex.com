@@ -65,7 +65,7 @@ const renderArrowIcon = () => {
   `
 }
 
-const renderExtraData = (data: any) => {
+const renderExtraData = (data: Anything) => {
   const extraField = document.querySelector('#extraDataFields') as HTMLDivElement
 
   if (!extraField) {
@@ -109,7 +109,7 @@ const renderExtraData = (data: any) => {
   })
 }
 
-const renderData = (data: any) => {
+const renderData = (data: Anything) => {
   const allItems = document.querySelectorAll('[data-item]') as NodeListOf<HTMLDivElement>
 
   for (let i = 0; i < allItems.length; i++) {
