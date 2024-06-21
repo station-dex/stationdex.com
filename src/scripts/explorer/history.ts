@@ -30,7 +30,7 @@ const getDataFromUrl = () => {
 }
 
 const buildUrlWithQueries = () => {
-  const { totalPage, ...data }: any = getExplorerData()
+  const { totalPage, ...data }: Anything = getExplorerData()
   const searchParams = new URLSearchParams()
 
   Object.keys(data).forEach((el) => {

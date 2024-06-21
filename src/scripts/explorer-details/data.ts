@@ -1,5 +1,6 @@
 import { DateLib } from '@/util/date'
 import { getAddressLink, getChainDetails, getTxHashLink } from '../utils/chain'
+import { convertToGwei } from '../explorer/utils'
 
 let _explorerDetailsData = {
   id: ''
@@ -64,7 +65,51 @@ const renderArrowIcon = () => {
   `
 }
 
-const renderData = (data: any) => {
+const renderExtraData = (data: Anything) => {
+  const extraField = document.querySelector('#extraDataFields') as HTMLDivElement
+
+  if (!extraField) {
+    return
+  }
+
+  extraField.innerHTML = ''
+
+  const excludedKeys = ['blockNumber', 'eventName', 'chainId', 'blockTimestamp', 'transactionHash', 'transactionSender', 'id', 'interfaceName', 'address', 'gasPrice']
+  const isAddressFields = ['contract', 'sender', 'recipient', 'sentTo']
+
+  Object.keys(data).forEach((key) => {
+    if (!excludedKeys.includes(key)) {
+      if (isAddressFields.includes(key)) {
+        extraField.innerHTML += `
+        <div class="item">
+          <aside class="left">
+            <p>${key}</p>
+          </aside>
+          <aside class="right">
+            <div class="with actions">
+              <p>${data[key]}</p>
+              ${renderButtons(data[key], getAddressLink(parseInt(data.chainId), data[key]))}
+            </div>
+          </aside>
+        </div>
+        `
+      } else {
+        extraField.innerHTML += `
+        <div class="item">
+          <aside class="left">
+            <p>${key}</p>
+          </aside>
+          <aside class="right">
+            <p>${data[key]}</p>
+          </aside>
+        </div>
+        `
+      }
+    }
+  })
+}
+
+const renderData = (data: Anything) => {
   const allItems = document.querySelectorAll('[data-item]') as NodeListOf<HTMLDivElement>
 
   for (let i = 0; i < allItems.length; i++) {
@@ -158,23 +203,9 @@ const renderData = (data: any) => {
         break
       }
 
-      case 'amount0':{
-        elem.innerHTML = `
-        <p>${data?.amount0}</p>
-        `
-        break
-      }
-
-      case 'amount1':{
-        elem.innerHTML = `
-        <p>${data?.amount1}</p>
-        `
-        break
-      }
-
       case 'gas-price':{
         elem.innerHTML = `
-        <p>${data?.gasPrice}</p>
+        <p data-tooltip="${data?.gasPrice}">${`${convertToGwei(data?.gasPrice || 0)} Gwei`}</p>
         `
         break
       }
@@ -183,6 +214,8 @@ const renderData = (data: any) => {
         break
     }
   }
+
+  renderExtraData(data)
 }
 
 const setExplorerLoading = (

@@ -7,7 +7,7 @@ const fetchTransactionDetails = async () => {
   try {
     setExplorerLoading(true)
     const { id } = explorerDetailData.get()
-    const _data = await fetch(`${baseUrl}explorer/${chainId}/${id}`, {
+    const _data = await fetch(`${baseUrl}explorer/detail/${id}/${chainId}`, {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -26,7 +26,6 @@ const fetchTransactionDetails = async () => {
       renderData(_json.data)
     }
 
-    console.log(_json)
     setExplorerLoading(false)
   } catch (e) {
     handleFetchError()

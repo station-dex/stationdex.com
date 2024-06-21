@@ -13,6 +13,10 @@ let _explorerData = {
   blockNumber: ''
 }
 
+let _contractData = {
+  contracts: [] as Anything[]
+}
+
 const setExplorerData = (
   key: keyof typeof _explorerData,
   val: number | string
@@ -22,6 +26,10 @@ const setExplorerData = (
   }
 
   _explorerData = { ..._explorerData, [key]: val }
+}
+
+const getExplorerData = () => {
+  return _explorerData
 }
 
 const explorerData = {
@@ -34,8 +42,77 @@ const explorerData = {
   }
 }
 
-const getExplorerData = () => {
-  return _explorerData
+const contractData = {
+  get: () => {
+    return _contractData
+  },
+  getSelectedInterfaces: () => {
+    const selectedContracts = _explorerData.contractSearch.split(',')
+
+    if (!selectedContracts.length) {
+      return []
+    }
+
+    if (!_contractData.contracts.length) {
+      return []
+    }
+
+    const allContracts = _contractData.contracts.map(el => el.interfaceName)
+    const fc = selectedContracts.filter(val => allContracts.includes(val))
+
+    return fc
+  },
+  getInterfaceNames: () => {
+    if (!_contractData.contracts.length) {
+      return []
+    }
+
+    return _contractData.contracts.map(el => el.interfaceName)
+  },
+  getContractsFromInterfaces: (interfaces: string[]) => {
+    if (!_contractData.contracts.length) {
+      return []
+    }
+
+    const contracts = interfaces.map((val) => {
+      const finder = _contractData.contracts.find(el => el.interfaceName === val)
+      return finder ? finder.contracts : []
+    })
+
+    return contracts.reduce((acc, cur) => ([...acc, ...cur]), [])
+  },
+  getEventNamesFromInterfaces: (interfaces: string[]) => {
+    if (!_contractData.contracts.length) {
+      return []
+    }
+
+    const events = interfaces.map((val) => {
+      const finder = _contractData.contracts.find(el => el.interfaceName === val)
+      return finder ? finder.events : []
+    })
+
+    const allEvents = events.reduce((acc, cur) => ([...acc, ...cur]), [])
+    return [...new Set(allEvents)]
+  },
+  getAllEventNames: () => {
+    if (!_contractData.contracts.length) {
+      return []
+    }
+
+    const allEvents = _contractData.contracts.reduce((acc, cur) => {
+      return [...acc, ...cur.events]
+    }, [])
+
+    return [...new Set(allEvents)]
+  },
+  set: (key: keyof typeof _contractData, val: Anything) => {
+    if (!Object.keys(_contractData).includes(key)) {
+      return
+    }
+
+    _contractData = { ..._contractData, [key]: val }
+    return contractData
+  }
 }
 
-export { setExplorerData, getExplorerData, explorerData }
+export { setExplorerData, getExplorerData, explorerData, contractData }

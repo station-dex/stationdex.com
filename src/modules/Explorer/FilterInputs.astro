@@ -1,5 +1,4 @@
 ---
-import Checkbox from "@/components/Checkbox/Checkbox.astro";
 import DropDown from "@/components/DropDown/DropDown.astro";
 import DropDownTrigger from "@/components/DropDown/DropDownTrigger.astro";
 import InputWithIcon from "@/components/InputWithIcon/InputWithIcon.astro";
@@ -15,14 +14,20 @@ import InputWithIcon from "@/components/InputWithIcon/InputWithIcon.astro";
     noLabel
   />
 
-  <InputWithIcon
-    id="eventSearch"
-    name="eventSearch"
-    label="Event Search"
-    placeholder="Event Search"
-    icon="search-lg"
-    noLabel
-  />
+  <DropDownTrigger name="events">
+    <InputWithIcon
+      id="eventSearch"
+      name="eventSearch"
+      label="Event Search"
+      placeholder="Event Search"
+      icon="search-lg"
+      noLabel
+      readonly
+    />
+  </DropDownTrigger>
+  <DropDown name="events" title="Select Events">
+    <div class="available events list" id="eventList"></div>
+  </DropDown>
 
   <InputWithIcon
     id="transactionSenderSearch"
@@ -42,7 +47,7 @@ import InputWithIcon from "@/components/InputWithIcon/InputWithIcon.astro";
     noLabel
   />
 
-  <DropDownTrigger name="date">
+  <DropDownTrigger borderRadius={6} name="date">
     <InputWithIcon
       id="filterDatePlaceholder"
       name="networkSearch"
@@ -54,6 +59,31 @@ import InputWithIcon from "@/components/InputWithIcon/InputWithIcon.astro";
       noLabel
     />
   </DropDownTrigger>
+  <DropDown name="date" title="Filter Date">
+    <div class="dropdown pickers">
+      <InputWithIcon
+        id="fromDateSearch"
+        name="fromDateSearch"
+        label="From Date"
+        placeholder="From Date"
+        date
+      />
+  
+      <InputWithIcon
+        id="toDateSearch"
+        name="toDateSearch"
+        label="To Date"
+        placeholder="To Date"
+        date
+      />
+  
+      <button class="apply date filter" data-type="date-apply"> Apply </button>
+  
+      <button class="clear date filter hidden" data-type="date-clear">
+        Clear All
+      </button>
+    </div>
+  </DropDown>
 
   <DropDownTrigger name="network">
     <InputWithIcon
@@ -66,48 +96,27 @@ import InputWithIcon from "@/components/InputWithIcon/InputWithIcon.astro";
       readonly
     />
   </DropDownTrigger>
+  <DropDown name="network" title="Filter Network">
+    <div class="checkbox option" role="button">
+      <input type="checkbox" checked />
+      <span>X Layer Mainnet</span>
+    </div>
+  </DropDown>
 
-  <InputWithIcon
-    id="contractSearch"
-    name="contractSearch"
-    label="Contract Search"
-    placeholder="Contract Search"
-    icon="search-lg"
-    noLabel
-  />
+  <DropDownTrigger name="contracts">
+    <InputWithIcon
+      id="contractSearch"
+      name="contractSearch"
+      label="Contract Search"
+      placeholder="Contract Search"
+      icon="search-lg"
+      noLabel
+      readonly
+    />
+  </DropDownTrigger>
+  
+
+  <DropDown name="contracts" title="Select Contracts">
+    <div class="available contract list" id="contractList"></div>
+  </DropDown>
 </div>
-
-<!-- dropdowns -->
-<DropDown name="date" title="Filter Date">
-  <div class="dropdown pickers">
-    <InputWithIcon
-      id="fromDateSearch"
-      name="fromDateSearch"
-      label="From Date"
-      placeholder="From Date"
-      date
-    />
-
-    <InputWithIcon
-      id="toDateSearch"
-      name="toDateSearch"
-      label="To Date"
-      placeholder="To Date"
-      date
-    />
-
-    <button class="apply date filter" data-type="date-apply">
-      Apply
-    </button>
-
-    <button class="clear date filter hidden" data-type="date-clear">
-      Clear All
-    </button>
-  </div>
-</DropDown>
-
-<DropDown name="network" title="Filter Network">
-  <Checkbox checked readonly id="network" name="network">
-    <span class="dropdown label">X Layer Mainnet</span>
-  </Checkbox>
-</DropDown>

@@ -16,6 +16,7 @@ body {
   #explorerLoaded{
     margin-top: 32px;
     --shimmerRadius: 8px;
+    --shimmerZIndex: 2;
     --shimmerSize: 1100px;
 
     &.hidden{
@@ -134,6 +135,7 @@ body {
             @include styles.text-sm;
             @include weights.medium;
             color: colors.$gray-iron-600;
+            text-transform: capitalize;
           }
         }
         aside.right{

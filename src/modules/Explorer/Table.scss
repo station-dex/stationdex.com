@@ -66,6 +66,13 @@
         width: 81px;
       }
 
+      td.error.message {
+        width: 81px;
+        @include styles.text-sm;
+        @include weights.medium;
+        color: colors.$error-600;
+      }
+
       td {
         .box {
           display: flex;

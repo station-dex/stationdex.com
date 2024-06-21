@@ -1,9 +1,10 @@
 ---
 interface Props {
   name: string
+  borderRadius?: number
 }
-const { name } = Astro.props;
+const { name, borderRadius = 0 } = Astro.props;
 ---
-<div data-dropdown-trigger={name}>
+<div role="button" style=`border-radius: ${borderRadius}px;` data-dropdown-trigger={name}>
   <slot />
 </div>

@@ -1,20 +1,26 @@
 import { initDropdown } from '@/components/DropDown/DropDown'
 import { handleCopyText } from '../utils/copy'
 import { explorerData } from './data'
-import { fetchDataAndRenderTable, fetchStatsAndRender } from './fetch'
-import { getDataFromUrl, navigateSilently } from './history'
+import { fetchContacts, fetchDataAndRenderTable, fetchStatsAndRender } from './fetch'
+import { buildUrlWithQueries, getDataFromUrl, navigateSilently } from './history'
 import { handlePageChange } from './pagination'
 import { clearDateFilter, handleDateFilter, resetSearchInputs, setupSearch } from './search'
 import { handleSortClicked, resetSorting } from './sorting'
+import { handleContactsFilter, handleEventFilter, initFilter } from './filter'
 
 const explorer = document.querySelector('#explorerMain') as HTMLDivElement
 
 explorer.addEventListener('click', async (event) => {
   const _target = event.target as HTMLElement
-  const nearestButton = _target.closest('button')
+  let nearestButton = _target.closest('button') as HTMLButtonElement
+  const nearestDiv = _target.closest("div[role='button']") as HTMLButtonElement
+
+  if (!nearestButton && !nearestDiv) {
+    return
+  }
 
   if (!nearestButton) {
-    return
+    nearestButton = nearestDiv
   }
 
   const { page, totalPage } = explorerData.get()
@@ -62,13 +68,28 @@ explorer.addEventListener('click', async (event) => {
     case 'date-clear':
       clearDateFilter()
       break
+    case 'event-dropdown-item':
+      handleEventFilter(nearestButton)
+      break
+    case 'contract-dropdown-item':
+      handleContactsFilter(nearestButton, _target)
+      break
     default:
       break
   }
 })
 
+// for accessibility
+explorer.addEventListener('keyup', async (event) => {
+  const _target = event?.target as HTMLElement
+
+  if (event.key === 'Enter') {
+    _target?.click()
+  }
+})
+
 window.onpopstate = async (e) => {
-  Object.keys(e.state).forEach((el: any) => {
+  Object.keys(e.state).forEach((el: Anything) => {
     explorerData.set(el, e.state[el])
   })
   resetSearchInputs()
@@ -93,20 +114,17 @@ window.onpopstate = async (e) => {
     .set('transactionHash', transactionHash)
     .set('blockNumber', blockNumber)
 
-  //
+  await Promise.all([fetchStatsAndRender(), fetchContacts()])
+
   setupSearch()
-
-  // initialize click listener on trigger
   initDropdown()
+  initFilter()
 
-  // fetch table
   await fetchDataAndRenderTable()
 
-  // fix sorting
   resetSorting()
 
-  // navigate silently to fix url
-  navigateSilently(true)
-
-  await fetchStatsAndRender()
+  if (buildUrlWithQueries() !== '?page=1') {
+    navigateSilently(true)
+  }
 })()
