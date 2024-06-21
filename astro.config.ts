@@ -7,7 +7,7 @@ dotenv.config()
 
 const config: AstroUserConfig = defineConfig({
   server: {
-    port: 3002,
+    port: 3001,
     host: true,
     headers: {
       'content-security-policy': env('CSP')
