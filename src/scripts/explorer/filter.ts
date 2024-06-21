@@ -46,15 +46,18 @@ const renderEventList = () => {
   }
 
   let _events
+  let activeEvent = ''
   const selectedContracts = contractData.getSelectedInterfaces()
 
   if (selectedContracts.length) {
     const { eventSearch } = getExplorerData()
     _events = contractData.getEventNamesFromInterfaces(selectedContracts)
+    activeEvent = eventSearch
 
     if (!_events.includes(eventSearch)) {
       setExplorerData('eventSearch', '')
       eventSearchInput.value = ''
+      activeEvent = ''
     }
   } else {
     _events = contractData.getAllEventNames()
@@ -64,7 +67,7 @@ const renderEventList = () => {
 
   _events.forEach((elem) => {
     eventWrapper.innerHTML += `
-      <div class="checkbox option" tabindex="0" data-type="event-dropdown-item" data-event-value="${elem}" role="button">
+      <div class="checkbox option ${elem === activeEvent ? 'active' : ''}" tabindex="0" data-type="event-dropdown-item" data-event-value="${elem}" role="button">
         <span>${elem}</span>
       </div>
     `
