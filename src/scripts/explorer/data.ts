@@ -91,7 +91,8 @@ const contractData = {
       return finder ? finder.events : []
     })
 
-    return events.reduce((acc, cur) => ([...acc, ...cur]), [])
+    const allEvents = events.reduce((acc, cur) => ([...acc, ...cur]), [])
+    return [...new Set(allEvents)]
   },
   getAllEventNames: () => {
     if (!_contractData.contracts.length) {

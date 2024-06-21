@@ -45,7 +45,14 @@ const renderEventList = () => {
     return
   }
 
-  const _events = contractData.getAllEventNames()
+  let _events
+  const selectedContracts = contractData.getSelectedInterfaces()
+
+  if (selectedContracts.length) {
+    _events = contractData.getEventNamesFromInterfaces(selectedContracts)
+  } else {
+    _events = contractData.getAllEventNames()
+  }
 
   eventWrapper.innerHTML = ''
 
@@ -151,8 +158,10 @@ const handleContactsFilter = (selectedEvent: HTMLButtonElement, clickTarget: HTM
   setExplorerData('contractSearch', contractVal.join(','))
   contractSearchInput.value = contractVal.length ? `${contractVal.length} contracts selected` : ''
 
+  // render event list each time selection change
+  renderEventList()
+
   handleFilter()
-  // set value and search
 }
 
 const initContractFilter = () => {
