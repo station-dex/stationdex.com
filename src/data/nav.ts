@@ -14,6 +14,10 @@ const headerLinks: HeaderLink = {
     title: 'Documentation',
     path: '/documentation'
   },
+  explorer: {
+    title: 'Explorer',
+    path: '/explorer'
+  },
   contact: {
     title: 'Contact Us',
     path: '/contact-us'
