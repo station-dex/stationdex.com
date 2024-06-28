@@ -217,7 +217,7 @@
           height: 20px;
         }
 
-        &[disabled] {
+        &.disabled {
           color: colors.$gray-iron-400;
           cursor: not-allowed;
         }
