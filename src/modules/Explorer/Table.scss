@@ -222,7 +222,7 @@
           cursor: not-allowed;
         }
 
-        &:hover:not(.disabled) {
+        &:hover:not([disabled]) {
           background-color: colors.$gray-iron-100;
         }
 

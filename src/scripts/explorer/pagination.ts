@@ -16,9 +16,9 @@ const renderPaginationNumbers = (start: number, end: number) => {
   for (let i = start; i <= end; i++) {
     const _active = i === page
     _paginationLinks.innerHTML += `
-        <button data-type="goto-page" data-page="${i}" class="pagination-numbers ${_active ? 'active' : ''}">
+        <a href="?page=${i}" role="button" data-type="goto-page" data-page="${i}" class="pagination-numbers ${_active ? 'active' : ''}">
           ${i}
-        </button>
+        </a>
       `
   }
 }
@@ -44,7 +44,7 @@ const resetPagination = () => {
     return
   }
 
-  if (totalPage < 7) {
+  if (totalPage <= 4) {
     renderPaginationNumbers(1, totalPage)
   } else {
     const maxGap = 4 // for desktop use 6

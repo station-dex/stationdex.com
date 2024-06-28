@@ -12,15 +12,10 @@ const explorer = document.querySelector('#explorerMain') as HTMLDivElement
 
 explorer.addEventListener('click', async (event) => {
   const _target = event.target as HTMLElement
-  let nearestButton = _target.closest('button') as HTMLButtonElement
-  const nearestDiv = _target.closest("div[role='button']") as HTMLButtonElement
-
-  if (!nearestButton && !nearestDiv) {
-    return
-  }
+  const nearestButton = _target.closest('button[data-type],a[data-type],div[data-type]') as HTMLButtonElement
 
   if (!nearestButton) {
-    nearestButton = nearestDiv
+    return
   }
 
   const { page, totalPage } = explorerData.get()
@@ -45,14 +40,20 @@ explorer.addEventListener('click', async (event) => {
       break
 
     case 'goto-page': {
+      event.preventDefault()
       const _gotoPage = parseInt(`${nearestButton?.dataset?.page ?? page}`)
 
       if (_gotoPage < 1 || _gotoPage > totalPage) {
         return
       }
 
+      if (_gotoPage === page) {
+        return
+      }
+
       explorerData.set('page', _gotoPage)
       await handlePageChange()
+
       break
     }
 
