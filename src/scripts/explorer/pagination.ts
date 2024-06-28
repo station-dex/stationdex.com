@@ -16,7 +16,7 @@ const renderPaginationNumbers = (start: number, end: number) => {
   for (let i = start; i <= end; i++) {
     const _active = i === page
     _paginationLinks.innerHTML += `
-        <a href="?page=${i}" role="button" data-type="goto-page" data-page="${i}" class="pagination-numbers ${_active ? 'active' : ''}">
+        <a href="?page=${i}" data-type="goto-page" data-page="${i}" class="pagination-numbers ${_active ? 'active' : ''}">
           ${i}
         </a>
       `
