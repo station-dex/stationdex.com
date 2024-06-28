@@ -3,8 +3,8 @@ import { fetchDataAndRenderTable } from './fetch'
 import { navigateSilently } from './history'
 
 const _paginationLinks = document.querySelector('#pagination-mid-container') as HTMLDivElement
-const _paginationPrev = document.querySelector('#pagination-prev') as HTMLButtonElement
-const _paginationNext = document.querySelector('#pagination-next') as HTMLButtonElement
+const _paginationPrev = document.querySelector('#pagination-prev') as HTMLAnchorElement
+const _paginationNext = document.querySelector('#pagination-next') as HTMLAnchorElement
 
 const renderPaginationNumbers = (start: number, end: number) => {
   const { page } = getExplorerData()
@@ -25,17 +25,21 @@ const renderPaginationNumbers = (start: number, end: number) => {
 
 const resetPagination = () => {
   const { page, totalPage } = getExplorerData()
+  _paginationPrev.href = '?page=1'
+  _paginationNext.href = `?page=${totalPage}`
 
   if (page === 1 || totalPage < 1) {
-    _paginationPrev.disabled = true
+    _paginationPrev.classList.add('disabled')
   } else {
-    _paginationPrev.disabled = false
+    _paginationPrev.href = `?page=${page - 1}`
+    _paginationPrev.classList.remove('disabled')
   }
 
   if (page === totalPage || totalPage < 1) {
-    _paginationNext.disabled = true
+    _paginationNext.classList.add('disabled')
   } else {
-    _paginationNext.disabled = false
+    _paginationNext.href = `?page=${page + 1}`
+    _paginationNext.classList.remove('disabled')
   }
 
   _paginationLinks.innerHTML = ''

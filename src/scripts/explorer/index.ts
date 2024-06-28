@@ -23,7 +23,13 @@ explorer.addEventListener('click', async (event) => {
 
   switch (_buttonType) {
     case 'next-page':
+      event.preventDefault()
+
       if (page >= totalPage) {
+        return
+      }
+
+      if (nearestButton.classList.contains('disabled')) {
         return
       }
 
@@ -31,7 +37,13 @@ explorer.addEventListener('click', async (event) => {
       await handlePageChange()
       break
     case 'prev-page':
+      event.preventDefault()
+
       if (page <= 1) {
+        return
+      }
+
+      if (nearestButton.classList.contains('disabled')) {
         return
       }
 
