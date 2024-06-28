@@ -27,10 +27,13 @@ const resetPagination = () => {
   const { page, totalPage } = getExplorerData()
 
   _paginationPrev.href = '?page=1'
+  _paginationPrev.tabIndex = 0
   _paginationNext.href = `?page=${totalPage}`
+  _paginationNext.tabIndex = 0
 
   if (page === 1 || totalPage < 1) {
     _paginationPrev.classList.add('disabled')
+    _paginationPrev.tabIndex = -1
   } else {
     _paginationPrev.href = `?page=${page - 1}`
     _paginationPrev.classList.remove('disabled')
@@ -38,6 +41,7 @@ const resetPagination = () => {
 
   if (page === totalPage || totalPage < 1) {
     _paginationNext.classList.add('disabled')
+    _paginationNext.tabIndex = -1
   } else {
     _paginationNext.href = `?page=${page + 1}`
     _paginationNext.classList.remove('disabled')
