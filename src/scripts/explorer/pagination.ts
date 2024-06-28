@@ -25,6 +25,7 @@ const renderPaginationNumbers = (start: number, end: number) => {
 
 const resetPagination = () => {
   const { page, totalPage } = getExplorerData()
+
   _paginationPrev.href = '?page=1'
   _paginationNext.href = `?page=${totalPage}`
 
@@ -51,11 +52,10 @@ const resetPagination = () => {
   if (totalPage <= 4) {
     renderPaginationNumbers(1, totalPage)
   } else {
-    const maxGap = 4 // for desktop use 6
-    const frontGap = page + 1
-    const inc = 1 // for desktop use 2
+    const maxGap = 3
+    const inc = 1
 
-    if (frontGap >= maxGap) {
+    if (page >= maxGap) {
       renderPaginationNumbers(1, 1)
       _paginationLinks.innerHTML += `
         <div class="pagination-numbers">
@@ -67,12 +67,14 @@ const resetPagination = () => {
       renderPaginationNumbers(1, page + inc)
     }
 
-    _paginationLinks.innerHTML += `
+    if (page < totalPage - 1) {
+      _paginationLinks.innerHTML += `
       <div class="pagination-numbers">
       ...
       </div>
     `
-    renderPaginationNumbers(totalPage, totalPage)
+      renderPaginationNumbers(totalPage, totalPage)
+    }
   }
 }
 
