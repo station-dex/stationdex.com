@@ -104,10 +104,6 @@ const footerLinks: FooterLink[] = [
       {
         title: 'Governance',
         link: '/governance'
-      },
-      {
-        title: 'Starfinders Program',
-        link: '/star-finders'
       }
     ]
   }
